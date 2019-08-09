@@ -1,2 +1,6 @@
+#Ignore all mpd files but the config
 mpd/.config/mpd/*
 !mpd/.config/mpd/mpd.conf
+
+# Ignore sensitive gitconfig
+git/.gitconfig.local
