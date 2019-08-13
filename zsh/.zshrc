@@ -5,6 +5,7 @@ zstyle :compinstall filename '/home/nfowler/.zshrc'
 
 autoload -Uz compinit
 compinit
+
 kitty + complete setup zsh | source /dev/stdin
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
@@ -15,6 +16,9 @@ setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
+
+# Load antigen
+source ~/.antigenrc
 
 ### Aliases
 alias ls="ls --color=always"
