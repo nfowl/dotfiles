@@ -26,6 +26,9 @@ alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
 
+### Pacman Aliases
+alias pacup="pacman -Syu"
+
 ###Python Virtual Enviroment stuff
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=~/.venvs
