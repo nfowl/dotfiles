@@ -19,17 +19,10 @@ COLOR_RESET="\033[0m"
 function git_color {
   local git_status="$(git status 2> /dev/null)"
 
-  if [[ $git_status =~ "Changes to be committed" ]]; then
-    echo -e $COLOR_YELLOW
-  elif
-#   elif [[ ! $git_status =~ "working directory clean" ]]; then
-#     echo -e $COLOR_GREEN
-#   elif [[ $git_status =~ "Your branch is ahead of" ]]; then
-#     echo -e $COLOR_RED
-#   elif [[ $git_status =~ "nothing to commit" ]]; then
-#     echo -e $COLOR_GREEN
-  else
+  if [[ $git_status =~ "working directory clean" ]]; then
     echo -e $COLOR_GREEN
+  else
+    echo -e $COLOR_YELLOW
   fi
 }
 
@@ -40,16 +33,31 @@ function git_branch {
 
   if [[ $git_status =~ $on_branch ]]; then
     local branch=${BASH_REMATCH[1]}
-    echo "($branch)"
+    echo "$branch"
   elif [[ $git_status =~ $on_commit ]]; then
     local commit=${BASH_REMATCH[1]}
-    echo "($commit)"
+    echo "$commit"
   fi
 }
 
+function git_status {
+  local git_status="$(git status 2> /dev/null)"
+  local staged_changes=""
+  local unstaged_changes=""
+
+  if [[ $git_status =~ "Changes not staged for commit" ]]; then
+    unstaged_changes="•"
+  fi
+  if [[ $git_status =~ "Changes to be committed" ]]; then
+    staged_changes="+"
+  fi
+  echo "$staged_changes$unstaged_changes"
+}
+
+
 PS1="\[$COLOR_WHITE\]\n[\u@\h \w]"          # basename of pwd
 PS1+="\[\$(git_color)\]"        # colors git status
-PS1+="\$(git_branch)"           # prints current branch
+PS1+="(\$(git_branch)\$(git_status))"           # prints current branch
 PS1+="\[$COLOR_BLUE\]\$\[$COLOR_RESET\] "   # '#' for root, else '$'
 export PS1
 
