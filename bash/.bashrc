@@ -21,6 +21,8 @@ function git_color {
 
   if [[ $git_status =~ "working directory clean" ]]; then
     echo -e $COLOR_GREEN
+  elif [[ $git_status =~ "working tree clean" ]]; then
+    echo -e $COLOR_GREEN
   else
     echo -e $COLOR_YELLOW
   fi
