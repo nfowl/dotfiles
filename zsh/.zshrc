@@ -20,14 +20,16 @@ bindkey -v
 # Load antigen
 source ~/.antigenrc
 
-### Aliases
+##### Aliases
 alias ls="ls --color=always"
 alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
-
+alias sudo="sudo "
 ### Pacman Aliases
+
 alias pacup="pacman -Syu"
+alias pacin="pacman -S"
 
 ###Python Virtual Enviroment stuff
 if [ -f /usr/bin/virtualenvwrapper.sh ]; then

@@ -4,3 +4,7 @@ mpd/.config/mpd/*
 
 # Ignore sensitive gitconfig
 git/.gitconfig.local
+
+#Ignore kitty-themes
+kitty/.config/kitty/kitty-themes
+kitty/.config/kitty/theme.conf
