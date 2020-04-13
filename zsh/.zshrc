@@ -17,8 +17,19 @@ unsetopt beep
 bindkey -v
 # End of lines configured by zsh-newuser-install
 
+#External Autocompletes
+source <(kubectl completion zsh)
+
 # Load antigen
 source ~/.antigenrc
+
+# Set Language
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+##### EXPORTS
+export EDITOR="vim"
+export FLUX_FORWARD_NAMESPACE="flux"
 
 ##### Aliases
 alias ls="ls --color=always"
