@@ -27,6 +27,11 @@ source ~/.antigenrc
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
+
+###PATH
+export PATH="$PATH:$(go env GOPATH)/bin"
+
+
 ##### EXPORTS
 export EDITOR="vim"
 export FLUX_FORWARD_NAMESPACE="flux"
