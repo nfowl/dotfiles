@@ -9,6 +9,10 @@ antigen bundle kube-ps1
 antigen bundle pip
 antigen bundle kubectl
 antigen bundle python
+antigen bundle cargo
+antigen bundle golang
+antigen bundle rust
+antigen bundle rustup
 
 #Syntax highlighting
 antigen bundle zsh-users/zsh-syntax-highlighting

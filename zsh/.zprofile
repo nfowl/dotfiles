@@ -9,3 +9,5 @@ if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
 fi
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+export PATH="$HOME/.poetry/bin:$PATH"
