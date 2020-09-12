@@ -54,3 +54,7 @@ if [ -f /usr/bin/virtualenvwrapper.sh ]; then
 fi
 
 ###Functions
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
