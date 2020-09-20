@@ -1,7 +1,7 @@
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
-zstyle :compinstall filename '/home/nfowler/.zshrc'
+zstyle :compinstall filename '$HOME/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -18,43 +18,36 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 #External Autocompletes
-source <(kubectl completion zsh)
-
-# Load antigen
-source ~/.antigenrc
-
-# Set Language
-export LANG=en_US.UTF-8
-export LC_ALL=en_US.UTF-8
-
-
-###PATH
-export PATH="$PATH:$(go env GOPATH)/bin"
-
-
-##### EXPORTS
-export EDITOR="vim"
-export FLUX_FORWARD_NAMESPACE="flux"
+if command -v kubectl >/dev/null 2>&1; then
+  source <(kubectl completion zsh)
+else
+  echo "Skipping kubectl settings"
+fi
 
 ##### Aliases
 alias ls="ls --color=always"
 alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
-alias sudo="sudo "
-### Pacman Aliases
 
+### Pacman Aliases
 alias pacup="pacman -Syu"
 alias pacin="pacman -S"
 
+# Load antigen
+source ~/.antigenrc
+
 ###Python Virtual Enviroment stuff
-if [ -f /usr/bin/virtualenvwrapper.sh ]; then
+if [ ! -z "$WSLENV" ]; then
+# Handle ubuntu WSL location
+  if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then 
+    export WORKON_HOME=~/.venvs
+    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+    export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
+    source $HOME/.local/bin/virtualenvwrapper.sh
+  fi
+elif [ -f /usr/bin/virtualenvwrapper.sh ]; then
+# Else handle arch
   export WORKON_HOME=~/.venvs
   source /usr/bin/virtualenvwrapper.sh
 fi
-
-###Functions
-
-export WASMTIME_HOME="$HOME/.wasmtime"
-
-export PATH="$WASMTIME_HOME/bin:$PATH"
