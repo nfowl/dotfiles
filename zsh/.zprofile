@@ -2,7 +2,9 @@
 # ~/.zprofile
 #
 
-[[ -f ~/.zshrc ]] && . ~/.zshrc
+if [[ -f ~/.zshrc ]]; then
+  . ~/.zshrc
+fi
 
 if [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
   exec startx

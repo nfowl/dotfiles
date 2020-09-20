@@ -1,5 +1,5 @@
 # Dotfiles
-My (Currently Barebones) Dotfiles Managed via [GNU stow](https://www.gnu.org/software/stow/)
+My (Currently Barebones) Dotfiles for WSL/Arch Linux Managed via [GNU stow](https://www.gnu.org/software/stow/)
 
 ## Current toolset
 * vim
@@ -7,6 +7,12 @@ My (Currently Barebones) Dotfiles Managed via [GNU stow](https://www.gnu.org/sof
 * mpd
 * ncmpcpp
 * bash
-* kitty
+* kitty (Arch Linux only)
 * git
 
+## Requirements
+- **ZSH**
+  - Antibody plugin manager
+  - Kitty (Optional)
+  - Kubectl (Optional)
+  - golang (Optional)

@@ -6,7 +6,9 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-kitty + complete setup zsh | source /dev/stdin
+if command -v kitty >/dev/null 2>&1; then
+  kitty + complete setup zsh | source /dev/stdin
+fi
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -20,8 +22,6 @@ bindkey -v
 #External Autocompletes
 if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
-else
-  echo "Skipping kubectl settings"
 fi
 
 ##### Aliases
@@ -34,8 +34,8 @@ alias lla="ll -a"
 alias pacup="pacman -Syu"
 alias pacin="pacman -S"
 
-# Load antigen
-source ~/.antigenrc
+source <(antibody init)
+antibody bundle < ~/.zsh_plugins.txt
 
 ###Python Virtual Enviroment stuff
 if [ ! -z "$WSLENV" ]; then
