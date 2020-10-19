@@ -24,7 +24,6 @@ if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 
-##### Aliases
 alias ls="ls --color=always"
 alias ll="ls -l"
 alias lt="ls -ltr"
@@ -51,3 +50,9 @@ elif [ -f /usr/bin/virtualenvwrapper.sh ]; then
   export WORKON_HOME=~/.venvs
   source /usr/bin/virtualenvwrapper.sh
 fi
+
+###Functions
+
+export WASMTIME_HOME="$HOME/.wasmtime"
+
+export PATH="$WASMTIME_HOME/bin:$PATH"
