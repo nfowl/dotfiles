@@ -14,5 +14,6 @@ ohmyzsh/ohmyzsh path:plugins/rustup
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
-
-agnoster/agnoster-zsh-theme
+# Old themes
+#romkatv/powerlevel10k
+#agnoster/agnoster-zsh-theme
