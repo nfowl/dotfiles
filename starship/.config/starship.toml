@@ -5,12 +5,13 @@ disabled = true
 
 [memory_usage]
 disabled = false
+threshold = 25
 
 [git_status]
 style = "yellow"
 format = '([$conflicted$stashed$staged$deleted$renamed$modified$untracked$ahead_behind]($style) )'
 conflicted = "🏳"
-untracked = "🤷‍"
+untracked = "🤷"
 stashed = "📦"
 modified = '!$count'
 staged = '[+$count](green)'
@@ -22,3 +23,8 @@ ahead = "⇡${count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
 behind = "⇣${count}"
 
+[git_branch]
+truncation_length = 20
+
+[python]
+python_binary = "python3"

@@ -17,6 +17,7 @@ SAVEHIST=1000
 setopt appendhistory autocd extendedglob nomatch notify
 unsetopt beep
 bindkey -v
+
 # End of lines configured by zsh-newuser-install
 
 #External Autocompletes
@@ -24,6 +25,12 @@ if command -v kubectl >/dev/null 2>&1; then
   source <(kubectl completion zsh)
 fi
 
+# This failed to work on WSL
+# if command -v flux >/dev/null 2>&1; then
+#   source <(flux completion zsh)
+# fi
+
+# Aliases
 alias ls="ls --color=always"
 alias ll="ls -l"
 alias lt="ls -ltr"
@@ -39,7 +46,7 @@ antibody bundle < ~/.zsh_plugins.txt
 ###Python Virtual Enviroment stuff
 if [ ! -z "$WSLENV" ]; then
 # Handle ubuntu WSL location
-  if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then 
+  if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
     export WORKON_HOME=~/.venvs
     export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
     export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
@@ -53,10 +60,8 @@ fi
 
 ###Functions
 
-export WASMTIME_HOME="$HOME/.wasmtime"
 
-export PATH="$WASMTIME_HOME/bin:$PATH"
-
+## Prompt stuff
 function set_win_title(){
 	echo -ne "\033]0; $(hostname):/$(basename $PWD) \007"
     }

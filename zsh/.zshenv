@@ -8,6 +8,8 @@ export FLUX_FORWARD_NAMESPACE="flux"
 export WASMTIME_HOME="$HOME/.wasmtime"
 
 ### PATH
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/.cargo/bin:$PATH"
 if command -v go >/dev/null 2>&1; then
   export PATH="$PATH:$(go env GOPATH)/bin"
 fi
