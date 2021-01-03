@@ -11,6 +11,8 @@ ohmyzsh/ohmyzsh path:plugins/golang
 ohmyzsh/ohmyzsh path:plugins/rust
 ohmyzsh/ohmyzsh path:plugins/rustup
 ohmyzsh/ohmyzsh path:plugins/fzf
+ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
+ohmyzsh/ohmyzsh path:plugins/sudo
 # Manually applied hack
 #ohmyzsh/ohmyzsh path:plugins/task
 
