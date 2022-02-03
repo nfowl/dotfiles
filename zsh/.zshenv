@@ -4,13 +4,15 @@ export LC_ALL=en_US.UTF-8
 
 ##### EXPORTS
 export EDITOR="vim"
-export FLUX_FORWARD_NAMESPACE="flux"
-export WASMTIME_HOME="$HOME/.wasmtime"
 
-### PATH
-export PATH=$PATH:/usr/local/go/bin
-export PATH="$HOME/.cargo/bin:$PATH"
+### Optional PATH additions based on availability
 if command -v go >/dev/null 2>&1; then
+  export PATH=$PATH:/usr/local/go/bin
   export PATH="$PATH:$(go env GOPATH)/bin"
 fi
-export PATH="$WASMTIME_HOME/bin:$PATH"
+
+if command -v cargo >/dev/null 2>&1; then
+  export PATH="$HOME/.cargo/bin:$PATH"
+  export WASMTIME_HOME="$HOME/.wasmtime"
+  export PATH="$WASMTIME_HOME/bin:$PATH"
+fi

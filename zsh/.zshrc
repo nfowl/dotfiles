@@ -6,9 +6,10 @@ zstyle :compinstall filename '$HOME/.zshrc'
 autoload -Uz compinit
 compinit
 
-if command -v kitty >/dev/null 2>&1; then
-  kitty + complete setup zsh | source /dev/stdin
-fi
+if [ -e /Users/nfowler/.nix-profile/etc/profile.d/nix.sh ]; then 
+  . /Users/nfowler/.nix-profile/etc/profile.d/nix.sh; 
+fi # added by Nix installer
+
 # End of lines added by compinstall
 # Lines configured by zsh-newuser-install
 HISTFILE=~/.histfile
@@ -19,19 +20,20 @@ unsetopt beep
 bindkey -v
 
 # End of lines configured by zsh-newuser-install
-
-source ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
-[[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
-[[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
-[[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
-[[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
-[[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
-[[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
-[[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}"  delete-char
-[[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-history
-[[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-history
-[[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" beginning-of-buffer-or-history
-[[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
+if [ -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]; then
+  source ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE}
+  [[ -n ${key[Left]} ]] && bindkey "${key[Left]}" backward-char
+  [[ -n ${key[Right]} ]] && bindkey "${key[Right]}" forward-char
+  [[ -n ${key[Home]} ]] && bindkey "${key[Home]}" beginning-of-line
+  [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
+  [[ -n ${key[Insert]} ]] && bindkey "${key[Insert]}" overwrite-mode
+  [[ -n ${key[Backspace]} ]] && bindkey "${key[Backspace]}" backward-delete-char
+  [[ -n ${key[Delete]} ]] && bindkey "${key[Delete]}"  delete-char
+  [[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-history
+  [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-history
+  [[ -n ${key[PageUp]} ]] && bindkey "${key[PageUp]}" beginning-of-buffer-or-history
+  [[ -n ${key[PageDown]} ]] && bindkey "${key[PageDown]}" end-of-buffer-or-history
+fi
 
 #External Autocompletes
 if command -v kubectl >/dev/null 2>&1; then
@@ -44,14 +46,10 @@ fi
 # fi
 
 # Aliases
-alias ls="ls --color=always"
+alias ls="ls -G"
 alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
-
-### Pacman Aliases
-alias pacup="pacman -Syu"
-alias pacin="pacman -S"
 
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
