@@ -7,6 +7,9 @@ disabled = true
 disabled = false
 threshold = 80
 
+[nodejs]
+disabled = true
+
 [aws]
 disabled = true
 

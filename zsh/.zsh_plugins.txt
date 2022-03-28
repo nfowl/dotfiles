@@ -7,7 +7,7 @@ ohmyzsh/ohmyzsh path:plugins/pip
 # ohmyzsh/ohmyzsh path:plugins/kubectl
 ohmyzsh/ohmyzsh path:plugins/python
 ohmyzsh/ohmyzsh path:plugins/golang
-ohmyzsh/ohmyzsh path:plugins/rust
+# ohmyzsh/ohmyzsh path:plugins/rust
 ohmyzsh/ohmyzsh path:plugins/fzf
 ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd
 ohmyzsh/ohmyzsh path:plugins/sudo
@@ -22,5 +22,5 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 # Old themes
-#romkatv/powerlevel10k
+romkatv/powerlevel10k
 #agnoster/agnoster-zsh-theme
