@@ -12,6 +12,7 @@ an executable
 lvim.log.level = "warn"
 lvim.format_on_save = true
 lvim.colorscheme = "dracula"
+lvim.line_wrap_cursor_movement = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -21,6 +22,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-Up>"] = false
 -- edit a default keymapping
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
+
+lvim.keys.normal_mode["ga"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
+
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -41,6 +45,9 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["sT" ] = {
+  "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Raw Grep"
+}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -75,11 +82,14 @@ lvim.builtin.treesitter.ensure_installed = {
   "rust",
   "java",
   "yaml",
+  "hcl"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-
+require("null-ls").setup({
+  debug = true
+})
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
@@ -106,8 +116,11 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
+  -- Python formatters
   { command = "black", filetypes = { "python" }, extra_args = { "--line-length", "100" } },
   { command = "isort", filetypes = { "python" } },
+  -- Terraform formatters
+  { command = "terraform_fmt", filetypes = { "terraform" },},
 --   {
 --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "prettier",
@@ -119,6 +132,10 @@ formatters.setup {
 --   },
 }
 
+lvim.builtin.nvimtree.setup.view.width = 45
+
+-- Add rust tools
+require('rust-tools').setup({})
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
@@ -145,12 +162,16 @@ lvim.plugins = {
       vim.cmd [[colorscheme dracula]]
     end,
   },
-  {
-    "kkoomen/vim-doge",
-  },
+  {"kkoomen/vim-doge",},
+  {"nvim-telescope/telescope-live-grep-raw.nvim",},
+  {"tyru/open-browser-github.vim", requires = {{"tyru/open-browser.vim",}},},
+  {"simrat39/rust-tools.nvim",},
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
 -- lvim.autocommands.custom_groups = {
 --   { "BufWinEnter", "*.lua", "setlocal ts=8 sw=8" },
 -- }
+
+-- Additional settings
+vim.g.doge_doc_standard_python = 'google'
