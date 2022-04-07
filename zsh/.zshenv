@@ -5,9 +5,6 @@ export LC_ALL=en_US.UTF-8
 ##### EXPORTS
 export EDITOR="vim"
 
-### lvim
-export PATH="$PATH:/Users/nfowler/.local/bin"
-
 ### Optional PATH additions based on availability
 if command -v go >/dev/null 2>&1; then
   export PATH=$PATH:/usr/local/go/bin
@@ -24,3 +21,7 @@ if [ -f $HOME/.zshenv_private ]; then
  source $HOME/.zshenv_private
 fi
 . "$HOME/.cargo/env"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
