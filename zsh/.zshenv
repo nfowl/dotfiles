@@ -4,6 +4,11 @@ export LC_ALL=en_US.UTF-8
 
 ##### EXPORTS
 export EDITOR="vim"
+export ZSH_CACHE_DIR="$HOME/.zsh/cache"
+export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
+
+export BAT_THEME="Dracula"
+
 
 ### Optional PATH additions based on availability
 if command -v go >/dev/null 2>&1; then

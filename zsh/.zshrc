@@ -61,6 +61,10 @@ alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
 
+if command -v bat >/dev/null 2>&1; then
+  alias cat="bat"
+fi
+
 source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
 
