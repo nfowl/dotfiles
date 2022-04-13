@@ -10,6 +10,12 @@ export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
 export BAT_THEME="Dracula"
 
 
+### PATH exports
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+
 ### Optional PATH additions based on availability
 if command -v go >/dev/null 2>&1; then
   export PATH=$PATH:/usr/local/go/bin
@@ -25,8 +31,5 @@ fi
 if [ -f $HOME/.zshenv_private ]; then
  source $HOME/.zshenv_private
 fi
-. "$HOME/.cargo/env"
+# . "$HOME/.cargo/env"
 
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$DENO_INSTALL/bin:$PATH"
-export PATH="$HOME/.yarn/bin:$PATH"
