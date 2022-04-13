@@ -10,7 +10,9 @@ an executable
 
 -- general
 lvim.log.level = "warn"
-lvim.format_on_save = true
+lvim.format_on_save = {
+  timeout = 10000
+}
 lvim.colorscheme = "dracula"
 lvim.line_wrap_cursor_movement = true
 
@@ -24,7 +26,6 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 lvim.keys.normal_mode["ga"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
-
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 -- we use protected-mode (pcall) just in case the plugin wasn't loaded yet.
@@ -87,9 +88,6 @@ lvim.builtin.treesitter.ensure_installed = {
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
 lvim.builtin.treesitter.highlight.enabled = true
-require("null-ls").setup({
-  debug = true
-})
 -- generic LSP settings
 
 -- ---@usage disable automatic installation of servers
