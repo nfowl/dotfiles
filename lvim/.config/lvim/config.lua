@@ -73,6 +73,7 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "go",
   "javascript",
   "json",
   "lua",
@@ -133,7 +134,6 @@ formatters.setup {
 lvim.builtin.nvimtree.setup.view.width = 45
 
 -- Add rust tools
-require('rust-tools').setup({})
 -- -- set additional linters
 -- local linters = require "lvim.lsp.null-ls.linters"
 -- linters.setup {
@@ -173,3 +173,4 @@ lvim.plugins = {
 
 -- Additional settings
 vim.g.doge_doc_standard_python = 'google'
+require('rust-tools').setup({})

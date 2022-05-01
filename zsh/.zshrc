@@ -69,16 +69,13 @@ source <(antibody init)
 antibody bundle < ~/.zsh_plugins.txt
 
 ###Python Virtual Enviroment stuff
-if [ ! -z "$WSLENV" ]; then
-# Handle ubuntu WSL location
-  if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
-    export WORKON_HOME=~/.venvs
-    export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-    export VIRTUALENVWRAPPER_VIRTUALENV=$HOME/.local/bin/virtualenv
-    source $HOME/.local/bin/virtualenvwrapper.sh
-  fi
+if [ -f $HOME/.local/bin/virtualenvwrapper.sh ]; then
+  # Handle ubuntu WSL location
+  export WORKON_HOME=~/.venvs
+  export VIRTUALENVWRAPPER_PYTHON="/bin/python3"
+  source $HOME/.local/bin/virtualenvwrapper.sh
 elif [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
-# Else handle mac
+  # Else handle mac
   export WORKON_HOME=~/.venvs
   source /usr/local/bin/virtualenvwrapper.sh
 fi
