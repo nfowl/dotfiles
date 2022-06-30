@@ -12,7 +12,7 @@ export BAT_THEME="Dracula"
 
 ### PATH exports
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$DENO_INSTALL/bin:$PATH"
+#export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 
@@ -24,8 +24,8 @@ fi
 
 if command -v cargo >/dev/null 2>&1; then
   export PATH="$HOME/.cargo/bin:$PATH"
-  export WASMTIME_HOME="$HOME/.wasmtime"
-  export PATH="$WASMTIME_HOME/bin:$PATH"
+ # export WASMTIME_HOME="$HOME/.wasmtime"
+ # export PATH="$WASMTIME_HOME/bin:$PATH"
 fi
 
 if [ -f $HOME/.zshenv_private ]; then

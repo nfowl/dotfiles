@@ -56,7 +56,7 @@ fi
 # fi
 
 # Aliases
-alias ls="ls -G"
+alias ls="exa --color auto"
 alias ll="ls -l"
 alias lt="ls -ltr"
 alias lla="ll -a"
@@ -86,9 +86,13 @@ if [ -f $HOME/.zshrc_private ]; then
  source $HOME/.zshrc_private
 fi
 
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
 export FZF_DEFAULT_COMMAND='fd --type file --hidden'
 
-## Prompt stuff
+# Prompt stuff
 # function set_win_title(){
 # 	echo -ne "\033]0; $(hostname):/$(basename $PWD) \007"
 #     }
