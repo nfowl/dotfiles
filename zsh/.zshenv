@@ -9,10 +9,16 @@ export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
 
 export BAT_THEME="Dracula"
 
-
+export DENO_INSTALL="/home/nathan/.deno"
 ### PATH exports
 export PATH="$HOME/.local/bin:$PATH"
 #export PATH="$DENO_INSTALL/bin:$PATH"
+export PATH="$HOME/.yarn/bin:$PATH"
+export PATH="$PATH:/usr/local/go/bin"
+
+### PATH exports
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$PATH:/usr/local/go/bin"
 

@@ -7,6 +7,7 @@ a global executable or a path to
 an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
+vim.opt.relativenumber = true
 
 -- general
 lvim.log.level = "warn"
@@ -14,7 +15,6 @@ lvim.format_on_save = {
   timeout = 10000
 }
 lvim.colorscheme = "dracula"
-lvim.line_wrap_cursor_movement = true
 
 -- keymappings [view all the defaults by pressing <leader>Lk]
 lvim.leader = "space"
@@ -46,9 +46,6 @@ lvim.keys.normal_mode["ga"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
-lvim.builtin.which_key.mappings["sT" ] = {
-  "<cmd>lua require('telescope').extensions.live_grep_raw.live_grep_raw()<cr>", "Raw Grep"
-}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -73,18 +70,26 @@ lvim.builtin.nvimtree.show_icons.git = 0
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
   "c",
+  "comment",
+  "css",
+  "dockerfile",
   "go",
+  "gomod",
+  "gowork",
+  "graphql",
+  "hcl",
+  "java",
   "javascript",
   "json",
   "lua",
+  "markdown",
+  "nix",
   "python",
+  "rust",
+  "svelte",
   "typescript",
   "tsx",
-  "css",
-  "rust",
-  "java",
   "yaml",
-  "hcl"
 }
 
 lvim.builtin.treesitter.ignore_install = { "haskell" }
@@ -115,11 +120,8 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  -- Python formatters
   { command = "black", filetypes = { "python" }, extra_args = { "--line-length", "100" } },
   { command = "isort", filetypes = { "python" } },
-  -- Terraform formatters
-  { command = "terraform_fmt", filetypes = { "terraform" },},
 --   {
 --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
 --     command = "prettier",
@@ -160,10 +162,9 @@ lvim.plugins = {
       vim.cmd [[colorscheme dracula]]
     end,
   },
-  {"kkoomen/vim-doge",},
-  {"nvim-telescope/telescope-live-grep-raw.nvim",},
-  {"tyru/open-browser-github.vim", requires = {{"tyru/open-browser.vim",}},},
-  {"simrat39/rust-tools.nvim",},
+  {
+    "kkoomen/vim-doge",
+  },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
