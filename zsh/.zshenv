@@ -28,8 +28,8 @@ if command -v go >/dev/null 2>&1; then
   export PATH="$PATH:$(go env GOPATH)/bin"
 fi
 
+export PATH="$HOME/.cargo/bin:$PATH"
 if command -v cargo >/dev/null 2>&1; then
-  export PATH="$HOME/.cargo/bin:$PATH"
  # export WASMTIME_HOME="$HOME/.wasmtime"
  # export PATH="$WASMTIME_HOME/bin:$PATH"
 fi

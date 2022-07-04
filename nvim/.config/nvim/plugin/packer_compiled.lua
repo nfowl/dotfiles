@@ -104,6 +104,11 @@ _G.packer_plugins = {
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
   },
+  ["cmp-emoji"] = {
+    loaded = true,
+    path = "/home/nathan/.local/share/nvim/site/pack/packer/start/cmp-emoji",
+    url = "https://github.com/hrsh7th/cmp-emoji"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
@@ -118,6 +123,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  dracula = {
+    loaded = true,
+    path = "/home/nathan/.local/share/nvim/site/pack/packer/start/dracula",
+    url = "https://github.com/dracula/vim"
   },
   ["gitsigns.nvim"] = {
     loaded = true,
@@ -204,6 +214,11 @@ _G.packer_plugins = {
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/packer.nvim",
     url = "https://github.com/wbthomason/packer.nvim"
   },
+  playground = {
+    loaded = true,
+    path = "/home/nathan/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
+  },
   ["plenary.nvim"] = {
     loaded = true,
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/plenary.nvim",
@@ -243,11 +258,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/nathan/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
     url = "https://github.com/akinsho/toggleterm.nvim"
-  },
-  vim = {
-    loaded = true,
-    path = "/home/nathan/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
   },
   ["vim-doge"] = {
     loaded = true,
