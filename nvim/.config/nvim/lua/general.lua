@@ -12,7 +12,7 @@ vim.opt.tabstop = 2
 vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.number = true
-vim.cmd[[au TextYankPost * silent! lua vim.highlight.on_yank()]]
+vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 
 -- CMP Settings
 local cmp = require('cmp')
@@ -26,25 +26,27 @@ cmp.setup({
   },
   mapping = cmp.mapping.preset.insert {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
+    ["<S-Tab>"] = cmp.mapping.select_prev_item(),
+    ["<Tab>"] = cmp.mapping.select_next_item(),
     ["<C-j>"] = cmp.mapping.select_next_item(),
     ["<C-d>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
-    ["<Tab>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_next_item()
-      end
-    end, {
-      "i",
-      "s",
-    }),
-    ["<S-Tab>"] = cmp.mapping(function()
-      if cmp.visible() then
-        cmp.select_prev_item()
-      end
-    end, {
-      "i",
-      "s",
-    }),
+    -- ["<Tab>"] = cmp.mapping(function()
+    --   if cmp.visible() then
+    --     cmp.select_next_item()
+    --   end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
+    -- ["<S-Tab>"] = cmp.mapping(function()
+    --   if cmp.visible() then
+    --     cmp.select_prev_item()
+    --   end
+    -- end, {
+    --   "i",
+    --   "s",
+    -- }),
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = true }),
