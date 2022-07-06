@@ -1,5 +1,5 @@
 -- Loads all the packer plugins
-require("plugins")
+require("nfowl.plugins")
 -- General stuff
-require("general")
+require("nfowl.general")
 
