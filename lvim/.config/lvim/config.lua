@@ -8,11 +8,13 @@ an executable
 ]]
 -- THESE ARE EXAMPLE CONFIGS FEEL FREE TO CHANGE TO WHATEVER YOU WANT
 vim.opt.relativenumber = true
-
 -- general
 lvim.log.level = "warn"
 lvim.format_on_save = {
-  timeout = 10000
+  -- Terraform ls struggles so bump up time to format
+  timeout = 20000,
+  -- Dprint handles these ones
+  pattern = "*.go,*.tfvars,*.tf,*.py,*.rs,*.md"
 }
 lvim.colorscheme = "dracula"
 
@@ -46,6 +48,19 @@ lvim.keys.normal_mode["ga"] = "<cmd>lua vim.lsp.buf.code_action()<CR>"
 -- }
 
 -- Use which-key to add extra bindings with the leader-key prefix
+lvim.builtin.which_key.mappings["sT"] = {
+  "<cmd>lua require('telescope').extensions.live_grep_args.live_grep_args()<cr>", "Raw Grep"
+}
+lvim.builtin.which_key.mappings["sF"] = {
+  "<cmd>Telescope find_files hidden=true<cr>", "Hidden Search",
+}
+
+lvim.builtin.which_key.mappings["gn"] = {
+  "<cmd>lua require('telescope').extensions.git_worktree.create_git_worktree()<cr>", "New Worktree",
+}
+lvim.builtin.which_key.mappings["gw"] = {
+  "<cmd>lua require('telescope').extensions.git_worktree.git_worktrees()<cr>", "Browse Worktree",
+}
 -- lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
 -- lvim.builtin.which_key.mappings["t"] = {
 --   name = "+Trouble",
@@ -65,7 +80,6 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 lvim.builtin.nvimtree.setup.view.side = "left"
 lvim.builtin.nvimtree.show_icons.git = 0
-
 -- if you don't want all the parsers change this to a table of the ones you want
 lvim.builtin.treesitter.ensure_installed = {
   "bash",
@@ -120,17 +134,24 @@ lvim.builtin.treesitter.highlight.enabled = true
 -- set a formatter, this will override the language server formatting capabilities (if it exists)
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "black", filetypes = { "python" }, extra_args = { "--line-length", "100" } },
-  { command = "isort", filetypes = { "python" } },
---   {
---     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
---     command = "prettier",
---     ---@usage arguments to pass to the formatter
---     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
---     extra_args = { "--print-with", "100" },
---     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
---     filetypes = { "typescript", "typescriptreact" },
---   },
+  -- Python formatters
+  { command = "isort", filetypes = { "python" },
+    args = { "--settings-file", "/Users/nfowler/work/canva/tools/build/python/py_formatter/isort.toml", } },
+  { command = "black", filetypes = { "python" },
+    args = { "--config", "/Users/nfowler/work/canva/tools/build/python/py_formatter/black.toml", } },
+  -- Terraform formatters
+  { command = "terraform_fmt", filetypes = { "terraform" }, },
+  { command = "prettier", filetypes = { "graphql", }, },
+  { command = "buildifier", },
+  --   {
+  --     -- each formatter accepts a list of options identical to https://github.com/jose-elias-alvarez/null-ls.nvim/blob/main/doc/BUILTINS.md#Configuration
+  --     command = "prettier",
+  --     ---@usage arguments to pass to the formatter
+  --     -- these cannot contain whitespaces, options such as `--line-width 80` become either `{'--line-width', '80'}` or `{'--line-width=80'}`
+  --     extra_args = { "--print-with", "100" },
+  --     ---@usage specify which filetypes to enable. By default a providers will attach to all the filetypes it supports.
+  --     filetypes = { "typescript", "typescriptreact" },
+  --   },
 }
 
 lvim.builtin.nvimtree.setup.view.width = 45
@@ -162,9 +183,11 @@ lvim.plugins = {
       vim.cmd [[colorscheme dracula]]
     end,
   },
-  {
-    "kkoomen/vim-doge",
-  },
+  { "kkoomen/vim-doge", },
+  { "nvim-telescope/telescope-live-grep-raw.nvim", },
+  { "tyru/open-browser-github.vim", requires = { { "tyru/open-browser.vim", } }, },
+  { "simrat39/rust-tools.nvim", },
+  { "ThePrimeagen/git-worktree.nvim", },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
@@ -173,5 +196,9 @@ lvim.plugins = {
 -- }
 
 -- Additional settings
+vim.g.dprint_format_on_save = 1
 vim.g.doge_doc_standard_python = 'google'
-require('rust-tools').setup({})
+-- require('rust-tools').setup({})
+
+-- worktree config
+require("telescope").load_extension("git_worktree")

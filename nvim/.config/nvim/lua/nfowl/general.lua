@@ -176,9 +176,10 @@ lspconfig.graphql.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-lspconfig.jdtls.setup {
+lspconfig.java_language_server.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = {"/Users/nfowler/work/java-language-server/dist/lang_server_mac.sh"},
 }
 lspconfig.jsonls.setup {
   on_attach = on_attach,
@@ -238,8 +239,11 @@ lspconfig.yamlls.setup {
 -- Null-ls
 local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- Needs to be high as terraform takes a while to format
+local format_timeout = 10000
 null_ls.setup({
     -- you can reuse a shared lspconfig on_attach callback here
+    debug = true,
     on_attach = function(client, bufnr)
         if client.supports_method("textDocument/formatting") then
             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
@@ -248,7 +252,7 @@ null_ls.setup({
                 buffer = bufnr,
                 callback = function()
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    vim.lsp.buf.formatting_sync()
+                    vim.lsp.buf.formatting_sync(nil, format_timeout)
                 end,
             })
         end
@@ -256,7 +260,7 @@ null_ls.setup({
     -- sources
     sources = {
       null_ls.builtins.formatting.terraform_fmt.with({
-        timeout = 10000
+        timeout = format_timeout
       }),
       null_ls.builtins.formatting.gofmt
     }
