@@ -25,5 +25,5 @@ zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 # Old themes
-romkatv/powerlevel10k
+# romkatv/powerlevel10k
 #agnoster/agnoster-zsh-theme

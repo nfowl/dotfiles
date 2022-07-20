@@ -61,4 +61,5 @@ return require('packer').startup(function()
 
   use { "tyru/open-browser-github.vim", requires = { { "tyru/open-browser.vim", } }, }
   use { "kkoomen/vim-doge", }
+  use { "tpope/vim-surround", }
 end)

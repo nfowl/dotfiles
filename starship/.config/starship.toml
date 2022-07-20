@@ -1,7 +1,7 @@
 add_newline = true
 
 [line_break]
-disabled = false
+disabled = true
 
 [memory_usage]
 disabled = false
@@ -18,7 +18,7 @@ disabled = true
 
 
 [git_status]
-disabled = false
+disabled = true
 style = "yellow"
 format = '([$conflicted$stashed$staged$deleted$renamed$modified$untracked$ahead_behind]($style) )' # FIXME: Needs debugging why this affects spacing in terminal
 conflicted = "🏳"

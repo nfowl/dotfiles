@@ -264,6 +264,11 @@ _G.packer_plugins = {
     path = "/Users/nfowler/.local/share/nvim/site/pack/packer/start/vim-doge",
     url = "https://github.com/kkoomen/vim-doge"
   },
+  ["vim-surround"] = {
+    loaded = true,
+    path = "/Users/nfowler/.local/share/nvim/site/pack/packer/start/vim-surround",
+    url = "https://github.com/tpope/vim-surround"
+  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "/Users/nfowler/.local/share/nvim/site/pack/packer/start/which-key.nvim",
