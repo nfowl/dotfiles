@@ -241,6 +241,7 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- Needs to be high as terraform takes a while to format
 local format_timeout = 10000
+local util = require 'vim.lsp.util'
 null_ls.setup({
     -- you can reuse a shared lspconfig on_attach callback here
     debug = true,
@@ -252,20 +253,33 @@ null_ls.setup({
                 buffer = bufnr,
                 callback = function()
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    vim.lsp.buf.formatting_sync(nil, format_timeout)
+                    local params = util.make_formatting_params({})
+                    -- client.request("textDocument/formatting", params, nil, bufnr)
+                    -- vim.lsp.buf.formatting_sync(nil, format_timeout)
+                    local result, _ = client.request_sync("textDocument/formatting", params, format_timeout, bufnr)
+                    if result and result.result then
+                      util.apply_text_edits(result.result, bufnr, client.offset_encoding)
+                    end
                 end,
             })
         end
     end,
     -- sources
     sources = {
+      -- Code Actions
+      null_ls.builtins.code_actions.eslint,
+      -- Diagnostics
+      null_ls.builtins.diagnostics.eslint,
+      -- Formatting
+      null_ls.builtins.formatting.eslint,
       null_ls.builtins.formatting.terraform_fmt.with({
         timeout = format_timeout
       }),
-      null_ls.builtins.formatting.gofmt
+      null_ls.builtins.formatting.gofmt,
+      -- TODO: add sources based on work/home
+      -- null_ls.builtins.formatting.black,
     }
 })
-
 
 
 -- Telescope
