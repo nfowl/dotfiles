@@ -25,6 +25,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 if command -v cargo >/dev/null 2>&1; then
  # export WASMTIME_HOME="$HOME/.wasmtime"
  # export PATH="$WASMTIME_HOME/bin:$PATH"
+fi
 
 if [ -f /opt/gradle/latest/bin/gradle ]; then
   export GRADLE_HOME=/opt/gradle/latest
@@ -35,5 +36,3 @@ fi
 if [ -f $HOME/.zshenv_private ]; then
  source $HOME/.zshenv_private
 fi
-# . "$HOME/.cargo/env"
-

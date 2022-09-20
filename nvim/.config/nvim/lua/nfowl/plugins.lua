@@ -33,6 +33,7 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use { "dracula/vim", as = "dracula", }
+  use { 'folke/tokyonight.nvim' }
 
   -- Others
   use { "lewis6991/gitsigns.nvim", }
@@ -41,6 +42,7 @@ return require('packer').startup(function()
   use { "hrsh7th/nvim-cmp", }
   use { "hrsh7th/cmp-emoji", }
   use { "hrsh7th/cmp-path", }
+  use { "hrsh7th/cmp-nvim-lsp-signature-help", }
   -- use { "kyazdani42/nvim-tree.lua", }
   use { "numToStr/Comment.nvim", }
   use { "kyazdani42/nvim-web-devicons", }

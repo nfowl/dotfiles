@@ -3,8 +3,9 @@ vim.g.mapleader = " "
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.g.dracula_colorterm = 0
-vim.cmd('colorscheme dracula')
+-- vim.g.dracula_colorterm = 0
+-- vim.cmd('colorscheme dracula')
+vim.cmd [[colorscheme tokyonight]]
 
 -- General config
 vim.opt.shiftwidth = 2
@@ -24,6 +25,7 @@ cmp.setup({
     { name = "emoji", },
     { name = "treesitter", },
     { name = "luasnip", },
+    { name = "nvim_lsp_signature_help", },
   },
   snippet = {
     expand = function(args)
@@ -304,6 +306,11 @@ require("nvim-autopairs").setup()
 require("bufferline").setup()
 require('gitsigns').setup()
 require('Comment').setup()
+require('lualine').setup{
+  options = {
+    theme = 'tokyonight'
+  }
+}
 
 -- dashboard
 local dashboard = require("alpha.themes.dashboard")
