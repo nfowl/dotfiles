@@ -3,8 +3,6 @@ vim.g.mapleader = " "
 
 -- Colorscheme
 vim.opt.termguicolors = true
--- vim.g.dracula_colorterm = 0
--- vim.cmd('colorscheme dracula')
 vim.cmd [[colorscheme tokyonight]]
 
 -- General config
@@ -14,6 +12,10 @@ vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
+
+local key_opts = { noremap = true, silent = true }
+-- vim.keymap.set("n",)
+
 
 -- CMP Settings
 local cmp = require('cmp')
@@ -103,13 +105,12 @@ require("nvim-lsp-installer").setup {
   automatic_installation = true,
 }
 
-local opts = { noremap = true, silent = true }
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, opts)
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', '<Leader>lk', vim.diagnostic.goto_prev, opts)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>lj', vim.diagnostic.goto_next, opts)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, opts)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, key_opts)
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, key_opts)
+vim.keymap.set('n', '<Leader>lk', vim.diagnostic.goto_prev, key_opts)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next, key_opts)
+vim.keymap.set('n', '<leader>lj', vim.diagnostic.goto_next, key_opts)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, key_opts)
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
@@ -177,11 +178,6 @@ lspconfig.gopls.setup {
 lspconfig.graphql.setup {
   on_attach = on_attach,
   capabilities = capabilities,
-}
-lspconfig.java_language_server.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  cmd = {"/Users/nfowler/work/java-language-server/dist/lang_server_mac.sh"},
 }
 lspconfig.jsonls.setup {
   on_attach = on_attach,
@@ -274,12 +270,24 @@ null_ls.setup({
       null_ls.builtins.diagnostics.eslint,
       -- Formatting
       null_ls.builtins.formatting.eslint,
+      null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.terraform_fmt.with({
         timeout = format_timeout
       }),
       null_ls.builtins.formatting.gofmt,
-      -- TODO: add sources based on work/home
-      -- null_ls.builtins.formatting.black,
+      null_ls.builtins.formatting.black.with({
+        extra_args = { "--line-length=100", }
+      }),
+      null_ls.builtins.formatting.isort.with({
+        extra_args = {
+          "--profile", "google",
+          "--line-length", "100",
+          "--multi-line", "3",
+          "--trailing-comma",
+          "--use-parentheses",
+          "--ensure-newline-before-comments"
+        },
+      })
     }
 })
 
@@ -291,14 +299,14 @@ local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader>f", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
 vim.keymap.set("n", "<leader>F", function() telescope.find_files({ hidden = true, }) end,
   { noremap = true, silent = true, desc = "Find Files(Hidden)", })
-vim.keymap.set("n", "<leader>sf", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
-vim.keymap.set("n", "<leader>sF", function() telescope.find_files({ hidden = true, }) end,
+vim.keymap.set("n", "<leader>sF", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
+vim.keymap.set("n", "<leader>sf", function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
   { noremap = true, silent = true, desc = "Find Files(Hidden)", })
 vim.keymap.set("n", "<leader>st", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>sT", require('telescope').extensions.live_grep_args.live_grep_args,
   { noremap = true, silent = true, desc = "Find Text (Raw)", })
 vim.keymap.set("n", "<leader>bf", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
--- vim.keymap.set("n", "<leader>sf", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
+vim.keymap.set("n", "<leader>vf", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })
 
 -- Plugin setup
 require("which-key").setup()
@@ -316,5 +324,8 @@ require('lualine').setup{
 local dashboard = require("alpha.themes.dashboard")
 dashboard.section.header.val = require("nfowl.dash")
 require("alpha").setup(dashboard.config)
+
+-- doge
+vim.g.doge_doc_standard_python = "google"
 
 --

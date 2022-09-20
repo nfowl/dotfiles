@@ -62,6 +62,6 @@ return require('packer').startup(function()
   use { "akinsho/toggleterm.nvim", }
 
   use { "tyru/open-browser-github.vim", requires = { { "tyru/open-browser.vim", } }, }
-  use { "kkoomen/vim-doge", }
+  use { "kkoomen/vim-doge", run = function() vim.fn["doge#install"]() end, }
   use { "tpope/vim-surround", }
 end)
