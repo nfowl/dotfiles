@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd [[colorscheme tokyonight]]
+vim.cmd('colorscheme tokyonight')
 
 -- General config
 vim.opt.shiftwidth = 2

@@ -1,4 +1,4 @@
-return require('packer').startup(function()
+require('packer').startup(function()
   -- Packer can manage itself
   use { "wbthomason/packer.nvim", }
 
@@ -33,7 +33,7 @@ return require('packer').startup(function()
 
   -- Colorscheme
   use { "dracula/vim", as = "dracula", }
-  use { 'folke/tokyonight.nvim' }
+  use { "folke/tokyonight.nvim", }
 
   -- Others
   use { "lewis6991/gitsigns.nvim", }
