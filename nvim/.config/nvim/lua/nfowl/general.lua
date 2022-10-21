@@ -12,7 +12,6 @@ vim.opt.expandtab = true
 vim.opt.relativenumber = true
 vim.opt.number = true
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
-
 local key_opts = { noremap = true, silent = true }
 -- vim.keymap.set("n",)
 
@@ -113,7 +112,7 @@ vim.keymap.set('n', '<leader>lj', vim.diagnostic.goto_next, key_opts)
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, key_opts)
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
 -- Shared keybindings
 local on_attach = function(client, bufnr)
