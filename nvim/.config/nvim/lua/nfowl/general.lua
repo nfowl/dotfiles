@@ -150,10 +150,9 @@ lspconfig.bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
--- Broken
--- lspconfig.ccls.setup {
---   on_attach = on_attach,
--- }
+lspconfig.clangd.setup {
+  on_attach = on_attach,
+}
 lspconfig.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -249,14 +248,20 @@ null_ls.setup({
                 group = augroup,
                 buffer = bufnr,
                 callback = function()
+                    vim.lsp.buf.format({
+                        bufnr = bufnr,
+                        filter = function(client)
+                            return client.name == "null-ls"
+                        end
+                    })
                     -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    local params = util.make_formatting_params({})
-                    -- client.request("textDocument/formatting", params, nil, bufnr)
-                    -- vim.lsp.buf.formatting_sync(nil, format_timeout)
-                    local result, _ = client.request_sync("textDocument/formatting", params, format_timeout, bufnr)
-                    if result and result.result then
-                      util.apply_text_edits(result.result, bufnr, client.offset_encoding)
-                    end
+                    -- local params = util.make_formatting_params({})
+                    -- -- client.request("textDocument/formatting", params, nil, bufnr)
+                    -- -- vim.lsp.buf.formatting_sync(nil, format_timeout)
+                    -- local result, _ = client.request_sync("textDocument/formatting", params, format_timeout, bufnr)
+                    -- if result and result.result then
+                    --   util.apply_text_edits(result.result, bufnr, client.offset_encoding)
+                    -- end
                 end,
             })
         end
@@ -274,6 +279,7 @@ null_ls.setup({
         timeout = format_timeout
       }),
       null_ls.builtins.formatting.gofmt,
+      null_ls.builtins.formatting.rustfmt,
       null_ls.builtins.formatting.black.with({
         extra_args = { "--line-length=100", }
       }),
