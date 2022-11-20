@@ -37,4 +37,7 @@ P = {
   '',
 }
 
-return P
+-- dashboard
+local dashboard = require("alpha.themes.dashboard")
+dashboard.section.header.val = P
+require("alpha").setup(dashboard.config)

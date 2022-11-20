@@ -2,4 +2,5 @@
 require("nfowl.plugins")
 -- General stuff
 require("nfowl.general")
+require("nfowl.dash")
 

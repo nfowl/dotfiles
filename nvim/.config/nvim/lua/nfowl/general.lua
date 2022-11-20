@@ -16,6 +16,11 @@ local key_opts = { noremap = true, silent = true }
 -- vim.keymap.set("n",)
 
 
+-- Workaround for installing in nix environment
+local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"
+vim.fn.mkdir(parser_install_dir, "p")
+vim.opt.runtimepath:append(parser_install_dir)
+
 -- CMP Settings
 local cmp = require('cmp')
 cmp.setup({
@@ -64,6 +69,7 @@ cmp.setup({
 
 -- Treesitter config
 require("nvim-treesitter.configs").setup {
+  parser_install_dir = parser_install_dir,
   ensure_installed = {
     "bash",
     "c",
@@ -82,6 +88,7 @@ require("nvim-treesitter.configs").setup {
     "markdown",
     "nix",
     "python",
+    "proto",
     "rust",
     "svelte",
     "toml",
@@ -99,8 +106,9 @@ require("nvim-treesitter.configs").setup {
   }
 }
 
--- LSP config
-require("nvim-lsp-installer").setup {
+--- LSP config
+require("mason").setup()
+require("mason-lspconfig").setup {
   automatic_installation = true,
 }
 
@@ -325,10 +333,6 @@ require('lualine').setup{
   }
 }
 
--- dashboard
-local dashboard = require("alpha.themes.dashboard")
-dashboard.section.header.val = require("nfowl.dash")
-require("alpha").setup(dashboard.config)
 
 -- doge
 vim.g.doge_doc_standard_python = "google"

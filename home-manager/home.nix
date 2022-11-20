@@ -23,22 +23,24 @@
     pkgs.antibody
     pkgs.bat
     pkgs.delta
-    pkgs.exa
+    # pkgs.exa
     pkgs.fd
     pkgs.fzf
     pkgs.gnumake
     pkgs.htop
     pkgs.jq
     pkgs.k9s
+    pkgs.kubectl
     # pkgs.neovim
     pkgs.ripgrep
     pkgs.starship
     pkgs.tmux
     pkgs.unzip
-    pkgs.zoxide
-    pkgs.zsh
+    # pkgs.zoxide
+    # pkgs.zsh
     # Languages/Runtimes
-    pkgs.clang
+    # pkgs.clang
+    pkgs.gcc
     pkgs.deno
     pkgs.go
     pkgs.nodejs-18_x
@@ -48,6 +50,7 @@
 
   programs.neovim = {
     enable = true;
+    vimAlias = true;
     withPython3 = true;
     withNodeJs = true;
     plugins = 
@@ -62,25 +65,36 @@
             sha256 = "sha256-7Wgu726LSGywkO9itK2YmrBVuS0O9NY51de2sS31kDI=";
           };
         };
+        mason-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
+          pname = "mason-lspconfig.nvim";
+          version = "master";
+          src = pkgs.fetchFromGitHub {
+            owner = "williamboman";
+            repo = "mason-lspconfig.nvim";
+            rev = "master";
+            sha256 = "sha256-NdTYAPCsAN2p6J+z/CwGUmRxF9MQFVw6F1GJU4a1PdQ=";
+          };
+        };
       in [
         #Vim plugins
         pkgs.vimPlugins.packer-nvim
         pkgs.vimPlugins.nvim-lspconfig
-        #nlsp-settings
-        #nvim-lsp-installer
+        # nlsp-settings
+        # nvim-lsp-installer
         mason-nvim
+        mason-lspconfig
         pkgs.vimPlugins.cmp-nvim-lsp
         pkgs.vimPlugins.null-ls-nvim
-        pkgs.vimPlugins.nvim-treesitter
-        #nvim-treesitter-playground
+        (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        # nvim-treesitter-playground
         pkgs.vimPlugins.nvim-dap
-        #DAPInstall
+        # DAPInstall
         pkgs.vimPlugins.telescope-nvim
         pkgs.vimPlugins.plenary-nvim
-        #live-grep-raw
+        # live-grep-raw
         pkgs.vimPlugins.telescope-fzf-native-nvim
         pkgs.vimPlugins.rust-tools-nvim
-        #folke/lua-dev
+        # folke/lua-dev
         pkgs.vimPlugins.luasnip
         pkgs.vimPlugins.cmp_luasnip
         pkgs.vimPlugins.dracula-nvim
@@ -107,12 +121,35 @@
         pkgs.vimPlugins.open-browser-vim
         pkgs.vimPlugins.open-browser-github-vim
         pkgs.vimPlugins.vim-surround
-      # pkgs.vimPlugins.vim-doge
+        # pkgs.vimPlugins.vim-doge
       ];
+      extraConfig = ''
+        lua << EOF
+          ${builtins.readFile ../nvim/.config/nvim/lua/nfowl/general.lua}
+          ${builtins.readFile ../nvim/.config/nvim/lua/nfowl/dash.lua}
+        EOF
+      '';
+  };
+
+
+
+  programs.bat = {
+    enable = true;
+    themes = {
+      dracula = builtins.readFile (pkgs.fetchFromGitHub {
+        owner = "dracula";
+        repo = "sublime"; # Bat uses sublime syntax for its themes
+        rev = "26c57ec282abcaa76e57e055f38432bd827ac34e";
+        sha256 = "019hfl4zbn4vm4154hh3bwk6hm7bdxbr1hdww83nabxwjn99ndhv";
+      } + "/Dracula.tmTheme");
+    };
   };
 
   programs.zsh = {
     enable = true;
+    history = {
+      save = 50000;
+    };
     # initExtra = ''
     #   # . ~/workspace/dotfiles/zsh/.zshrc
     # '';
@@ -133,18 +170,49 @@
 
   programs.starship = {
     enable = true;
+    settings = {
+      add_newline = true;
+      line_break.disabled = true;
+
+      memory_usage = {
+        disabled = false;
+        threshold = 80;
+      };
+
+      nodejs.disabled = true;
+      aws.disabled = true;
+      gcloud.disabled = true;
+
+      git_status = {
+        disabled = true;
+        #Add more options and fix for monorepo 🙁
+      };
+
+      git_branch = {
+        truncation_length = 20;
+      };
+
+      python = {
+        format = "via [\${symbol}(\($virtualenv\) )]($style";
+      };
+    };
   };
 
   programs.tmux = {
     enable = true;
     clock24 = true;
+    terminal = "screen-256color";
+
     plugins = with pkgs.tmuxPlugins; [
       sensible
       yank
+      pain-control
       {
         plugin = dracula;
         extraConfig = ''
+          set -g terminal-overrides ",xterm-256color:RGB"
           set -g @dracula-show-battery false
+          set -g @dracula-show-weather false
           set -g @dracula-show-powerline true
           set -g @dracula-refresh-rate 10
         '';
