@@ -47,6 +47,11 @@
     # pkgs.terraform
   ];
 
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.neovim = {
     enable = true;
     vimAlias = true;
