@@ -36,6 +36,5 @@ fi
 if [ -f $HOME/.zshenv_private ]; then
  source $HOME/.zshenv_private
 fi
-# . "$HOME/.cargo/env"
 
-if [ -e /home/nathan/.nix-profile/etc/profile.d/nix.sh ]; then . /home/nathan/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

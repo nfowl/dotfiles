@@ -23,7 +23,7 @@
     pkgs.antibody
     pkgs.bat
     pkgs.delta
-    # pkgs.exa
+    pkgs.exa
     pkgs.fd
     pkgs.fzf
     pkgs.gnumake
@@ -31,21 +31,20 @@
     pkgs.jq
     pkgs.k9s
     pkgs.kubectl
-    # pkgs.neovim
     pkgs.ripgrep
     pkgs.starship
     pkgs.tmux
     pkgs.unzip
-    # pkgs.zoxide
-    # pkgs.zsh
+    pkgs.zoxide
+    pkgs.zsh
     # Languages/Runtimes
     # pkgs.clang
-    pkgs.gcc
-    pkgs.deno
-    pkgs.go
-    pkgs.nodejs-18_x
-    pkgs.rustup
-    pkgs.terraform
+    # pkgs.gcc
+    # pkgs.deno
+    # pkgs.go
+    # pkgs.nodejs-18_x
+    # pkgs.rustup
+    # pkgs.terraform
   ];
 
   programs.neovim = {
@@ -131,10 +130,11 @@
       '';
   };
 
-
-
   programs.bat = {
     enable = true;
+    config = {
+      theme = "Dracula";
+    };
     themes = {
       dracula = builtins.readFile (pkgs.fetchFromGitHub {
         owner = "dracula";
@@ -145,17 +145,67 @@
     };
   };
 
+  home.file.".zsh_plugins.txt".source = ../zsh/.zsh_plugins.txt;
+  home.file.".fdignore".source = ../fd/.fdignore;
+  home.file.".zkbd/xterm-256color-apple-darwin20.0".source = ../zsh/.zkbd/xterm-256color-apple-darwin20.0;
+  home.file.".zkbd/xterm-256color-ubuntu-linux-gnu".source = ../zsh/.zkbd/xterm-256color-ubuntu-linux-gnu;
+
   programs.zsh = {
     enable = true;
+    # defaultKeymap = "vicmd";
     history = {
       save = 50000;
     };
-    # initExtra = ''
-    #   # . ~/workspace/dotfiles/zsh/.zshrc
-    # '';
-    # envExtra = ''
-    #   # . ~/workspace/dotfiles/zsh/.zshenv
-    # '';
+    profileExtra = ''
+      if [[ -f ~/.zshrc ]]; then
+        . ~/.zshrc
+      fi
+      if [[ -f ~/.zshenv ]]; then
+        . ~/.zshenv
+      fi
+    '';
+    shellAliases = {
+      cat = "bat";
+    };
+
+    initExtraBeforeCompInit = ''
+      zstyle ':completion:*' completer _complete _ignored _approximate
+      zstyle :compinstall filename '$HOME/.zshrc'
+    '';
+
+    initExtra = ''
+      setopt appendhistory nomatch notify
+      unsetopt beep
+      ${builtins.readFile ./zkbd.sh}
+      
+      source <(antibody init)
+      antibody bundle < ~/.zsh_plugins.txt
+
+      ### Prompt stuff
+    '';
+    envExtra = ''
+      # Export Language Settings
+      export LANG=en_US.UTF-8
+      export LC_ALL=en_US.UTF-8
+
+      ##### EXPORTS
+      export EDITOR="vim"
+      export ZSH_CACHE_DIR="$HOME/.zsh/cache"
+      export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
+      export FZF_DEFAULT_COMMAND='fd --type file --hidden'
+
+      ### Optional PATH additions based on availability
+      if command -v go >/dev/null 2>&1; then
+        export PATH=$PATH:/usr/local/go/bin
+        export PATH="$PATH:$(go env GOPATH)/bin"
+      fi
+      
+      if [ -f $HOME/.zshenv_private ]; then
+       source $HOME/.zshenv_private
+      fi
+
+      if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+    '';
   };
 
   programs.zoxide = {
@@ -210,6 +260,8 @@
       {
         plugin = dracula;
         extraConfig = ''
+          set -g base-index 1
+          setw -g pane-base-index 1
           set -g terminal-overrides ",xterm-256color:RGB"
           set -g @dracula-show-battery false
           set -g @dracula-show-weather false
