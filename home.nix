@@ -32,6 +32,8 @@
     unzip
     zoxide
     zsh
+    nix-prefetch-git
+    nix-prefetch-github
     # Languages/Runtimes
     # clang
     # gcc
