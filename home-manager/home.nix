@@ -3,8 +3,8 @@
 {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "nfowler";
-  home.homeDirectory = "/home/nfowler";
+  # home.username = "nfowler";
+  # home.homeDirectory = "/home/nfowler";
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
   # when a new Home Manager release introduces backwards
@@ -14,37 +14,36 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "22.05";
-
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
-  home.packages = [
+  home.packages = with pkgs; [
     #Tools
-    pkgs.age
-    pkgs.antibody
-    pkgs.bat
-    pkgs.delta
-    pkgs.exa
-    pkgs.fd
-    pkgs.fzf
-    pkgs.gnumake
-    pkgs.htop
-    pkgs.jq
-    pkgs.k9s
-    pkgs.kubectl
-    pkgs.ripgrep
-    pkgs.starship
-    pkgs.tmux
-    pkgs.unzip
-    pkgs.zoxide
-    pkgs.zsh
+    age
+    antibody
+    bat
+    delta
+    exa
+    fd
+    fzf
+    gnumake
+    htop
+    jq
+    k9s
+    kubectl
+    ripgrep
+    starship
+    tmux
+    unzip
+    zoxide
+    zsh
     # Languages/Runtimes
-    # pkgs.clang
-    # pkgs.gcc
-    # pkgs.deno
-    # pkgs.go
-    # pkgs.nodejs-18_x
-    # pkgs.rustup
-    # pkgs.terraform
+    # clang
+    # gcc
+    # deno
+    # go
+    # nodejs-18_x
+    # rustup
+    # terraform
   ];
 
   programs.direnv = {
@@ -79,53 +78,53 @@
             sha256 = "sha256-NdTYAPCsAN2p6J+z/CwGUmRxF9MQFVw6F1GJU4a1PdQ=";
           };
         };
-      in [
+      in with pkgs.vimPlugins; [
         #Vim plugins
-        pkgs.vimPlugins.packer-nvim
-        pkgs.vimPlugins.nvim-lspconfig
-        # nlsp-settings
-        # nvim-lsp-installer
+        packer-nvim
+        nvim-lspconfig
+        cmp-nvim-lsp
+        null-ls-nvim
+        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        nvim-treesitter-textobjects
+        # nvim-treesitter-playground
+        nvim-dap
+        # DAPInstall
+        telescope-nvim
+        plenary-nvim
+        # live-grep-raw
+        telescope-fzf-native-nvim
+        rust-tools-nvim
+        # folke/lua-dev
+        luasnip
+        cmp_luasnip
+        dracula-nvim
+        tokyonight-nvim
+        gitsigns-nvim
+        which-key-nvim
+        bufferline-nvim
+        nvim-cmp
+        cmp-emoji
+        cmp-path
+        cmp-nvim-lsp-signature-help
+        comment-nvim
+        nvim-web-devicons
+        SchemaStore-nvim
+        nvim-autopairs
+        alpha-nvim
+        nvim-ts-context-commentstring
+        cmp-buffer
+        FixCursorHold-nvim
+        popup-nvim
+        lualine-nvim
+        nvim-notify
+        toggleterm-nvim
+        open-browser-vim
+        open-browser-github-vim
+        vim-surround
+        # vim-doge
+        # Custom built
         mason-nvim
         mason-lspconfig
-        pkgs.vimPlugins.cmp-nvim-lsp
-        pkgs.vimPlugins.null-ls-nvim
-        (pkgs.vimPlugins.nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
-        # nvim-treesitter-playground
-        pkgs.vimPlugins.nvim-dap
-        # DAPInstall
-        pkgs.vimPlugins.telescope-nvim
-        pkgs.vimPlugins.plenary-nvim
-        # live-grep-raw
-        pkgs.vimPlugins.telescope-fzf-native-nvim
-        pkgs.vimPlugins.rust-tools-nvim
-        # folke/lua-dev
-        pkgs.vimPlugins.luasnip
-        pkgs.vimPlugins.cmp_luasnip
-        pkgs.vimPlugins.dracula-nvim
-        pkgs.vimPlugins.tokyonight-nvim
-        pkgs.vimPlugins.gitsigns-nvim
-        pkgs.vimPlugins.which-key-nvim
-        pkgs.vimPlugins.bufferline-nvim
-        pkgs.vimPlugins.nvim-cmp
-        pkgs.vimPlugins.cmp-emoji
-        pkgs.vimPlugins.cmp-path
-        pkgs.vimPlugins.cmp-nvim-lsp-signature-help
-        pkgs.vimPlugins.comment-nvim
-        pkgs.vimPlugins.nvim-web-devicons
-        pkgs.vimPlugins.SchemaStore-nvim
-        pkgs.vimPlugins.nvim-autopairs
-        pkgs.vimPlugins.alpha-nvim
-        pkgs.vimPlugins.nvim-ts-context-commentstring
-        pkgs.vimPlugins.cmp-buffer
-        pkgs.vimPlugins.FixCursorHold-nvim
-        pkgs.vimPlugins.popup-nvim
-        pkgs.vimPlugins.lualine-nvim
-        pkgs.vimPlugins.nvim-notify
-        pkgs.vimPlugins.toggleterm-nvim
-        pkgs.vimPlugins.open-browser-vim
-        pkgs.vimPlugins.open-browser-github-vim
-        pkgs.vimPlugins.vim-surround
-        # pkgs.vimPlugins.vim-doge
       ];
       extraConfig = ''
         lua << EOF
@@ -141,6 +140,12 @@
       theme = "Dracula";
     };
     themes = {
+      tokyonight = builtins.readFile (pkgs.fetchFromGitHub {
+        owner = "enkia";
+        repo = "enki-theme"; # Bat uses sublime syntax for its themes
+        rev = "0b629142733a27ba3a6a7d4eac04f81744bc714f";
+        sha256 = "sha256-Q+sac7xBdLhjfCjmlvfQwGS6KUzt+2fu+crG4NdNr4w=";
+      } + "/scheme/Enki-Tokyo-Night.tmTheme");
       dracula = builtins.readFile (pkgs.fetchFromGitHub {
         owner = "dracula";
         repo = "sublime"; # Bat uses sublime syntax for its themes

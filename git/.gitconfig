@@ -1,3 +1,0 @@
-#File for username / sensitive info
-[include]
-  path = ~/.gitconfig.local

@@ -15,13 +15,25 @@
       system = "x86_64-linux";
       pkgs = nixpkgs.legacyPackages.${system};
     in {
-      homeConfigurations.nfowler = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations.personal = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          ./home.nix
+          ./personal.nix
+        ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
+      homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          ./work.nix
         ];
 
         # Optionally use extraSpecialArgs
