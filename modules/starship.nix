@@ -15,6 +15,12 @@
       nodejs.disabled = true;
       aws.disabled = true;
       gcloud.disabled = true;
+      package.disabled = true;
+
+      nix_shell = {
+        format = "$symbol";
+        symbol = " ";  
+      };
 
       git_status = {
         disabled = true;
