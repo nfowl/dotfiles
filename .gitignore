@@ -5,3 +5,7 @@ git/.gitconfig.local
 kitty/.config/kitty/kitty-themes
 kitty/.config/kitty/theme.conf
 kubeconfig
+
+# home-manager stuff
+result
+

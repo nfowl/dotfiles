@@ -10,22 +10,22 @@
       let
         mason-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
           pname = "mason.nvim";
-          version = "master";
+          version = "main";
           src = pkgs.fetchFromGitHub {
             owner = "williamboman";
             repo = "mason.nvim";
-            rev = "master";
-            sha256 = "sha256-7Wgu726LSGywkO9itK2YmrBVuS0O9NY51de2sS31kDI=";
+            rev = "9d7058b1fb3bfa64e0f89ae77f3029f1a92b5878";
+            sha256 = "1y1bw8bqg1ag7jpd37fzsyvppy3c3mqgfian8w82dcabwjkahyhs";
           };
         };
         mason-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
           pname = "mason-lspconfig.nvim";
-          version = "master";
+          version = "main";
           src = pkgs.fetchFromGitHub {
             owner = "williamboman";
             repo = "mason-lspconfig.nvim";
-            rev = "master";
-            sha256 = "sha256-NdTYAPCsAN2p6J+z/CwGUmRxF9MQFVw6F1GJU4a1PdQ=";
+            rev = "edf15b98cd7d7ce0f83cf7d3a968145a3f974772";
+            sha256 = "sha256:0lgv8l3yh289dj940497wf0985ckp0aaj7qbjx9kvp391rg2nxpi";
           };
         };
       in with pkgs.vimPlugins; [

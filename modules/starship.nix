@@ -40,7 +40,7 @@
       };
 
       python = {
-        format = "via [\${symbol}(\($virtualenv\) )]($style";
+        format = "via [\${symbol}(\($virtualenv\) )]($style)";
       };
     };
   };
