@@ -43,7 +43,7 @@
         plenary-nvim
         # live-grep-raw
         telescope-fzf-native-nvim
-        rust-tools-nvim
+        # rust-tools-nvim
         # folke/lua-dev
         luasnip
         cmp_luasnip
