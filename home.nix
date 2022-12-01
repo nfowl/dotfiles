@@ -26,6 +26,7 @@
     k9s
     kubectl
     ripgrep
+    niv
     starship
     tmux
     unzip
