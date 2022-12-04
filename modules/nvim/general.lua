@@ -108,9 +108,9 @@ require("nvim-treesitter.configs").setup {
 
 --- LSP config
 require("mason").setup()
-require("mason-lspconfig").setup {
+require("mason-lspconfig").setup({
   automatic_installation = true,
-}
+})
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, key_opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, key_opts)
@@ -201,6 +201,7 @@ lspconfig.rnix.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+-- Done by rust-tools
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   capabilities = capabilities,
@@ -245,7 +246,6 @@ local null_ls = require("null-ls")
 local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 -- Needs to be high as terraform takes a while to format
 local format_timeout = 10000
-local util = require 'vim.lsp.util'
 null_ls.setup({
     -- you can reuse a shared lspconfig on_attach callback here
     debug = true,
@@ -262,14 +262,6 @@ null_ls.setup({
                             return client.name == "null-ls"
                         end
                     })
-                    -- on 0.8, you should use vim.lsp.buf.format({ bufnr = bufnr }) instead
-                    -- local params = util.make_formatting_params({})
-                    -- -- client.request("textDocument/formatting", params, nil, bufnr)
-                    -- -- vim.lsp.buf.formatting_sync(nil, format_timeout)
-                    -- local result, _ = client.request_sync("textDocument/formatting", params, format_timeout, bufnr)
-                    -- if result and result.result then
-                    --   util.apply_text_edits(result.result, bufnr, client.offset_encoding)
-                    -- end
                 end,
             })
         end
