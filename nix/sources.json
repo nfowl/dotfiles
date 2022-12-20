@@ -5,10 +5,34 @@
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "478610aa37c8339eacabfa03f07dacf5574edd47",
-        "sha256": "1viz7m0d0n1lbiwqq280m3c5x84fmv3j9j2n03b7j6ci50fmj68z",
+        "rev": "e7eba9cc46547ae86642ad3c6a9a4fb22c07bc26",
+        "sha256": "194ga0j74g6nav00ay923igj9zxdncksc0syi3dnivfmyag07fa5",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/478610aa37c8339eacabfa03f07dacf5574edd47.tar.gz",
+        "url": "https://github.com/nix-community/home-manager/archive/e7eba9cc46547ae86642ad3c6a9a4fb22c07bc26.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "mason-lspconfig": {
+        "branch": "main",
+        "description": "Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.",
+        "homepage": "",
+        "owner": "williamboman",
+        "repo": "mason-lspconfig.nvim",
+        "rev": "5bea0e851b8f48479d2cb927cd26733b4058b2b3",
+        "sha256": "1ag193s1gwfqpf9nasf9jdjinpd3z0k53j3hvs6kb0gada726480",
+        "type": "tarball",
+        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/5bea0e851b8f48479d2cb927cd26733b4058b2b3.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "mason": {
+        "branch": "main",
+        "description": "Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.",
+        "homepage": "",
+        "owner": "williamboman",
+        "repo": "mason.nvim",
+        "rev": "d26553491b3efb3fce7cc626683342cd1fa4cbf3",
+        "sha256": "000zwqrkfh69iv2di2vccrb3jx74cj6khyra7r4h2l45rmhypy58",
+        "type": "tarball",
+        "url": "https://github.com/williamboman/mason.nvim/archive/d26553491b3efb3fce7cc626683342cd1fa4cbf3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -29,10 +53,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "27ccd29078f974ddbdd7edc8e38c8c8ae003c877",
-        "sha256": "1lsjmwbs3nfmknnvqiqbhh103qzxyy3z1950vqmzgn5m0zx7048h",
+        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
+        "sha256": "1cy2kzvsk8w7fvmkqinmfjzqqfnmx73dm0nxsr6hcfwhlndxlh96",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/27ccd29078f974ddbdd7edc8e38c8c8ae003c877.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/bb31220cca6d044baa6dc2715b07497a2a7c4bc7.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

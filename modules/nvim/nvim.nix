@@ -14,7 +14,7 @@ in
         nvim-lspconfig
         cmp-nvim-lsp
         null-ls-nvim
-        (nvim-treesitter.withPlugins (_: pkgs.tree-sitter.allGrammars))
+        nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
         # nvim-treesitter-playground
         nvim-dap
