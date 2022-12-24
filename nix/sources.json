@@ -11,18 +11,6 @@
         "url": "https://github.com/nix-community/home-manager/archive/e7eba9cc46547ae86642ad3c6a9a4fb22c07bc26.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "mason-lspconfig": {
-        "branch": "main",
-        "description": "Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.",
-        "homepage": "",
-        "owner": "williamboman",
-        "repo": "mason-lspconfig.nvim",
-        "rev": "5bea0e851b8f48479d2cb927cd26733b4058b2b3",
-        "sha256": "1ag193s1gwfqpf9nasf9jdjinpd3z0k53j3hvs6kb0gada726480",
-        "type": "tarball",
-        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/5bea0e851b8f48479d2cb927cd26733b4058b2b3.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "mason": {
         "branch": "main",
         "description": "Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.",
@@ -33,6 +21,18 @@
         "sha256": "000zwqrkfh69iv2di2vccrb3jx74cj6khyra7r4h2l45rmhypy58",
         "type": "tarball",
         "url": "https://github.com/williamboman/mason.nvim/archive/d26553491b3efb3fce7cc626683342cd1fa4cbf3.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "mason-lspconfig": {
+        "branch": "main",
+        "description": "Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.",
+        "homepage": "",
+        "owner": "williamboman",
+        "repo": "mason-lspconfig.nvim",
+        "rev": "5bea0e851b8f48479d2cb927cd26733b4058b2b3",
+        "sha256": "1ag193s1gwfqpf9nasf9jdjinpd3z0k53j3hvs6kb0gada726480",
+        "type": "tarball",
+        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/5bea0e851b8f48479d2cb927cd26733b4058b2b3.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -57,6 +57,30 @@
         "sha256": "1cy2kzvsk8w7fvmkqinmfjzqqfnmx73dm0nxsr6hcfwhlndxlh96",
         "type": "tarball",
         "url": "https://github.com/NixOS/nixpkgs/archive/bb31220cca6d044baa6dc2715b07497a2a7c4bc7.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "nvim-treesitter-playground": {
+        "branch": "master",
+        "description": "Treesitter playground integrated into Neovim",
+        "homepage": "",
+        "owner": "nvim-treesitter",
+        "repo": "playground",
+        "rev": "3421bbbfec25a7c54ee041ffb9cb226b69b2b995",
+        "sha256": "1zc9wwpb0565fw0g1mmhv2dkdlf57qvh7r133gcij9mp7jh87pgx",
+        "type": "tarball",
+        "url": "https://github.com/nvim-treesitter/playground/archive/3421bbbfec25a7c54ee041ffb9cb226b69b2b995.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "tree-sitter-cloudflare": {
+        "branch": "main",
+        "description": "tree-sitter parser for cloudflare rule language",
+        "homepage": null,
+        "owner": "nfowl",
+        "repo": "tree-sitter-cloudflare",
+        "rev": "2ef346745259248054802e1ac3e795dfd25d9659",
+        "sha256": "0xbf56n94cagbnhjjqzgcldkl0bb73qnxb4y87jh75wswj2gwscg",
+        "type": "tarball",
+        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/2ef346745259248054802e1ac3e795dfd25d9659.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

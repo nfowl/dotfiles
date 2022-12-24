@@ -1,8 +1,10 @@
 { config, pkgs, ... }:
 let 
+  sources = (import ../../nix/sources.nix);
   customVimPlugins = (import ./plugins.nix) pkgs;
 in
 {
+  xdg.configFile."nvim/queries/cloudflare/highlights.scm".source = sources.tree-sitter-cloudflare + "/queries/highlights.scm";
   programs.neovim = {
     enable = true;
     vimAlias = true;
@@ -55,6 +57,7 @@ in
         # Custom built
         customVimPlugins.mason-nvim
         customVimPlugins.mason-lspconfig
+        customVimPlugins.nvim-treesitter-playground
       ];
       extraConfig = ''
         lua << EOF

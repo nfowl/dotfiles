@@ -67,10 +67,23 @@ cmp.setup({
   },
 })
 
+local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+parser_config.cloudflare = {
+  install_info = {
+    url = "https://github.com/nfowl/tree-sitter-cloudflare",
+    files = {"src/parser.c"},
+    branch = "main",
+    generate_requires_npm = false,
+    requires_generate_from_grammar = false,
+  },
+  filetype = "cftxt",
+}
+
 -- Treesitter config
 require("nvim-treesitter.configs").setup {
   parser_install_dir = parser_install_dir,
-  -- ensure_installed = {
+  -- Custom treesitters
+  ensure_installed = { "cloudflare", },
   --   "bash",
   --   "c",
   --   "comment",
@@ -105,6 +118,16 @@ require("nvim-treesitter.configs").setup {
     additional_vim_regex_highlighting = false,
   }
 }
+
+vim.filetype.add({
+  extension = {
+    cftxt = 'cftxt'
+  },
+  pattern = {
+    ['.*/expressions/.*%.txt'] = 'cftxt',
+    ['.*.cf.txt'] = 'cftxt',
+  }
+})
 
 --- LSP config
 require("mason").setup()
