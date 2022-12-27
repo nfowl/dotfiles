@@ -14,7 +14,7 @@ vim.opt.number = true
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 local key_opts = { noremap = true, silent = true }
 -- vim.keymap.set("n",)
-
+require('plenary.filetype').add_file('ft')
 
 -- Workaround for installing in nix environment
 local parser_install_dir = vim.fn.stdpath("cache") .. "/treesitters"

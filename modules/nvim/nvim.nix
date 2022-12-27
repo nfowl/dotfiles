@@ -5,6 +5,7 @@ let
 in
 {
   xdg.configFile."nvim/queries/cloudflare/highlights.scm".source = sources.tree-sitter-cloudflare + "/queries/highlights.scm";
+  xdg.configFile."nvim/data/plenary/filetypes/ft.lua".source = ./ft.lua;
   programs.neovim = {
     enable = true;
     vimAlias = true;
