@@ -36,7 +36,9 @@
       source <(antibody init)
       antibody bundle < ~/.zsh_plugins.txt
 
-      ### Prompt stuff
+      if [ -f $HOME/.zshrc_private ]; then
+       source $HOME/.zshrc_private
+      fi
     '';
     envExtra = ''
       # Export Language Settings
