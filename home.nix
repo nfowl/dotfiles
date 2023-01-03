@@ -19,7 +19,9 @@
     delta
     exa
     fd
+    fluxcd
     fzf
+    glow
     gnumake
     htop
     jq
