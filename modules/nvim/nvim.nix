@@ -19,7 +19,6 @@ in
         null-ls-nvim
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
-        # nvim-treesitter-playground
         nvim-dap
         # DAPInstall
         telescope-nvim
