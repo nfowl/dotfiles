@@ -84,6 +84,7 @@ require("nvim-treesitter.configs").setup {
   parser_install_dir = parser_install_dir,
   -- Custom treesitters
   ensure_installed = { "cloudflare", },
+    enable = true,
   --   "bash",
   --   "c",
   --   "comment",
@@ -116,6 +117,9 @@ require("nvim-treesitter.configs").setup {
   highlight = {
     enable = true,
     additional_vim_regex_highlighting = false,
+    custom_captures = {
+      ["@error"] = "Error"
+    }
   }
 }
 
@@ -296,6 +300,7 @@ null_ls.setup({
       -- Diagnostics
       null_ls.builtins.diagnostics.eslint,
       -- Formatting
+      null_ls.builtins.formatting.buildifier,
       null_ls.builtins.formatting.eslint,
       null_ls.builtins.formatting.prettier,
       null_ls.builtins.formatting.terraform_fmt.with({
