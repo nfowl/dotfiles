@@ -17,10 +17,10 @@
         "homepage": "",
         "owner": "williamboman",
         "repo": "mason.nvim",
-        "rev": "4b8fc830fa111c22e9ceb313689b3b35cccb6779",
-        "sha256": "1w206i1yckial997xy6m9pnlzwq71081z32qq3ynqvyza08c39rb",
+        "rev": "2469bfc2538652cb0cf88c129f67d38e46a9cb59",
+        "sha256": "13ymyc881zkd7c47ayc9cknkzabcgmskm94cq9qjk34r00zgd2jh",
         "type": "tarball",
-        "url": "https://github.com/williamboman/mason.nvim/archive/4b8fc830fa111c22e9ceb313689b3b35cccb6779.tar.gz",
+        "url": "https://github.com/williamboman/mason.nvim/archive/2469bfc2538652cb0cf88c129f67d38e46a9cb59.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "mason-lspconfig": {
@@ -29,10 +29,10 @@
         "homepage": "",
         "owner": "williamboman",
         "repo": "mason-lspconfig.nvim",
-        "rev": "aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3",
-        "sha256": "1pynk9f4rrlgn2m28vkds3cifv6gizvp14g4xf2pb2hxdyid2b87",
+        "rev": "53f3a8bdcb77d4a95b082fd57e12173f353c6c3e",
+        "sha256": "0588rpf28fk922nmj44nl5m74a9762g2xx8y72b61k5iwpi2vp3h",
         "type": "tarball",
-        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/aa25b4153d2f2636c3b3a8c8360349d2b29e7ae3.tar.gz",
+        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/53f3a8bdcb77d4a95b082fd57e12173f353c6c3e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "niv": {
@@ -41,10 +41,10 @@
         "homepage": "https://github.com/nmattia/niv",
         "owner": "nmattia",
         "repo": "niv",
-        "rev": "351d8bc316bf901a81885bab5f52687ec8ccab6e",
-        "sha256": "1yzhz7ihkh6p2sxhp3amqfbmm2yqzaadqqii1xijymvl8alw5rrr",
+        "rev": "689d0e5539eddd0b0f566aee7bb18629eee7df74",
+        "sha256": "1rld3lk42l6b01f2gcrhq8qm9vry1awmfl29zmpiqda9dy89vbx0",
         "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/351d8bc316bf901a81885bab5f52687ec8ccab6e.tar.gz",
+        "url": "https://github.com/nmattia/niv/archive/689d0e5539eddd0b0f566aee7bb18629eee7df74.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs-unstable": {
@@ -53,10 +53,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "04f574a1c0fde90b51bf68198e2297ca4e7cccf4",
-        "sha256": "1cy2kzvsk8w7fvmkqinmfjzqqfnmx73dm0nxsr6hcfwhlndxlh96",
+        "rev": "2caf4ef5005ecc68141ecb4aac271079f7371c44",
+        "sha256": "1f8d0v4q687r4z3qpg54asglgi3v07ac75hzxzxl0qxjyh0asdz3",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/bb31220cca6d044baa6dc2715b07497a2a7c4bc7.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/2caf4ef5005ecc68141ecb4aac271079f7371c44.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-treesitter-playground": {
@@ -65,10 +65,10 @@
         "homepage": "",
         "owner": "nvim-treesitter",
         "repo": "playground",
-        "rev": "3421bbbfec25a7c54ee041ffb9cb226b69b2b995",
-        "sha256": "1zc9wwpb0565fw0g1mmhv2dkdlf57qvh7r133gcij9mp7jh87pgx",
+        "rev": "c19bcfd6a3681bc876e1b861f6685bfc04972d0d",
+        "sha256": "07vhiknf5gfd8rp6ynp9xq3rlc17b1sh322mlhg3976hl62lgs4f",
         "type": "tarball",
-        "url": "https://github.com/nvim-treesitter/playground/archive/3421bbbfec25a7c54ee041ffb9cb226b69b2b995.tar.gz",
+        "url": "https://github.com/nvim-treesitter/playground/archive/c19bcfd6a3681bc876e1b861f6685bfc04972d0d.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter-cloudflare": {
@@ -77,10 +77,10 @@
         "homepage": null,
         "owner": "nfowl",
         "repo": "tree-sitter-cloudflare",
-        "rev": "f2110a1ed743aa6fac4ac18fb44f68f697f14736",
-        "sha256": "1lhg146hqq3p18hrr60rh4zc7ii5wy9qfawaw20rrgcrin99bivq",
+        "rev": "1df8553d1c06daf3c349872f605b1dfcde7c4bdb",
+        "sha256": "0li530bhqrqcgazznnb42147j4alfqig13ah49n30zyg9543xbll",
         "type": "tarball",
-        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/f2110a1ed743aa6fac4ac18fb44f68f697f14736.tar.gz",
+        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/1df8553d1c06daf3c349872f605b1dfcde7c4bdb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
