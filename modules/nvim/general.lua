@@ -76,7 +76,7 @@ parser_config.cloudflare = {
     generate_requires_npm = false,
     requires_generate_from_grammar = false,
   },
-  filetype = "cftxt",
+  filetype = "cfrule",
 }
 
 -- Treesitter config
@@ -125,12 +125,8 @@ require("nvim-treesitter.configs").setup {
 
 vim.filetype.add({
   extension = {
-    cftxt = 'cftxt'
+    cfrule = 'cfrule'
   },
-  pattern = {
-    ['.*/expressions/.*%.txt'] = 'cftxt',
-    ['.*.cf.txt'] = 'cftxt',
-  }
 })
 
 --- LSP config

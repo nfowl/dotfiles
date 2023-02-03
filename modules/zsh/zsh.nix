@@ -39,6 +39,16 @@
       if [ -f $HOME/.zshrc_private ]; then
        source $HOME/.zshrc_private
       fi
+
+      function gch() {
+        if [ -z "$(git rev-parse --git-dir 2> /dev/null)" ]; then
+          return
+        fi 
+        branch=$(git branch | fzf | tr -d '[:space:]')
+        if [[ ! -z "$branch" ]]; then
+          git checkout $branch
+        fi
+      }
     '';
     envExtra = ''
       # Export Language Settings
@@ -55,6 +65,9 @@
       if command -v go >/dev/null 2>&1; then
         export PATH=$PATH:/usr/local/go/bin
         export PATH="$PATH:$(go env GOPATH)/bin"
+      fi
+      if [ -f $HOME/.spicetify/spicetify ]; then
+        export PATH=$PATH:$HOME/.spicetify/
       fi
       
       if [ -f $HOME/.zshenv_private ]; then

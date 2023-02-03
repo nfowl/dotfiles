@@ -27,15 +27,17 @@
     jq
     k9s
     kubectl
-    ripgrep
+    mtr
     niv
+    nix-prefetch-git
+    nix-prefetch-github
+    ripgrep
+    spicetify-cli
     starship
     tmux
     unzip
     zoxide
     zsh
-    nix-prefetch-git
-    nix-prefetch-github
     # Languages/Runtimes
     # clang
     # gcc
