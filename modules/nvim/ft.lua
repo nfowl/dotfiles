@@ -1,9 +1,5 @@
 return {
   extension = {
-    ['cf.txt'] = 'cftxt',
-    ['cftxt'] = 'cftxt'
+    ['cfrule'] = 'cfrule'
   },
-  file_name = {
-    ['expressions/*.txt'] = 'cftxt'
-  }
 }
