@@ -1,0 +1,15 @@
+let mapleader = " "
+"Mute"
+set visualbell
+
+set surround
+set commentary
+
+nnoremap <leader>st 
+nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
+map <leader>rn <Action>(RenameElement)
+nnoremap <leader>sf :action GotoFile<CR>
+nnoremap <leader>st :action FindInPath<CR>
+nnoremap <leader>sT :action SearchEverywhere<CR>
+
+

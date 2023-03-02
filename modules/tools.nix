@@ -8,6 +8,7 @@
   };
   
   home.file.".fdignore".source = ./.fdignore;
+  home.file.".ideavimrc".source = ./.ideavimrc;
 
   programs.bat = {
     enable = true;
