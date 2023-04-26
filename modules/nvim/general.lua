@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd('colorscheme tokyonight')
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 -- General config
 vim.opt.shiftwidth = 2
@@ -205,6 +205,10 @@ lspconfig.gopls.setup {
   capabilities = capabilities,
 }
 lspconfig.graphql.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig.jdtls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }

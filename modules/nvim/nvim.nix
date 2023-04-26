@@ -29,8 +29,10 @@ in
         # folke/lua-dev
         luasnip
         cmp_luasnip
+        # Color themes
         dracula-nvim
         tokyonight-nvim
+        catppuccin-nvim
         gitsigns-nvim
         which-key-nvim
         bufferline-nvim
