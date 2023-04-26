@@ -53,10 +53,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "2362848adf8def2866fabbffc50462e929d7fffb",
-        "sha256": "0wjr874z2y3hc69slaa7d9cw7rj47r1vmc1ml7dw512jld23pn3p",
+        "rev": "c8018361fa1d1650ee8d4b96294783cf564e8a7f",
+        "sha256": "08glidfsbccqh8aipa6afnk9bxlavj4amzm9hx2dwrnavq0s51as",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/2362848adf8def2866fabbffc50462e929d7fffb.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/c8018361fa1d1650ee8d4b96294783cf564e8a7f.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nvim-treesitter-playground": {
