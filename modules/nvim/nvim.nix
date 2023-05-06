@@ -13,7 +13,7 @@ in
     withNodeJs = true;
     plugins = with pkgs.vimPlugins; [
         #Vim plugins
-        packer-nvim
+        # packer-nvim
         nvim-lspconfig
         cmp-nvim-lsp
         null-ls-nvim
@@ -59,7 +59,6 @@ in
         # Custom built
         customVimPlugins.mason-nvim
         customVimPlugins.mason-lspconfig
-        customVimPlugins.nvim-treesitter-playground
       ];
       extraConfig = ''
         lua << EOF

@@ -59,18 +59,6 @@
         "url": "https://github.com/NixOS/nixpkgs/archive/555daa9d339b3df75e58ee558a4fec98ea92521e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
-    "nvim-treesitter-playground": {
-        "branch": "master",
-        "description": "Treesitter playground integrated into Neovim",
-        "homepage": "",
-        "owner": "nvim-treesitter",
-        "repo": "playground",
-        "rev": "2b81a018a49f8e476341dfcb228b7b808baba68b",
-        "sha256": "1b7h4sih8dc55w12f0v5knk9cxfpy0iffhbvmg0g84if55ar616v",
-        "type": "tarball",
-        "url": "https://github.com/nvim-treesitter/playground/archive/2b81a018a49f8e476341dfcb228b7b808baba68b.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "tree-sitter-cloudflare": {
         "branch": "main",
         "description": "tree-sitter parser for cloudflare rule language",
