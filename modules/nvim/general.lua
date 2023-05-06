@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 
 -- Colorscheme
 vim.opt.termguicolors = true
-vim.cmd.colorscheme "catppuccin-macchiato"
+vim.cmd.colorscheme "tokyonight"
 
 -- General config
 vim.opt.shiftwidth = 2
@@ -189,9 +189,14 @@ lspconfig.cssls.setup {
   capabilities = capabilities,
 }
 -- conflicts with tsserver
--- lspconfig.denols.setup {
---   on_attach = on_attach,
--- }
+lspconfig.denols.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    root_dir = lspconfig.util.root_pattern('deno.json','deno.jsonc')
+  }
+}
+
 lspconfig.dockerls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
