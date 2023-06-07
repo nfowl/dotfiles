@@ -2,7 +2,8 @@ let
 
   sources = import ./nix/sources.nix;
 
-  nixpkgs = sources."nixpkgs-unstable";
+  # nixpkgs = sources."nixpkgs-unstable";
+  nixpkgs = sources."nixpkgs";
 
   pkgs = import nixpkgs {};
 
