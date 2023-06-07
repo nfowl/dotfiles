@@ -11,6 +11,7 @@ in
     vimAlias = true;
     withPython3 = true;
     withNodeJs = true;
+    package = pkgs.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
         #Vim plugins
         nvim-lspconfig
