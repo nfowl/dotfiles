@@ -13,7 +13,6 @@ in
     withNodeJs = true;
     plugins = with pkgs.vimPlugins; [
         #Vim plugins
-        # packer-nvim
         nvim-lspconfig
         cmp-nvim-lsp
         null-ls-nvim
@@ -33,6 +32,7 @@ in
         dracula-nvim
         tokyonight-nvim
         catppuccin-nvim
+        # other
         gitsigns-nvim
         which-key-nvim
         bufferline-nvim

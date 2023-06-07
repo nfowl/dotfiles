@@ -53,10 +53,10 @@
         "homepage": "",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "555daa9d339b3df75e58ee558a4fec98ea92521e",
-        "sha256": "0m361xqnx1d1nwahichvg8l1qy3ambra0rg56mmyh71xgnrnz1m3",
+        "rev": "5b1bc788f578cd83d54b48bb057d6f6703ae7725",
+        "sha256": "13c1hnjii94mwp7v1sz171sa2s19nxb84p106qasngybh5kh8cxh",
         "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/555daa9d339b3df75e58ee558a4fec98ea92521e.tar.gz",
+        "url": "https://github.com/NixOS/nixpkgs/archive/5b1bc788f578cd83d54b48bb057d6f6703ae7725.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter-cloudflare": {

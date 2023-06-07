@@ -84,32 +84,7 @@ require("nvim-treesitter.configs").setup {
   parser_install_dir = parser_install_dir,
   -- Custom treesitters
   ensure_installed = { "cloudflare", },
-    enable = true,
-  --   "bash",
-  --   "c",
-  --   "comment",
-  --   "css",
-  --   "dockerfile",
-  --   "go",
-  --   "gomod",
-  --   "gowork",
-  --   "graphql",
-  --   "hcl",
-  --   "java",
-  --   "javascript",
-  --   "json",
-  --   "lua",
-  --   "markdown",
-  --   "nix",
-  --   "python",
-  --   "proto",
-  --   "rust",
-  --   "svelte",
-  --   "toml",
-  --   "typescript",
-  --   "tsx",
-  --   "yaml",
-  -- },
+  enable = true,
   context_commentstring = {
     enable = true,
   },
@@ -188,11 +163,13 @@ lspconfig.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
--- conflicts with tsserver
 lspconfig.denols.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
+    -- Overrides default root_dir to omit `.git` to allow only enabling when
+    -- a project is specifically for deno
+    -- This avoids weird behaviour when dealing with a node based project
     root_dir = lspconfig.util.root_pattern('deno.json','deno.jsonc')
   }
 }
@@ -272,6 +249,19 @@ lspconfig.yamlls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+
+-- local rt = require("rust-tools")
+--
+-- rt.setup({
+--   server = {
+--     on_attach = function(_, bufnr)
+--       -- Hover actions
+--       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
+--       -- Code action groups
+--       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
+--     end,
+--   },
+-- })
 
 -- Null-ls
 local null_ls = require("null-ls")
