@@ -331,7 +331,7 @@ vim.keymap.set("n", "<leader>sF", telescope.find_files, { noremap = true, silent
 vim.keymap.set("n", "<leader>sf", function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
   { noremap = true, silent = true, desc = "Find Files(Hidden)", })
 vim.keymap.set("n", "<leader>st", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
-vim.keymap.set("n", "<leader>sT", require('telescope').extensions.live_grep_args.live_grep_args,
+vim.keymap.set("n", "<leader>sT", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Find Text (Raw)", })
 vim.keymap.set("n", "<leader>bf", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>vf", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })

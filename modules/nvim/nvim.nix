@@ -11,7 +11,6 @@ in
     vimAlias = true;
     withPython3 = true;
     withNodeJs = true;
-    package = pkgs.neovim-unwrapped;
     plugins = with pkgs.vimPlugins; [
         #Vim plugins
         nvim-lspconfig
@@ -23,7 +22,7 @@ in
         # DAPInstall
         telescope-nvim
         plenary-nvim
-        # live-grep-raw
+        telescope-live-grep-args-nvim
         telescope-fzf-native-nvim
         # rust-tools-nvim
         # folke/lua-dev
@@ -34,7 +33,7 @@ in
         tokyonight-nvim
         catppuccin-nvim
         # other
-        gitsigns-nvim
+        #gitsigns-nvim
         which-key-nvim
         bufferline-nvim
         nvim-cmp
@@ -58,6 +57,7 @@ in
         vim-surround
         # vim-doge
         # Custom built
+        customVimPlugins.gitsigns
         customVimPlugins.mason-nvim
         customVimPlugins.mason-lspconfig
       ];

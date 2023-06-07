@@ -1,15 +1,28 @@
 {
+    "gitsigns-nvim": {
+        "branch": "main",
+        "description": "Git integration for buffers",
+        "homepage": "",
+        "owner": "lewis6991",
+        "repo": "gitsigns.nvim",
+        "rev": "f868d82a36f7f7f5e110eb0a9659993984f59875",
+        "sha256": "1pbrm7y6z1b96yy8v9chn69jfbznlzrkygp802cb4946snnb5dj7",
+        "type": "tarball",
+        "url": "https://github.com/lewis6991/gitsigns.nvim/archive/f868d82a36f7f7f5e110eb0a9659993984f59875.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "home-manager": {
-        "branch": "master",
+        "branch": "release-23.05",
         "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
         "homepage": "https://nix-community.github.io/home-manager/",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "28614ed7a1e3ace824c122237bdc0e5e0b62c5c3",
-        "sha256": "0mlzfgp2v2kibn5p60aw2mdbwh6ymy2xqlpwafg85krv2xk4r941",
+        "rev": "93db05480c0c0f30382d3e80779e8386dcb4f9dd",
+        "sha256": "1ixy1bi21nq0dlfzpn72k1gjdm8aq7h84wvl1ysff7lmqc4gi1jf",
         "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/28614ed7a1e3ace824c122237bdc0e5e0b62c5c3.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+        "url": "https://github.com/nix-community/home-manager/archive/93db05480c0c0f30382d3e80779e8386dcb4f9dd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
+        "version": "release-23.05"
     },
     "mason": {
         "branch": "main",

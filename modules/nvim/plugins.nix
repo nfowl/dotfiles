@@ -12,6 +12,13 @@ let sources = import ../../nix/sources.nix; in
       version = "main";
       src = sources.mason-lspconfig;
     };
+
+
+    gitsigns = pkgs.vimUtils.buildVimPluginFrom2Nix {
+      pname = "gitsigns.nvim";
+      version = "main";
+      src = sources.gitsigns-nvim;
+    };
     
     tree-sitter-cloudflare = pkgs.callPackage
       (sources.nixpkgs + /pkgs/development/tools/parsing/tree-sitter/grammar.nix) {} {
