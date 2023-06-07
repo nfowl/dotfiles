@@ -95,5 +95,41 @@
         "type": "tarball",
         "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/c7d06151dc514ca3b2364d66182ce7ac7ede0205.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-autosuggestions": {
+        "branch": "master",
+        "description": "Fish-like autosuggestions for zsh",
+        "homepage": null,
+        "owner": "zsh-users",
+        "repo": "zsh-autosuggestions",
+        "rev": "a411ef3e0992d4839f0732ebeb9823024afaaaa8",
+        "sha256": "1g3pij5qn2j7v7jjac2a63lxd97mcsgw6xq6k5p7835q9fjiid98",
+        "type": "tarball",
+        "url": "https://github.com/zsh-users/zsh-autosuggestions/archive/a411ef3e0992d4839f0732ebeb9823024afaaaa8.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-completions": {
+        "branch": "master",
+        "description": "Additional completion definitions for Zsh.",
+        "homepage": "",
+        "owner": "zsh-users",
+        "repo": "zsh-completions",
+        "rev": "66c4b6fe720fc34bd18dbb879aa005fc7352c65b",
+        "sha256": "1s4wqsgr411dzvyrh95g1n9l09ndwk47ynbnzsxlwmlqy6g1cimy",
+        "type": "tarball",
+        "url": "https://github.com/zsh-users/zsh-completions/archive/66c4b6fe720fc34bd18dbb879aa005fc7352c65b.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-syntax-highlighting": {
+        "branch": "master",
+        "description": "Fish shell like syntax highlighting for Zsh.",
+        "homepage": "github.com/zsh-users/zsh-syntax-highlighting",
+        "owner": "zsh-users",
+        "repo": "zsh-syntax-highlighting",
+        "rev": "1386f1213eb0b0589d73cd3cf7c56e6a972a9bfd",
+        "sha256": "0a39xfwxdq8zmzw8s40fvham7689am1icn03lhdj1882qjb7pb48",
+        "type": "tarball",
+        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/1386f1213eb0b0589d73cd3cf7c56e6a972a9bfd.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

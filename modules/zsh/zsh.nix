@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  sources = (import ../../nix/sources.nix);
+in
 {
   # home.file.".zsh_plugins.txt".source = ./.zsh_plugins.txt;
   home.file.".zkbd/xterm-256color-apple-darwin20.0".source = ./.zkbd/xterm-256color-apple-darwin20.0;
@@ -7,31 +9,41 @@
 
   programs.zsh = {
     enable = true;
-    zplug = {
+    oh-my-zsh = {
       enable = true;
       plugins = [
-        { name = "ohmyzsh/ohmyzsh path:plugins/docker"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/docker-compose"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/git"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/kube-ps1"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/pip"; }
-        { name = "# Was failing on WSL (DEBUG LATER)"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/python"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/golang"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/rust"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/fzf"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/npm"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/sudo"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/bazel"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/aws"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/mvn"; }
-        { name = "ohmyzsh/ohmyzsh path:plugins/terraform"; }
-        { name = "zsh-users/zsh-syntax-highlighting"; }
-        { name = "zsh-users/zsh-autosuggestions"; }
-        { name = "zsh-users/zsh-completions"; }
+        "docker"
+        "docker-compose"
+        "git"
+        "kube-ps1"
+        "pip"
+        "python"
+        "golang"
+        "rust"
+        "fzf"
+        "npm"
+        "zsh-interactive-cd"
+        "sudo"
+        "bazel"
+        "aws"
+        "mvn"
+        "terraform"
       ];
     };
+    plugins = [
+      {
+        name = "zsh-autosuggestions";
+        src = sources.zsh-autosuggestions; 
+      }
+      {
+        name = "zsh-syntax-highlighting";
+        src = sources.zsh-syntax-highlighting; 
+      }
+      {
+        name = "zsh-completions";
+        src = sources.zsh-completions; 
+      }
+    ];
     # defaultKeymap = "vicmd";
     history = {
       save = 50000;
@@ -58,9 +70,6 @@
       unsetopt beep
       ${builtins.readFile ./zkbd.sh}
       
-      # source <(antibody init)
-      # antibody bundle < ~/.zsh_plugins.txt
-
       if [ -f $HOME/.zshrc_private ]; then
        source $HOME/.zshrc_private
       fi

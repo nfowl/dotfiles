@@ -48,9 +48,6 @@
     # nodejs-18_x
     # rustup
     # terraform
-  ] ++ lib.optionals stdenv.isLinux [
-    # TODO(nfowl): Migrate off this due to deprecation 
-    antibody
   ];
 
   imports = [
