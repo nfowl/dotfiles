@@ -1,12 +1,37 @@
 { config, pkgs, ... }:
 
 {
-  home.file.".zsh_plugins.txt".source = ./.zsh_plugins.txt;
+  # home.file.".zsh_plugins.txt".source = ./.zsh_plugins.txt;
   home.file.".zkbd/xterm-256color-apple-darwin20.0".source = ./.zkbd/xterm-256color-apple-darwin20.0;
   home.file.".zkbd/xterm-256color-ubuntu-linux-gnu".source = ./.zkbd/xterm-256color-ubuntu-linux-gnu;
 
   programs.zsh = {
     enable = true;
+    zplug = {
+      enable = true;
+      plugins = [
+        { name = "ohmyzsh/ohmyzsh path:plugins/docker"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/docker-compose"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/git"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/kube-ps1"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/pip"; }
+        { name = "# Was failing on WSL (DEBUG LATER)"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/python"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/golang"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/rust"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/fzf"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/npm"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/zsh-interactive-cd"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/sudo"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/bazel"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/aws"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/mvn"; }
+        { name = "ohmyzsh/ohmyzsh path:plugins/terraform"; }
+        { name = "zsh-users/zsh-syntax-highlighting"; }
+        { name = "zsh-users/zsh-autosuggestions"; }
+        { name = "zsh-users/zsh-completions"; }
+      ];
+    };
     # defaultKeymap = "vicmd";
     history = {
       save = 50000;
