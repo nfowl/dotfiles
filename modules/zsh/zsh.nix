@@ -58,8 +58,8 @@
       unsetopt beep
       ${builtins.readFile ./zkbd.sh}
       
-      source <(antibody init)
-      antibody bundle < ~/.zsh_plugins.txt
+      # source <(antibody init)
+      # antibody bundle < ~/.zsh_plugins.txt
 
       if [ -f $HOME/.zshrc_private ]; then
        source $HOME/.zshrc_private
