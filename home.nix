@@ -40,6 +40,12 @@
     unzip
     zoxide
     zsh
+  ] ++ (lib.optionals isDarwin [
+    # Install specific programming helpers for work lappy
+    black
+    pylint
+    eslint
+  ]);
     # Languages/Runtimes
     # clang
     # gcc
