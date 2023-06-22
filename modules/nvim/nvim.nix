@@ -16,6 +16,7 @@ in
         nvim-lspconfig
         cmp-nvim-lsp
         null-ls-nvim
+        # TODO(nfowl): One day go back and fix this to avoid installing everything
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects
         nvim-dap
@@ -24,6 +25,7 @@ in
         plenary-nvim
         telescope-live-grep-args-nvim
         telescope-fzf-native-nvim
+        # TODO(nfowl): Fix rust development setup to get this to function
         # rust-tools-nvim
         # folke/lua-dev
         luasnip
@@ -33,7 +35,8 @@ in
         tokyonight-nvim
         catppuccin-nvim
         # other
-        #gitsigns-nvim
+        # gitsigns is built manually as current nixpkgs is broken due to nixattrs on old versions of nix
+        # gitsigns-nvim
         which-key-nvim
         bufferline-nvim
         nvim-cmp
@@ -56,10 +59,12 @@ in
         open-browser-github-vim
         vim-surround
         # vim-doge
+        mason-nvim
+        mason-lspconfig-nvim
         # Custom built
         customVimPlugins.gitsigns
-        customVimPlugins.mason-nvim
-        customVimPlugins.mason-lspconfig
+        # customVimPlugins.mason-nvim
+        # customVimPlugins.mason-lspconfig
       ];
       extraConfig = ''
         lua << EOF

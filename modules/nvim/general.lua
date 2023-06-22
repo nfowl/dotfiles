@@ -107,7 +107,7 @@ vim.filetype.add({
 --- LSP config
 require("mason").setup()
 require("mason-lspconfig").setup({
-  automatic_installation = true,
+  automatic_installation = { exclude = { "rnix-lsp", "rnix" }},
 })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, key_opts)

@@ -40,11 +40,12 @@
     unzip
     zoxide
     zsh
-  ] ++ (lib.optionals isDarwin [
+  ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
+    # 
     black
     pylint
-    eslint
+    rnix-lsp
   ]);
     # Languages/Runtimes
     # clang
@@ -54,7 +55,7 @@
     # nodejs-18_x
     # rustup
     # terraform
-  ];
+  # ];
 
   imports = [
     ./modules/zsh/zsh.nix
