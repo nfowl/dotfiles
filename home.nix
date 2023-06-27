@@ -44,6 +44,7 @@
     # Install specific programming helpers for work lappy
     # 
     black
+    isort
     pylint
     rnix-lsp
   ]);
