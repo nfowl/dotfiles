@@ -47,6 +47,7 @@
     isort
     pylint
     rnix-lsp
+    bazel-buildtools
   ]);
     # Languages/Runtimes
     # clang
