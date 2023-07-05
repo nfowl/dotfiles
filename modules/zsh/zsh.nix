@@ -43,8 +43,12 @@ in
         name = "zsh-completions";
         src = sources.zsh-completions; 
       }
+      {
+        name = "zsh-vi-mode";
+        src = sources.zsh-vi-mode;
+      }
     ];
-    # defaultKeymap = "vicmd";
+    defaultKeymap = "vicmd";
     history = {
       save = 50000;
     };

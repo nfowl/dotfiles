@@ -131,5 +131,17 @@
         "type": "tarball",
         "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/1386f1213eb0b0589d73cd3cf7c56e6a972a9bfd.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
+    "zsh-vi-mode": {
+        "branch": "master",
+        "description": "💻 A better and friendly vi(vim) mode plugin for ZSH.",
+        "homepage": "",
+        "owner": "jeffreytse",
+        "repo": "zsh-vi-mode",
+        "rev": "c4fc3a60d0c8ca9f435dd0e28cdc6ec42c4b7ad8",
+        "sha256": "100ss8vzr5fa6z5wj1pniic9zj2kr676g0c4axf82ym60zydlggb",
+        "type": "tarball",
+        "url": "https://github.com/jeffreytse/zsh-vi-mode/archive/c4fc3a60d0c8ca9f435dd0e28cdc6ec42c4b7ad8.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }
