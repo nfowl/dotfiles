@@ -48,6 +48,9 @@
     pylint
     rnix-lsp
     bazel-buildtools
+    nodePackages.prettier
+    nodePackages.eslint
+    terraform
   ]);
     # Languages/Runtimes
     # clang
