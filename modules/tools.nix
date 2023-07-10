@@ -9,6 +9,12 @@
   
   home.file.".fdignore".source = ./.fdignore;
   home.file.".ideavimrc".source = ./.ideavimrc;
+  xdg.configFile."fzf/fzf.zsh".source = "${pkgs.fzf}/share/fzf/key-bindings.zsh";
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
 
   programs.bat = {
     enable = true;

@@ -87,6 +87,7 @@ in
           git checkout $branch
         fi
       }
+      zvm_after_init_commands+=('[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh')
     '';
     envExtra = ''
       # Export Language Settings
