@@ -51,6 +51,7 @@
     nodePackages.prettier
     nodePackages.eslint
     terraform
+    tflint
   ]);
     # Languages/Runtimes
     # clang

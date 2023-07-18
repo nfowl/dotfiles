@@ -82,7 +82,7 @@ in
         if [ -z "$(git rev-parse --git-dir 2> /dev/null)" ]; then
           return
         fi 
-        branch=$(git branch --verbose --sort=committerdate | fzf | awk '{print $1}' | tr -d '[:space:]')
+        branch=$(git branch --verbose --sort=-committerdate | fzf | awk '{print $1}' | tr -d '[:space:]')
         if [[ ! -z "$branch" ]]; then
           git checkout $branch
         fi
