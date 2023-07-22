@@ -202,11 +202,11 @@ lspconfig.marksman.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-lspconfig.pyright.setup {
+lspconfig.nil_ls.setup {
   on_attach = on_attach,
-  capabilities = capabilities,
+  capabilities = capabilities
 }
-lspconfig.rnix.setup {
+lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }

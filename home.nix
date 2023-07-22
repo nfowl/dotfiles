@@ -30,6 +30,7 @@
     k9s
     kubectl
     mtr
+    nil
     niv
     nix-prefetch-git
     nix-prefetch-github
@@ -46,7 +47,6 @@
     black
     isort
     pylint
-    rnix-lsp
     bazel-buildtools
     nodePackages.prettier
     nodePackages.eslint
