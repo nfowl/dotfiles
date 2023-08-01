@@ -35,7 +35,6 @@
     nix-prefetch-git
     nix-prefetch-github
     ripgrep
-    rust-analyzer
     spicetify-cli
     starship
     tmux
