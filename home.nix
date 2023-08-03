@@ -18,6 +18,7 @@
     #Tools
     age
     bat
+    curl
     delta
     exa
     fd
@@ -25,6 +26,7 @@
     fzf
     glow
     gnumake
+    helix
     htop
     jq
     k9s

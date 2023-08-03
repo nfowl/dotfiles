@@ -12,46 +12,44 @@
   };
 
   outputs = { nixpkgs, home-manager, flake-utils, ... }:
-    flake-utils.lib.eachDefaultSystem(system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-        };
-      in {
-        homeConfigurations.personal = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
+    let
+      system = "x86_64-linux";
+      pkgs = import nixpkgs {
+        inherit system;
+      };
+    in {
+      homeConfigurations.personal = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./personal.nix
-          ];
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          ./personal.nix
+        ];
 
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-        };
-        homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-
-
-          # Specify your home configuration modules here, for example,
-          # the path to your home.nix.
-          modules = [
-            ./work.nix
-          ];
-
-          # Optionally use extraSpecialArgs
-          # to pass through arguments to home.nix
-        };
-        devShells.default = pkgs.mkShell {
-          buildInputs = [
-            pkgs.bash
-            pkgs.niv
-            pkgs.nix
-            pkgs.jq
-            pkgs.home-manager
-          ];
-        };
-      }
-    );
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
+      # packages.${system}.homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
+      #   inherit system pkgs;
+      #
+      #
+      #   # Specify your home configuration modules here, for example,
+      #   # the path to your home.nix.
+      #   modules = [
+      #     ./work.nix
+      #   ];
+      #
+      #   # Optionally use extraSpecialArgs
+      #   # to pass through arguments to home.nix
+      # };
+      devShells.${system}.default = pkgs.mkShell {
+        buildInputs = [
+          pkgs.niv
+          pkgs.nix
+          pkgs.jq
+          pkgs.home-manager
+        ];
+      };
+    };
 }
