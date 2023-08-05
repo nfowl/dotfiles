@@ -26,7 +26,7 @@
     fzf
     glow
     gnumake
-    helix
+    # helix
     htop
     jq
     k9s
@@ -68,6 +68,7 @@
   imports = [
     ./modules/zsh/zsh.nix
     ./modules/nvim/nvim.nix
+    ./modules/helix.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix

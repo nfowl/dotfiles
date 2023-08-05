@@ -13,7 +13,6 @@ let sources = import ../../nix/sources.nix; in
       src = sources.mason-lspconfig;
     };
 
-
     gitsigns = pkgs.vimUtils.buildVimPluginFrom2Nix {
       pname = "gitsigns.nvim";
       version = "main";
