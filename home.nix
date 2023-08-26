@@ -18,6 +18,7 @@
     #Tools
     age
     bat
+    btop
     curl
     delta
     exa
@@ -41,15 +42,16 @@
     starship
     tmux
     unzip
+    yq
     zoxide
     zsh
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
-    # 
     black
     isort
     pylint
     bazel-buildtools
+    go_1_19
     nodePackages.prettier
     nodePackages.eslint
     terraform
@@ -68,7 +70,7 @@
   imports = [
     ./modules/zsh/zsh.nix
     ./modules/nvim/nvim.nix
-    # ./modules/helix.nix
+    ./modules/helix.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix

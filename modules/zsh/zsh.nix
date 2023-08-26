@@ -3,7 +3,6 @@ let
   sources = (import ../../nix/sources.nix);
 in
 {
-  # home.file.".zsh_plugins.txt".source = ./.zsh_plugins.txt;
   home.file.".zkbd/xterm-256color-apple-darwin20.0".source = ./.zkbd/xterm-256color-apple-darwin20.0;
   home.file.".zkbd/xterm-256color-ubuntu-linux-gnu".source = ./.zkbd/xterm-256color-ubuntu-linux-gnu;
 
