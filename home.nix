@@ -33,6 +33,7 @@
     k9s
     kubectl
     mtr
+    nghttp2
     nil
     niv
     nix-prefetch-git
