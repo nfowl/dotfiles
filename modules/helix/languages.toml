@@ -1,4 +1,4 @@
 [[grammar]]
 name = "cloudflare"
-source = { git = "https://github.com/nfowl/tree-sitter-cloudflare" rev= "509f98468da23b7fc47b2ccf4dd70301f9a93823" }
+source = { git = "https://github.com/nfowl/tree-sitter-cloudflare", rev= "509f98468da23b7fc47b2ccf4dd70301f9a93823" }
 

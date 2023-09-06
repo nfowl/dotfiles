@@ -21,6 +21,7 @@
     btop
     curl
     delta
+    difftastic
     exa
     fd
     fluxcd
@@ -32,6 +33,7 @@
     jq
     k9s
     kubectl
+    mkcert
     mtr
     nghttp2
     nil
