@@ -93,9 +93,10 @@ in
       export LANGUAGE=en_US.UTF-8
       export LANG=en_US.UTF-8
       export LC_ALL=en_US.UTF-8
+      export COLORTERM=truecolor
 
       ##### EXPORTS
-      export EDITOR="vim"
+      export EDITOR="hx"
       export ZSH_CACHE_DIR="$HOME/.zsh/cache"
       export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
       export FZF_DEFAULT_COMMAND='fd --type file --hidden'

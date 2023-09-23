@@ -10,4 +10,4 @@ file-types = ["cfrule"]
 comment-token = "#"
 grammar = "cloudflare"
 roots = [""]
-# diagnostic-severity = "Hint"
+diagnostic-severity = "Hint"
