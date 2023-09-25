@@ -18,6 +18,7 @@
     #Tools
     age
     bat
+    bottom
     btop
     curl
     delta
@@ -30,6 +31,7 @@
     gnumake
     helix
     htop
+    hyperfine
     jq
     k9s
     kubectl
@@ -54,7 +56,6 @@
     isort
     pylint
     bazel-buildtools
-    go_1_19
     nodePackages.prettier
     nodePackages.eslint
     terraform
