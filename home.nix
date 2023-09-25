@@ -38,7 +38,6 @@
     mkcert
     mtr
     nghttp2
-    nil
     niv
     nix-prefetch-git
     nix-prefetch-github
@@ -50,6 +49,15 @@
     yq
     zoxide
     zsh
+    # Language Servers
+    # Kept to the generic languages to avoid polluting overall
+    # state with various languages
+    nil
+    efm-langserver
+    taplo
+    nodePackages.bash-language-server
+    nodePackages.yaml-language-server
+    nodePackages.dockerfile-language-server-nodejs
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
     black
@@ -59,6 +67,7 @@
     nodePackages.prettier
     nodePackages.eslint
     terraform
+    terraform-ls
     tflint
   ]);
     # Languages/Runtimes
