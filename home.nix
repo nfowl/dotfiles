@@ -47,6 +47,7 @@
     tmux
     unzip
     yq
+    zellij
     zoxide
     zsh
     # Language Servers
@@ -60,6 +61,7 @@
     nodePackages.dockerfile-language-server-nodejs
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
+    # Too lazy to setup overall nix shells
     black
     isort
     pylint
@@ -69,6 +71,9 @@
     terraform
     terraform-ls
     tflint
+    nodePackages.pyright
+    nodePackages.typescript-language-server
+    gopls
   ]);
     # Languages/Runtimes
     # clang

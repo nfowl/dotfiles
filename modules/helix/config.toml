@@ -13,6 +13,6 @@ select = "underline"
 [editor.indent-guides]
 render = true
 
-[keys.normal]
-space-f = "file_picker_in_current_directory"
-space-F = "file_picker"
+[keys.normal.space]
+f = "file_picker_in_current_directory"
+F = "file_picker"

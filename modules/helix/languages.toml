@@ -11,3 +11,8 @@ comment-token = "#"
 grammar = "cloudflare"
 roots = [""]
 diagnostic-severity = "Hint"
+
+[[language]]
+name = "python"
+roots = ["pyproject.toml", "setup.py", "poetry.lock", "pyrightconfig.json",".git"]
+language-server = { command = "pyright-langserver", args = ["--stdio"]}
