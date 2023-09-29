@@ -30,19 +30,18 @@
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
       };
-      # packages.${system}.homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-      #   inherit system pkgs;
-      #
-      #
-      #   # Specify your home configuration modules here, for example,
-      #   # the path to your home.nix.
-      #   modules = [
-      #     ./work.nix
-      #   ];
-      #
-      #   # Optionally use extraSpecialArgs
-      #   # to pass through arguments to home.nix
-      # };
+      homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+      
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          ./work.nix
+        ];
+     
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+      };
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           pkgs.niv
