@@ -31,7 +31,9 @@
         # to pass through arguments to home.nix
       };
       homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
+        pkgs = import nixpkgs {
+          system = "aarch64-darwin";
+        };
       
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.

@@ -8,6 +8,7 @@
       ui.pane_frames.hide_session_name=true;
       default_layout = "compact";
       simplified_ui = true;
+      mouse_mode = false;
       theme = "catppuccin-macchiato";
       # themes.tokyonight = {
       #   fg=169 177 214;
