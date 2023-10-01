@@ -96,7 +96,6 @@ in
       export COLORTERM=truecolor
 
       ##### EXPORTS
-      export EDITOR="hx"
       export ZSH_CACHE_DIR="$HOME/.zsh/cache"
       export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
       export FZF_DEFAULT_COMMAND='fd --type file --hidden'

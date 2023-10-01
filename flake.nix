@@ -9,48 +9,39 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-utils.url = "github:numtide/flake-utils";
+    helix = {
+      url = "github:helix-editor/helix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-utils.follows = "flake-utils";
+    };
   };
 
-  outputs = { nixpkgs, home-manager, flake-utils, ... }:
-    let
-      system = "x86_64-linux";
+  outputs = { nixpkgs, helix, home-manager, flake-utils, ... } @ inputs:
+  let
+    mkHomeConfig = machineModule: system: home-manager.lib.homeManagerConfiguration {
       pkgs = import nixpkgs {
         inherit system;
       };
-    in {
-      homeConfigurations.personal = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
 
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./personal.nix
-        ];
+      modules = [
+        machineModule
+      ];
 
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
-      homeConfigurations.work = home-manager.lib.homeManagerConfiguration {
-        pkgs = import nixpkgs {
-          system = "aarch64-darwin";
-        };
-      
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          ./work.nix
-        ];
-     
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-      };
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.niv
-          pkgs.nix
-          pkgs.jq
-          pkgs.home-manager
-        ];
+      extraSpecialArgs = {
+        inherit inputs system;
       };
     };
+  in
+  {
+    homeConfigurations.personal = mkHomeConfig ./personal.nix "x86_64-linux";
+    homeConfigurations.work = mkHomeConfig ./work.nix "aarch64-darwin";
+    # devShells.${system}.default = pkgs.mkShell {
+    #   buildInputs = [
+    #     pkgs.niv
+    #     pkgs.nix
+    #     pkgs.jq
+    #     pkgs.home-manager
+    #   ];
+    # };
+  };
 }

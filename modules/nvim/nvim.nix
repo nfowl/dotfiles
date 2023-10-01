@@ -63,8 +63,6 @@ in
         mason-lspconfig-nvim
         # Custom built
         customVimPlugins.gitsigns
-        # customVimPlugins.mason-nvim
-        # customVimPlugins.mason-lspconfig
       ];
       extraConfig = ''
         lua << EOF

@@ -29,7 +29,6 @@
     fzf
     glow
     gnumake
-    helix
     htop
     hyperfine
     jq
@@ -58,12 +57,13 @@
     taplo
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
+    nodePackages.pyright
     nodePackages.dockerfile-language-server-nodejs
+    black
+    isort
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
     # Too lazy to setup overall nix shells
-    black
-    isort
     pylint
     bazel-buildtools
     nodePackages.prettier
@@ -71,7 +71,6 @@
     terraform
     terraform-ls
     tflint
-    nodePackages.pyright
     nodePackages.typescript-language-server
     gopls
   ]);
