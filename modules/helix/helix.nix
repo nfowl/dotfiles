@@ -26,6 +26,7 @@ in
           select = "underline";
         };
         indent-guides.render = true;
+        soft-wrap.enable = true;
       };
 
       keys = {
@@ -33,6 +34,7 @@ in
           space = {
             f = "file_picker_in_current_directory";
             F = "file_picker";
+            i = ":toggle-option lsp.display-inlay-hints";
           };
         };
       };
