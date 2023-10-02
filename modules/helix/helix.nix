@@ -6,8 +6,8 @@ in
   imports = [
     ./languages/python.nix
     ./languages/cloudflare.nix
-  #   ./languages/webdev.nix
-  #   ./languages/general.nix
+    ./languages/webdev.nix
+    ./languages/generic.nix
   ];
   
   programs.helix = {

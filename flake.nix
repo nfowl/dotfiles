@@ -35,13 +35,5 @@
   {
     homeConfigurations.personal = mkHomeConfig ./personal.nix "x86_64-linux";
     homeConfigurations.work = mkHomeConfig ./work.nix "aarch64-darwin";
-    # devShells.${system}.default = pkgs.mkShell {
-    #   buildInputs = [
-    #     pkgs.niv
-    #     pkgs.nix
-    #     pkgs.jq
-    #     pkgs.home-manager
-    #   ];
-    # };
   };
 }

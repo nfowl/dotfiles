@@ -52,6 +52,7 @@
     # Language Servers
     # Kept to the generic languages to avoid polluting overall
     # state with various languages
+    # TODO(nfowl): Work out how many of these should stay here
     nil
     efm-langserver
     taplo
@@ -59,6 +60,12 @@
     nodePackages.yaml-language-server
     nodePackages.pyright
     nodePackages.dockerfile-language-server-nodejs
+    nodePackages.vscode-langservers-extracted
+    nodePackages.typescript-language-server
+    nodePackages.prettier
+    nodePackages.eslint
+    marksman
+    clang-tools
     black
     isort
   ] ++ (lib.optionals stdenv.isDarwin [
@@ -66,12 +73,9 @@
     # Too lazy to setup overall nix shells
     pylint
     bazel-buildtools
-    nodePackages.prettier
-    nodePackages.eslint
     terraform
     terraform-ls
     tflint
-    nodePackages.typescript-language-server
     gopls
   ]);
     # Languages/Runtimes
@@ -85,11 +89,12 @@
   # ];
 
   imports = [
-    ./modules/zsh/zsh.nix
-    ./modules/nvim/nvim.nix
-    ./modules/helix/helix.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix
+    ./modules/zellij.nix
+    ./modules/helix/helix.nix
+    ./modules/nvim/nvim.nix
+    ./modules/zsh/zsh.nix
   ];
 }
