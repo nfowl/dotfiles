@@ -6,25 +6,25 @@
         name = "typescript";
         auto-format = true;
         language-servers = [
-          "efm-prettier"
+          { name = "efm-prettier"; only-features = [ "format" ]; }
           { name = "typescript-language-server"; except-features = [ "format" ]; }
-          { name = "eslint"; except-features = [ "format" ]; }
+          # { name = "eslint"; except-features = [ "format" ]; }
         ];
       }
       {
         name = "javascript";
         auto-format = true;
         language-servers = [
-          "efm-prettier"
+          { name = "efm-prettier"; only-features = [ "format" ]; }
           { name = "typescript-language-server"; except-features = [ "format" ]; }
-          { name = "eslint"; except-features = [ "format" ]; }
+          # { name = "eslint"; except-features = [ "format" ]; }
         ];
       }
       {
         name = "html";
         auto-format = true;
         language-servers = [
-          "efm-prettier"
+          { name = "efm-prettier"; only-features = [ "format" ]; }
           "vscode-html-language-server"
         ];
       }
@@ -32,7 +32,7 @@
         name = "css";
         auto-format = true;
         language-servers = [
-          "efm-prettier"
+          { name = "efm-prettier"; only-features = [ "format" ]; }
           "vscode-css-language-server"
         ];
       }
