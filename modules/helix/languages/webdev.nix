@@ -8,7 +8,7 @@
         language-servers = [
           { name = "efm-prettier"; only-features = [ "format" ]; }
           { name = "typescript-language-server"; except-features = [ "format" ]; }
-          # { name = "eslint"; except-features = [ "format" ]; }
+          { name = "eslint"; except-features = [ "format" ]; }
         ];
       }
       {
@@ -17,7 +17,7 @@
         language-servers = [
           { name = "efm-prettier"; only-features = [ "format" ]; }
           { name = "typescript-language-server"; except-features = [ "format" ]; }
-          # { name = "eslint"; except-features = [ "format" ]; }
+          { name = "eslint"; except-features = [ "format" ]; }
         ];
       }
       {
@@ -44,6 +44,16 @@
 				args = ["--stdio"];
 				config = { 
 					format = true;
+          nodePath = "";
+          experimental.useFlatConfig = false;
+          workingDirectory.mode = "location";
+          codeAction = {
+            disableRuleComment = {
+              enable = true;
+              location = "separateLine";
+            };
+            showDocumentation.enable = true;
+          };
 				};
 			};
 	    vscode-css-language-server.config.provideFormatter = false;

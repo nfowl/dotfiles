@@ -17,6 +17,7 @@
   home.packages = with pkgs; [
     #Tools
     age
+    ast-grep
     bat
     bottom
     btop

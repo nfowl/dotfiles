@@ -8,7 +8,11 @@
       ui.pane_frames.hide_session_name=true;
       default_layout = "compact";
       simplified_ui = true;
-      mouse_mode = false;
+      mouse_mode = true;
+      copy_on_select = true;
+      keybinds = {
+        unbind = ["Ctrl o"];
+      };
       theme = "catppuccin-macchiato";
       # themes.tokyonight = {
       #   fg=169 177 214;
