@@ -93,7 +93,6 @@
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix
-    ./modules/zellij.nix
     ./modules/helix/helix.nix
     ./modules/nvim/nvim.nix
     ./modules/zsh/zsh.nix

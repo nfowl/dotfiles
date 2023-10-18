@@ -10,8 +10,14 @@
   home.file.".fdignore".source = ./.fdignore;
   home.file.".ideavimrc".source = ./.ideavimrc;
   xdg.configFile."fzf/fzf.zsh".source = "${pkgs.fzf}/share/fzf/key-bindings.zsh";
+  xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 
   programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
+  programs.zellij = {
     enable = true;
     enableZshIntegration = true;
   };

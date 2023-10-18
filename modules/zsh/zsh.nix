@@ -47,7 +47,7 @@ in
         src = sources.zsh-vi-mode;
       }
     ];
-    defaultKeymap = "vicmd";
+    # defaultKeymap = "vicmd";
     history = {
       save = 50000;
     };
