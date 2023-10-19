@@ -16,7 +16,7 @@
 			name = "cloudflare";
 			source = {
 				git = "https://github.com/nfowl/tree-sitter-cloudflare";
-				rev = "9576929a5069a2207a8dbb2243b9824d22baa707";
+				rev = "6615e95bcbf449b48605ec92bd78b1a440792e2d";
 			};
 		}];
 	};

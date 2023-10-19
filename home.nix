@@ -22,6 +22,7 @@
     bottom
     btop
     curl
+    cloudflared
     delta
     difftastic
     exa
