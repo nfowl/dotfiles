@@ -1,19 +1,19 @@
 { pkgs, ... }:
 let sources = import ../../nix/sources.nix; in 
 {
-    mason-nvim = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    mason-nvim = pkgs.vimUtils.buildVimPlugin {
       pname = "mason.nvim";
       version = "main";
       src = sources.mason;
     };
 
-    mason-lspconfig = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    mason-lspconfig = pkgs.vimUtils.buildVimPlugin {
       pname = "mason-lspconfig.nvim";
       version = "main";
       src = sources.mason-lspconfig;
     };
 
-    gitsigns = pkgs.vimUtils.buildVimPluginFrom2Nix {
+    gitsigns = pkgs.vimUtils.buildVimPlugin {
       pname = "gitsigns.nvim";
       version = "main";
       src = sources.gitsigns-nvim;
@@ -22,7 +22,7 @@ let sources = import ../../nix/sources.nix; in
     tree-sitter-cloudflare = pkgs.callPackage
       (sources.nixpkgs + /pkgs/development/tools/parsing/tree-sitter/grammar.nix) {} {
       language = "cloudflare";
-      version = "0.1.0";
+      version = "main";
       source = sources.tree-sitter-cloudflare;
     };
 }

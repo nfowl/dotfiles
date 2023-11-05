@@ -6,11 +6,14 @@ vim.opt.termguicolors = true
 vim.cmd.colorscheme "tokyonight"
 
 -- General config
+-- Default tab settings 
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
+-- Show both absolute line and relative
 vim.opt.relativenumber = true
 vim.opt.number = true
+-- Show yank contents via highlight
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 local key_opts = { noremap = true, silent = true }
 -- vim.keymap.set("n",)
@@ -95,7 +98,49 @@ require("nvim-treesitter.configs").setup {
     custom_captures = {
       ["@error"] = "Error"
     }
-  }
+  },
+  textobjects = {
+    select = {
+      enable = true,
+
+      -- Automatically jump forward to textobj, similar to targets.vim
+      lookahead = true,
+
+      keymaps = {
+        -- You can use the capture groups defined in textobjects.scm
+        ["af"] = "@function.outer",
+        ["if"] = "@function.inner",
+        ["ac"] = "@class.outer",
+        -- You can optionally set descriptions to the mappings (used in the desc parameter of
+        -- nvim_buf_set_keymap) which plugins like which-key display
+        ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
+        -- You can also use captures from other query groups like `locals.scm`
+        ["as"] = { query = "@scope", query_group = "locals", desc = "Select language scope" },
+      },
+      -- You can choose the select mode (default is charwise 'v')
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * method: eg 'v' or 'o'
+      -- and should return the mode ('v', 'V', or '<c-v>') or a table
+      -- mapping query_strings to modes.
+      -- selection_modes = {
+      --   ['@parameter.outer'] = 'v', -- charwise
+      --   ['@function.outer'] = 'V', -- linewise
+      --   ['@class.outer'] = '<c-v>', -- blockwise
+      -- },
+      -- If you set this to `true` (default is `false`) then any textobject is
+      -- extended to include preceding or succeeding whitespace. Succeeding
+      -- whitespace has priority in order to act similarly to eg the built-in
+      -- `ap`.
+      --
+      -- Can also be a function which gets passed a table with the keys
+      -- * query_string: eg '@function.inner'
+      -- * selection_mode: eg 'v'
+      -- and should return true of false
+      include_surrounding_whitespace = true,
+    },
+  },
 }
 
 vim.filetype.add({
@@ -324,14 +369,11 @@ null_ls.setup({
 require("telescope").setup()
 require('telescope').load_extension('fzf')
 local telescope = require("telescope.builtin")
-vim.keymap.set("n", "<leader>f", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
-vim.keymap.set("n", "<leader>F", function() telescope.find_files({ hidden = true, }) end,
+vim.keymap.set("n", "<leader>F", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
+vim.keymap.set("n", "<leader>f", function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
   { noremap = true, silent = true, desc = "Find Files(Hidden)", })
-vim.keymap.set("n", "<leader>sF", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
-vim.keymap.set("n", "<leader>sf", function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
-  { noremap = true, silent = true, desc = "Find Files(Hidden)", })
-vim.keymap.set("n", "<leader>st", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
-vim.keymap.set("n", "<leader>sT", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
+vim.keymap.set("n", "<leader>t", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
+vim.keymap.set("n", "<leader>T", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Find Text (Raw)", })
 vim.keymap.set("n", "<leader>bf", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>vf", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })

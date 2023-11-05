@@ -90,10 +90,10 @@
         "homepage": null,
         "owner": "nfowl",
         "repo": "tree-sitter-cloudflare",
-        "rev": "9576929a5069a2207a8dbb2243b9824d22baa707",
-        "sha256": "0dqacilwpniq5m0dh9jvj166yx8xnm0l0350cx2dci4smlap6ahc",
+        "rev": "f22841693807f7534ba90782046bf86ed60aaa4a",
+        "sha256": "0ckl90pb7y67gl4aa3cb1nkhdmx2grba7r49sv6djy1p2aa8j61w",
         "type": "tarball",
-        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/9576929a5069a2207a8dbb2243b9824d22baa707.tar.gz",
+        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/f22841693807f7534ba90782046bf86ed60aaa4a.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-autosuggestions": {

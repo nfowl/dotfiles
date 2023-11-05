@@ -25,7 +25,7 @@
     cloudflared
     delta
     difftastic
-    exa
+    eza
     fd
     fluxcd
     fzf
