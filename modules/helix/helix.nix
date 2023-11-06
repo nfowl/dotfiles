@@ -34,6 +34,10 @@ in
           space = {
             f = "file_picker_in_current_directory";
             F = "file_picker";
+            t = {
+              i = ":toggle-option lsp.display-inlay-hints";
+              a = ":toggle-option auto-format";
+            };
             i = ":toggle-option lsp.display-inlay-hints";
           };
         };

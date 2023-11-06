@@ -12,8 +12,8 @@ keybinds {
         bind "7" { GoToTab 7; SwitchToMode "Normal"; }
         bind "8" { GoToTab 8; SwitchToMode "Normal"; }
         bind "9" { GoToTab 9; SwitchToMode "Normal"; }
-        bind "_" { NewPane "Down"; SwitchToMode "Normal"; }
-        bind "r" "|" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "d" "_" "-" { NewPane "Down"; SwitchToMode "Normal"; }
+        bind "r" "|" "\\"{ NewPane "Right"; SwitchToMode "Normal"; }
 		bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
 	}

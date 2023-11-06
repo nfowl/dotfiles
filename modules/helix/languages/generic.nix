@@ -21,7 +21,7 @@
 					documentFormatting = true;
 					languages.starlark = [
 						{
-							formatCommand = "buildifier";
+							formatCommand = "buildifier -d \${INPUT}";
 							formatStdin = true;
 						}
 					];

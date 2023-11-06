@@ -79,6 +79,7 @@
     terraform-ls
     tflint
     gopls
+    nodejs-18_x
   ]);
     # Languages/Runtimes
     # clang
