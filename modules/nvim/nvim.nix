@@ -36,8 +36,9 @@ in
         catppuccin-nvim
         # other
         # gitsigns is built manually as current nixpkgs is broken due to nixattrs on old versions of nix
-        # gitsigns-nvim
+        gitsigns-nvim
         which-key-nvim
+        flash-nvim
         bufferline-nvim
         nvim-cmp
         cmp-emoji
@@ -62,7 +63,7 @@ in
         mason-nvim
         mason-lspconfig-nvim
         # Custom built
-        customVimPlugins.gitsigns
+        # customVimPlugins.gitsigns
       ];
       extraConfig = ''
         lua << EOF

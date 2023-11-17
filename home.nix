@@ -10,7 +10,7 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "23.05";
-
+  nixpkgs.config.allowUnfreePredicate = _: true;
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
@@ -44,6 +44,7 @@
     nix-prefetch-github
     ripgrep
     spicetify-cli
+    sslscan
     starship
     tmux
     unzip
