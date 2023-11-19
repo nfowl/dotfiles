@@ -80,6 +80,7 @@
     terraform-ls
     tflint
     gopls
+    go_1_21
     nodejs-18_x
   ]);
     # Languages/Runtimes
