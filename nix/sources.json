@@ -1,99 +1,14 @@
 {
-    "gitsigns-nvim": {
-        "branch": "main",
-        "description": "Git integration for buffers",
-        "homepage": "",
-        "owner": "lewis6991",
-        "repo": "gitsigns.nvim",
-        "rev": "d8590288417fef2430f85bc8b312fae8b1cf2c40",
-        "sha256": "1ly0hij1ccbvmcx4axdq0bi9iay5ms1597ng84vmx6bnsd0hlfx3",
-        "type": "tarball",
-        "url": "https://github.com/lewis6991/gitsigns.nvim/archive/d8590288417fef2430f85bc8b312fae8b1cf2c40.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "home-manager": {
-        "branch": "release-23.05",
-        "description": "Manage a user environment using Nix  [maintainer=@rycee] ",
-        "homepage": "https://nix-community.github.io/home-manager/",
-        "owner": "nix-community",
-        "repo": "home-manager",
-        "rev": "8bde7a651b94ba30bd0baaa9c4a08aae88cc2e92",
-        "sha256": "0c2zjrfmpdhv7r2v61p1z34r6j8gkmh6wzara1k5kmm2rak0sdvi",
-        "type": "tarball",
-        "url": "https://github.com/nix-community/home-manager/archive/8bde7a651b94ba30bd0baaa9c4a08aae88cc2e92.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz",
-        "version": "release-23.05"
-    },
-    "mason": {
-        "branch": "main",
-        "description": "Portable package manager for Neovim that runs everywhere Neovim runs. Easily install and manage LSP servers, DAP servers, linters, and formatters.",
-        "homepage": "",
-        "owner": "williamboman",
-        "repo": "mason.nvim",
-        "rev": "c811fbf09c7642eebb37d6694f1a016a043f6ed3",
-        "sha256": "1h1z2hqjl1yi30qianq39i2k552zlsch42sf8hkjjgk9n2yncw6j",
-        "type": "tarball",
-        "url": "https://github.com/williamboman/mason.nvim/archive/c811fbf09c7642eebb37d6694f1a016a043f6ed3.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "mason-lspconfig": {
-        "branch": "main",
-        "description": "Extension to mason.nvim that makes it easier to use lspconfig with mason.nvim. Strongly recommended for Windows users.",
-        "homepage": "",
-        "owner": "williamboman",
-        "repo": "mason-lspconfig.nvim",
-        "rev": "dfdd771b792fbb4bad8e057d72558255695aa1a7",
-        "sha256": "0chrr4n4qjnf6556qxmw41k36v0sbwrk62mkrr1r6q1cjk9wifh5",
-        "type": "tarball",
-        "url": "https://github.com/williamboman/mason-lspconfig.nvim/archive/dfdd771b792fbb4bad8e057d72558255695aa1a7.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "niv": {
-        "branch": "master",
-        "description": "Easy dependency management for Nix projects",
-        "homepage": "https://github.com/nmattia/niv",
-        "owner": "nmattia",
-        "repo": "niv",
-        "rev": "914aba08a26cb10538b84d00d6cfb01c9776d80c",
-        "sha256": "0gx316gc7prjay5b0cr13x4zc2pdbiwxkfkpjvrlb2rml80lm4pm",
-        "type": "tarball",
-        "url": "https://github.com/nmattia/niv/archive/914aba08a26cb10538b84d00d6cfb01c9776d80c.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixpkgs": {
-        "branch": "master",
-        "description": "Nix Packages collection & NixOS",
-        "homepage": "",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cddebdb60de376c1bdb7a4e6ee3d98355453fe56",
-        "sha256": "05z9wccj2r8jsf9g2aar60jk86hcab461qy275rpvb04r737vaqr",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/cddebdb60de376c1bdb7a4e6ee3d98355453fe56.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
-    "nixpkgs-unstable": {
-        "branch": "nixpkgs-unstable",
-        "description": "Nix Packages collection",
-        "homepage": "",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "cddebdb60de376c1bdb7a4e6ee3d98355453fe56",
-        "sha256": "05z9wccj2r8jsf9g2aar60jk86hcab461qy275rpvb04r737vaqr",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/cddebdb60de376c1bdb7a4e6ee3d98355453fe56.tar.gz",
-        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
-    },
     "tree-sitter-cloudflare": {
         "branch": "main",
         "description": "tree-sitter parser for cloudflare rule language",
         "homepage": null,
         "owner": "nfowl",
         "repo": "tree-sitter-cloudflare",
-        "rev": "f22841693807f7534ba90782046bf86ed60aaa4a",
-        "sha256": "0ckl90pb7y67gl4aa3cb1nkhdmx2grba7r49sv6djy1p2aa8j61w",
+        "rev": "0125880979c984c0f527acf88fa7b32f6a2f58a1",
+        "sha256": "0lva2192magpdibv5jz4vq4a6k5gpriwsjgnzypfz2xi3wrgz8lr",
         "type": "tarball",
-        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/f22841693807f7534ba90782046bf86ed60aaa4a.tar.gz",
+        "url": "https://github.com/nfowl/tree-sitter-cloudflare/archive/0125880979c984c0f527acf88fa7b32f6a2f58a1.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-autosuggestions": {
@@ -102,10 +17,10 @@
         "homepage": null,
         "owner": "zsh-users",
         "repo": "zsh-autosuggestions",
-        "rev": "9908eb49a3fd18e25cfd8a0b9aa841e58429e59d",
-        "sha256": "1qqi3kxynpgjvbn20svaxbff84r3aj39n7nl33wh20ifrqxqrkp2",
+        "rev": "c3d4e576c9c86eac62884bd47c01f6faed043fc5",
+        "sha256": "1m8yawj7skbjw0c5ym59r1y88klhjl6abvbwzy6b1xyx3vfb7qh7",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-autosuggestions/archive/9908eb49a3fd18e25cfd8a0b9aa841e58429e59d.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-autosuggestions/archive/c3d4e576c9c86eac62884bd47c01f6faed043fc5.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-completions": {
@@ -114,10 +29,10 @@
         "homepage": "",
         "owner": "zsh-users",
         "repo": "zsh-completions",
-        "rev": "67921bc12502c1e7b0f156533fbac2cb51f6943d",
-        "sha256": "164jw74qlrpl6lawa4wjyhn2d04zw36ac0jsg4r6ql8769kfal8q",
+        "rev": "9da7488c1152d786d237b45cbe5546eb90fc5f85",
+        "sha256": "1x0z9bmwg0blgjz9cfdvm45agphq5kklfk9vz2p5qcyfbx6db3cj",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-completions/archive/67921bc12502c1e7b0f156533fbac2cb51f6943d.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-completions/archive/9da7488c1152d786d237b45cbe5546eb90fc5f85.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-syntax-highlighting": {
@@ -126,10 +41,10 @@
         "homepage": "github.com/zsh-users/zsh-syntax-highlighting",
         "owner": "zsh-users",
         "repo": "zsh-syntax-highlighting",
-        "rev": "1386f1213eb0b0589d73cd3cf7c56e6a972a9bfd",
-        "sha256": "0a39xfwxdq8zmzw8s40fvham7689am1icn03lhdj1882qjb7pb48",
+        "rev": "bb27265aeeb0a22fb77f1275118a5edba260ec47",
+        "sha256": "173a4mlydq9vs617wgsw1p06pflvgbnzrfhz4nf5pxmhfhljhgbc",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/1386f1213eb0b0589d73cd3cf7c56e6a972a9bfd.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/bb27265aeeb0a22fb77f1275118a5edba260ec47.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-vi-mode": {
@@ -138,10 +53,10 @@
         "homepage": "",
         "owner": "jeffreytse",
         "repo": "zsh-vi-mode",
-        "rev": "1f28e1886dc8e49f41b817634d5c7695b6abb145",
-        "sha256": "1vlvk71wzsz4rvgfgvdbw3jvwd0fci6fjjdbjddi5i2ihpi1jnfa",
+        "rev": "ea1f58ab9b1f3eac50e2cde3e3bc612049ef683b",
+        "sha256": "0bs5p6p5846hcgf3rb234yzq87rfjs18gfha9w0y0nf5jif23dy5",
         "type": "tarball",
-        "url": "https://github.com/jeffreytse/zsh-vi-mode/archive/1f28e1886dc8e49f41b817634d5c7695b6abb145.tar.gz",
+        "url": "https://github.com/jeffreytse/zsh-vi-mode/archive/ea1f58ab9b1f3eac50e2cde3e3bc612049ef683b.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

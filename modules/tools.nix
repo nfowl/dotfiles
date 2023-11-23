@@ -12,6 +12,20 @@
   xdg.configFile."fzf/fzf.zsh".source = "${pkgs.fzf}/share/fzf/key-bindings.zsh";
   xdg.configFile."zellij/config.kdl".source = ./zellij.kdl;
 
+  programs.git = {
+    enable = true;
+    difftastic = {
+      enable = true;
+      background = "dark";
+    };
+    ignores = [
+      ".factorypath"
+      ".settings/"
+      ".classpath"
+      ".project"
+    ];
+  };
+
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
