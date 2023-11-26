@@ -1,4 +1,16 @@
 {
+    "conform-nvim": {
+        "branch": "master",
+        "description": "Lightweight yet powerful formatter plugin for Neovim",
+        "homepage": "",
+        "owner": "stevearc",
+        "repo": "conform.nvim",
+        "rev": "cbc510ca5b4aec1fd104b6c6f070a7fcf36cc0c8",
+        "sha256": "1329gqbgwrcql56ymmfsanh7fc84ddy7rqklhplivkkgd8xdrphk",
+        "type": "tarball",
+        "url": "https://github.com/stevearc/conform.nvim/archive/cbc510ca5b4aec1fd104b6c6f070a7fcf36cc0c8.tar.gz",
+        "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
+    },
     "tree-sitter-cloudflare": {
         "branch": "main",
         "description": "tree-sitter parser for cloudflare rule language",

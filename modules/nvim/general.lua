@@ -16,7 +16,6 @@ vim.opt.number = true
 -- Show yank contents via highlight
 vim.cmd [[au TextYankPost * silent! lua vim.highlight.on_yank()]]
 local key_opts = { noremap = true, silent = true }
--- vim.keymap.set("n",)
 require('plenary.filetype').add_file('ft')
 
 -- Workaround for installing in nix environment
@@ -295,74 +294,116 @@ lspconfig.yamlls.setup {
   capabilities = capabilities,
 }
 
--- local rt = require("rust-tools")
---
--- rt.setup({
---   server = {
---     on_attach = function(_, bufnr)
---       -- Hover actions
---       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
---       -- Code action groups
---       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
---     end,
---   },
--- })
-
 -- Null-ls
-local null_ls = require("null-ls")
-local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
--- Needs to be high as terraform takes a while to format
-local format_timeout = 10000
-null_ls.setup({
-    -- you can reuse a shared lspconfig on_attach callback here
-    debug = true,
-    on_attach = function(client, bufnr)
-        if client.supports_method("textDocument/formatting") then
-            vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
-            vim.api.nvim_create_autocmd("BufWritePre", {
-                group = augroup,
-                buffer = bufnr,
-                callback = function()
-                    vim.lsp.buf.format({
-                        bufnr = bufnr,
-                        filter = function(client)
-                            return client.name == "null-ls"
-                        end
-                    })
-                end,
-            })
-        end
-    end,
-    -- sources
-    sources = {
-      -- Code Actions
-      null_ls.builtins.code_actions.eslint,
-      -- Diagnostics
-      null_ls.builtins.diagnostics.eslint,
-      -- Formatting
-      null_ls.builtins.formatting.buildifier,
-      null_ls.builtins.formatting.eslint,
-      null_ls.builtins.formatting.prettier,
-      null_ls.builtins.formatting.terraform_fmt.with({
-        timeout = format_timeout
-      }),
-      null_ls.builtins.formatting.gofmt,
-      null_ls.builtins.formatting.rustfmt,
-      null_ls.builtins.formatting.black.with({
-        extra_args = { "--line-length=100", }
-      }),
-      null_ls.builtins.formatting.isort.with({
-        extra_args = {
-          "--profile", "google",
-          "--line-length", "100",
-          "--multi-line", "3",
-          "--trailing-comma",
-          "--use-parentheses",
-          "--ensure-newline-before-comments"
-        },
-      })
-    }
+-- local null_ls = require("null-ls")
+-- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+-- -- Needs to be high as terraform takes a while to format
+-- local format_timeout = 10000
+
+-- Nvim-lint setup
+require('lint').linters_by_ft = {
+  typescript = { 'eslint', }
+}
+vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+  callback = function()
+    require("lint").try_lint()
+  end,
 })
+
+-- Conform.nvim setup
+local conform = require('conform')
+conform.setup({
+  formatters_by_ft = {
+    terraform = { "terraform_fmt"},
+    python = { "isort", "black" },
+    typescript = { "prettier" },
+    markdown = { "prettier" },
+    json = { "prettier" },
+    starlark = { "buildifier" },
+    bazel = { "buildifier" },
+    -- Experimental and need to work out if worth it
+    -- toml = { "taplo" },
+    -- lua = { "stylua" },
+  },
+  format_on_save = {
+    lsp_fallback = true,
+    -- Needs to be high as terraform takes a while to format
+    timeout_ms = 10000,
+  },
+  formatters = {
+    black = {
+      prepend_args = { "--line-length=100", },
+    },
+    isort = {
+      prepend_args = {
+        "--profile", "google",
+        "--line-length", "100",
+        "--multi-line", "3",
+        "--trailing-comma",
+        "--use-parentheses",
+        "--ensure-newline-before-comments",
+      },
+    }
+  }
+})
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*",
+  callback = function(args)
+    conform.format({ bufnr = args.buf })
+  end,
+})
+
+-- null_ls.setup({
+-- -- you can reuse a shared lspconfig on_attach callback here
+-- debug = true,
+--     on_attach = function(client, bufnr)
+--         if client.supports_method("textDocument/formatting") then
+--             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+--             vim.api.nvim_create_autocmd("BufWritePre", {
+--                 group = augroup,
+--                 buffer = bufnr,
+--                 callback = function()
+--                     vim.lsp.buf.format({
+--                         bufnr = bufnr,
+--                         filter = function(cli)
+--                             return cli.name == "null-ls"
+--                         end
+--                     })
+--                 end,
+--             })
+--         end
+--     end,
+--     -- sources
+--     sources = {
+--       -- Code Actions
+--       -- null_ls.builtins.code_actions.eslint,
+--       -- Diagnostics
+--       -- null_ls.builtins.diagnostics.eslint,
+--       -- Formatting
+--       -- null_ls.builtins.formatting.buildifier,
+--       null_ls.builtins.formatting.eslint,
+--       -- null_ls.builtins.formatting.prettier,
+--       null_ls.builtins.formatting.terraform_fmt.with({
+--         timeout = format_timeout
+--       }),
+--       null_ls.builtins.formatting.gofmt,
+--       null_ls.builtins.formatting.rustfmt,
+--       -- null_ls.builtins.formatting.black.with({
+--       --   extra_args = { "--line-length=100", }
+--       -- }),
+--       -- null_ls.builtins.formatting.isort.with({
+--       --   extra_args = {
+--       --     "--profile", "google",
+--       --     "--line-length", "100",
+--       --     "--multi-line", "3",
+--       --     "--trailing-comma",
+--       --     "--use-parentheses",
+--       --     "--ensure-newline-before-comments"
+--       --   },
+--       -- })
+--     }
+-- })
 
 
 -- Telescope
@@ -375,15 +416,67 @@ vim.keymap.set("n", "<leader>f", function() telescope.find_files({ find_command 
 vim.keymap.set("n", "<leader>t", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>T", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Find Text (Raw)", })
-vim.keymap.set("n", "<leader>bf", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
-vim.keymap.set("n", "<leader>vf", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })
+vim.keymap.set("n", "<leader>b", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
+vim.keymap.set("n", "<leader>v", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })
 
 -- Plugin setup
-require("which-key").setup()
+-- require("which-key").setup()
 require("nvim-autopairs").setup()
 require("bufferline").setup()
 require('gitsigns').setup()
-require('Comment').setup()
+local miniclue = require('mini.clue')
+miniclue.setup({
+  triggers = {
+    { mode = 'n', keys = '<Leader>' },
+    { mode = 'x', keys = '<Leader>' },
+
+    -- Built-in completion
+    { mode = 'i', keys = '<C-x>' },
+
+    -- `g` key
+    { mode = 'n', keys = 'g' },
+    { mode = 'x', keys = 'g' },
+
+    -- Marks
+    { mode = 'n', keys = "'" },
+    { mode = 'n', keys = '`' },
+    { mode = 'x', keys = "'" },
+    { mode = 'x', keys = '`' },
+
+    -- Registers
+    { mode = 'n', keys = '"' },
+    { mode = 'x', keys = '"' },
+    { mode = 'i', keys = '<C-r>' },
+    { mode = 'c', keys = '<C-r>' },
+
+    -- Window commands
+    { mode = 'n', keys = '<C-w>' },
+
+    -- `z` key
+    { mode = 'n', keys = 'z' },
+    { mode = 'x', keys = 'z' },
+  },
+  clues = {
+    miniclue.gen_clues.builtin_completion(),
+    miniclue.gen_clues.g(),
+    miniclue.gen_clues.marks(),
+    miniclue.gen_clues.registers(),
+    miniclue.gen_clues.windows(),
+    miniclue.gen_clues.z(),
+  },
+  window = {
+
+  }
+})
+require('mini.indentscope').setup()
+require('mini.surround').setup()
+require('mini.comment').setup {
+  options = {
+    custom_commentstring = function()
+      return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+    end,
+  },
+}
 require('lualine').setup{
   options = {
     theme = 'tokyonight'
@@ -393,5 +486,4 @@ require('lualine').setup{
 
 -- doge
 vim.g.doge_doc_standard_python = "google"
-
 --

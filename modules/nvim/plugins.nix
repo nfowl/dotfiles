@@ -25,4 +25,11 @@ let sources = import ../../nix/sources.nix; in
       version = "main";
       source = sources.tree-sitter-cloudflare;
     };
+
+    conform = pkgs.vimUtils.buildVimPlugin {
+      pname = "conform.nvim";
+      version = "master";
+      src = sources.conform-nvim;
+    };
+    
 }
