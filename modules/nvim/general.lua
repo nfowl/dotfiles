@@ -6,7 +6,7 @@ vim.opt.termguicolors = true
 vim.cmd.colorscheme "tokyonight"
 
 -- General config
--- Default tab settings 
+-- Default tab settings
 vim.opt.shiftwidth = 2
 vim.opt.tabstop = 2
 vim.opt.expandtab = true
@@ -73,7 +73,7 @@ local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
 parser_config.cloudflare = {
   install_info = {
     url = "https://github.com/nfowl/tree-sitter-cloudflare",
-    files = {"src/parser.c"},
+    files = { "src/parser.c" },
     branch = "main",
     generate_requires_npm = false,
     requires_generate_from_grammar = false,
@@ -151,7 +151,7 @@ vim.filetype.add({
 --- LSP config
 require("mason").setup()
 require("mason-lspconfig").setup({
-  automatic_installation = { exclude = { "rnix-lsp", "rnix", "nil", "nil_ls" }},
+  automatic_installation = { exclude = { "rnix-lsp", "rnix", "nil", "nil_ls" } },
 })
 
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, key_opts)
@@ -184,7 +184,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>wl', function()
     print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
   end, buffer_opts("List workspace folders"))
-  vim.keymap.set('n', '<Leader>D', vim.lsp.buf.type_definition, buffer_opts("Go to type definition"))
+  vim.keymap.set('n', 'gtd', vim.lsp.buf.type_definition, buffer_opts("Go to type definition"))
   vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, buffer_opts("Rename symbol"))
   vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, buffer_opts("Code Action"))
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, buffer_opts("View references"))
@@ -214,7 +214,7 @@ lspconfig.denols.setup {
     -- Overrides default root_dir to omit `.git` to allow only enabling when
     -- a project is specifically for deno
     -- This avoids weird behaviour when dealing with a node based project
-    root_dir = lspconfig.util.root_pattern('deno.json','deno.jsonc')
+    root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
   }
 }
 
@@ -294,12 +294,6 @@ lspconfig.yamlls.setup {
   capabilities = capabilities,
 }
 
--- Null-ls
--- local null_ls = require("null-ls")
--- local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
--- -- Needs to be high as terraform takes a while to format
--- local format_timeout = 10000
-
 -- Nvim-lint setup
 require('lint').linters_by_ft = {
   typescript = { 'eslint', }
@@ -314,7 +308,7 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
 local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
-    terraform = { "terraform_fmt"},
+    terraform = { "terraform_fmt" },
     python = { "isort", "black" },
     typescript = { "prettier" },
     markdown = { "prettier" },
@@ -354,70 +348,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
--- null_ls.setup({
--- -- you can reuse a shared lspconfig on_attach callback here
--- debug = true,
---     on_attach = function(client, bufnr)
---         if client.supports_method("textDocument/formatting") then
---             vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
---             vim.api.nvim_create_autocmd("BufWritePre", {
---                 group = augroup,
---                 buffer = bufnr,
---                 callback = function()
---                     vim.lsp.buf.format({
---                         bufnr = bufnr,
---                         filter = function(cli)
---                             return cli.name == "null-ls"
---                         end
---                     })
---                 end,
---             })
---         end
---     end,
---     -- sources
---     sources = {
---       -- Code Actions
---       -- null_ls.builtins.code_actions.eslint,
---       -- Diagnostics
---       -- null_ls.builtins.diagnostics.eslint,
---       -- Formatting
---       -- null_ls.builtins.formatting.buildifier,
---       null_ls.builtins.formatting.eslint,
---       -- null_ls.builtins.formatting.prettier,
---       null_ls.builtins.formatting.terraform_fmt.with({
---         timeout = format_timeout
---       }),
---       null_ls.builtins.formatting.gofmt,
---       null_ls.builtins.formatting.rustfmt,
---       -- null_ls.builtins.formatting.black.with({
---       --   extra_args = { "--line-length=100", }
---       -- }),
---       -- null_ls.builtins.formatting.isort.with({
---       --   extra_args = {
---       --     "--profile", "google",
---       --     "--line-length", "100",
---       --     "--multi-line", "3",
---       --     "--trailing-comma",
---       --     "--use-parentheses",
---       --     "--ensure-newline-before-comments"
---       --   },
---       -- })
---     }
--- })
-
-
 -- Telescope
 require("telescope").setup()
 require('telescope').load_extension('fzf')
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader>F", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })
-vim.keymap.set("n", "<leader>f", function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
+vim.keymap.set("n", "<leader>f",
+  function() telescope.find_files({ find_command = { "fd", "-E", ".git", "-t", "f", }, hidden = true, }) end,
   { noremap = true, silent = true, desc = "Find Files(Hidden)", })
 vim.keymap.set("n", "<leader>t", telescope.live_grep, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>T", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>",
   { noremap = true, silent = true, desc = "Find Text (Raw)", })
 vim.keymap.set("n", "<leader>b", telescope.buffers, { noremap = true, silent = true, desc = "Find Text", })
 vim.keymap.set("n", "<leader>v", telescope.git_status, { noremap = true, silent = true, desc = "Find Changed Files", })
+vim.keymap.set("n", "<leader>d", function() telescope.diagnostics({ bufnr = 0, }) end,
+  { noremap = true, silent = true, desc = "Diagnostics (file)", })
+vim.keymap.set("n", "<leader>D", function() telescope.diagnostics({ bufnr = nil, }) end,
+  { noremap = true, silent = true, desc = "Diagnostics (workspace)", })
 
 -- Plugin setup
 -- require("which-key").setup()
@@ -477,12 +424,14 @@ require('mini.comment').setup {
     end,
   },
 }
-require('lualine').setup{
+require('lualine').setup {
   options = {
     theme = 'tokyonight'
   }
 }
 
+require('notify').setup()
+require('trouble')
 
 -- doge
 vim.g.doge_doc_standard_python = "google"

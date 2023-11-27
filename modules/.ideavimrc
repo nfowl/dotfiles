@@ -11,8 +11,8 @@ set commentary
 nnoremap <leader>st 
 nnoremap <c-z> :action ToggleDistractionFreeMode<CR>
 map <leader>rn <Action>(RenameElement)
-nnoremap <leader>sf :action GotoFile<CR>
-nnoremap <leader>st :action FindInPath<CR>
-nnoremap <leader>sT :action SearchEverywhere<CR>
+nnoremap <leader>f :action GotoFile<CR>
+nnoremap <leader>t :action FindInPath<CR>
+nnoremap <leader>T :action SearchEverywhere<CR>
 
 

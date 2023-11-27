@@ -51,6 +51,7 @@ in
         lualine-nvim
         nvim-notify
         toggleterm-nvim
+        trouble-nvim
         open-browser-github-vim
         oil-nvim
         mini-nvim
