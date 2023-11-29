@@ -415,6 +415,7 @@ miniclue.setup({
 
   }
 })
+require('oil').setup()
 require('mini.indentscope').setup()
 require('mini.surround').setup()
 require('mini.comment').setup {
