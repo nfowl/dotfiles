@@ -296,7 +296,8 @@ lspconfig.yamlls.setup {
 
 -- Nvim-lint setup
 require('lint').linters_by_ft = {
-  typescript = { 'eslint', }
+  typescript = { 'eslint', },
+  javascript = { 'eslint', }
 }
 vim.api.nvim_create_autocmd({ "BufWritePost" }, {
   callback = function()
@@ -367,7 +368,6 @@ vim.keymap.set("n", "<leader>D", function() telescope.diagnostics({ bufnr = nil,
   { noremap = true, silent = true, desc = "Diagnostics (workspace)", })
 
 -- Plugin setup
--- require("which-key").setup()
 require("nvim-autopairs").setup()
 require("bufferline").setup()
 require('gitsigns').setup()
@@ -412,7 +412,7 @@ miniclue.setup({
     miniclue.gen_clues.z(),
   },
   window = {
-
+    delay = 100,
   }
 })
 require('oil').setup()

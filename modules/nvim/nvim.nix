@@ -43,7 +43,7 @@ in
         nvim-web-devicons
         SchemaStore-nvim
         nvim-autopairs
-        alpha-nvim
+        dashboard-nvim
         nvim-ts-context-commentstring
         cmp-buffer
         FixCursorHold-nvim
