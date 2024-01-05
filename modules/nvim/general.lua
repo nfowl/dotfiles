@@ -109,7 +109,10 @@ require("nvim-treesitter.configs").setup {
         -- You can use the capture groups defined in textobjects.scm
         ["af"] = "@function.outer",
         ["if"] = "@function.inner",
+        ["ap"] = "@parameter.outer",
+        ["ip"] = "@parameter.inner",
         ["ac"] = "@class.outer",
+        ["av"] = "@class.outer",
         -- You can optionally set descriptions to the mappings (used in the desc parameter of
         -- nvim_buf_set_keymap) which plugins like which-key display
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },
@@ -310,7 +313,7 @@ local conform = require('conform')
 conform.setup({
   formatters_by_ft = {
     terraform = { "terraform_fmt" },
-    python = { "isort", "black" },
+    python = { "isort", "ruff_format" },
     typescript = { "prettier" },
     markdown = { "prettier" },
     json = { "prettier" },
@@ -320,14 +323,27 @@ conform.setup({
     -- toml = { "taplo" },
     -- lua = { "stylua" },
   },
-  format_on_save = {
-    lsp_fallback = true,
-    -- Needs to be high as terraform takes a while to format
-    timeout_ms = 10000,
-  },
+  -- Longer timeout on terraform
+  format_on_save = function(bufnr)
+    if vim.bo[bufnr].filetype == "terraform" then
+      return { lsp_fallback = true, timeout_ms = 10000, }
+    end
+    return { lsp_fallback = true, }
+  end,
   formatters = {
+    ruff_format = {
+      args = {
+        "format",
+        "--line-length=100",
+        "--stdin-filename",
+        "$FILENAME",
+        "-",
+      },
+    },
     black = {
-      prepend_args = { "--line-length=100", },
+      prepend_args = {
+        "--line-length=100",
+      },
     },
     isort = {
       prepend_args = {
@@ -368,7 +384,6 @@ vim.keymap.set("n", "<leader>D", function() telescope.diagnostics({ bufnr = nil,
   { noremap = true, silent = true, desc = "Diagnostics (workspace)", })
 
 -- Plugin setup
-require("nvim-autopairs").setup()
 require("bufferline").setup()
 require('gitsigns').setup()
 local miniclue = require('mini.clue')
@@ -416,6 +431,7 @@ miniclue.setup({
   }
 })
 require('oil').setup()
+require("mini.pairs").setup()
 require('mini.indentscope').setup()
 require('mini.surround').setup()
 require('mini.comment').setup {

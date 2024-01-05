@@ -10,6 +10,7 @@
   # the Home Manager release notes for a list of state version
   # changes in each release.
   home.stateVersion = "23.05";
+  # TODO(nfowl): Make this finer grained
   nixpkgs.config.allowUnfreePredicate = _: true;
 
   # Let Home Manager install and manage itself.
@@ -69,16 +70,18 @@
     nodePackages.eslint
     marksman
     clang-tools
-    black
+    ruff
     isort
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
     # Too lazy to setup overall nix shells
     pylint
     bazel-buildtools
+    bazelisk
     terraform
     terraform-ls
     tflint
+    golangci-lint
     gopls
     go_1_21
     nodejs-18_x

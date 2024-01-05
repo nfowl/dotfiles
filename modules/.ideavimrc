@@ -14,5 +14,8 @@ map <leader>rn <Action>(RenameElement)
 nnoremap <leader>f :action GotoFile<CR>
 nnoremap <leader>t :action FindInPath<CR>
 nnoremap <leader>T :action SearchEverywhere<CR>
+nnoremap <leader>a :action Actions<CR>
+nnoremap <leader>s :action GotoSymbol<CR>
+
 
 

@@ -35,6 +35,7 @@ in
         gitsigns-nvim
         which-key-nvim
         flash-nvim
+        dashboard-nvim
         bufferline-nvim
         nvim-cmp
         cmp-emoji
@@ -43,7 +44,6 @@ in
         nvim-web-devicons
         SchemaStore-nvim
         nvim-autopairs
-        dashboard-nvim
         nvim-ts-context-commentstring
         cmp-buffer
         FixCursorHold-nvim
@@ -53,6 +53,7 @@ in
         toggleterm-nvim
         trouble-nvim
         open-browser-github-vim
+        open-browser-vim
         oil-nvim
         mini-nvim
         mason-nvim
