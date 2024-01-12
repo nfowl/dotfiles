@@ -84,7 +84,7 @@
     golangci-lint
     gopls
     go_1_21
-    nodejs-20_x
+    nodejs_20
   ]);
     # Languages/Runtimes
     # clang

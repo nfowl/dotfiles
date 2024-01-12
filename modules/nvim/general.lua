@@ -87,9 +87,6 @@ require("nvim-treesitter.configs").setup {
   -- Custom treesitters
   ensure_installed = { "cloudflare", },
   enable = true,
-  context_commentstring = {
-    enable = true,
-  },
   sync_install = false,
   highlight = {
     enable = true,
