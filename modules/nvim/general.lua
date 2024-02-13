@@ -207,16 +207,16 @@ lspconfig.cssls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
-lspconfig.denols.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  settings = {
-    -- Overrides default root_dir to omit `.git` to allow only enabling when
-    -- a project is specifically for deno
-    -- This avoids weird behaviour when dealing with a node based project
-    root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
-  }
-}
+-- lspconfig.denols.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+--   settings = {
+--     -- Overrides default root_dir to omit `.git` to allow only enabling when
+--     -- a project is specifically for deno
+--     -- This avoids weird behaviour when dealing with a node based project
+--     root_dir = lspconfig.util.root_pattern('deno.json', 'deno.jsonc')
+--   }
+-- }
 
 lspconfig.dockerls.setup {
   on_attach = on_attach,
@@ -277,10 +277,10 @@ lspconfig.lua_ls.setup {
     }
   }
 }
-lspconfig.tailwindcss.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-}
+-- lspconfig.tailwindcss.setup {
+--   on_attach = on_attach,
+--   capabilities = capabilities,
+-- }
 lspconfig.terraformls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
