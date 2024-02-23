@@ -196,6 +196,10 @@ lspconfig.ansiblels.setup {
   on_attach = on_attach,
   capabilities = capabilities,
 }
+lspconfig.astro.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 lspconfig.bashls.setup {
   on_attach = on_attach,
   capabilities = capabilities,

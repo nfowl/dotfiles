@@ -22,7 +22,7 @@
     bat
     bottom
     btop
-    curl
+    curlHTTP3
     cloudflared
     delta
     difftastic
@@ -63,6 +63,7 @@
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     nodePackages.pyright
+    nodePackages.pnpm
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
