@@ -22,6 +22,7 @@
     bat
     bottom
     btop
+    cargo
     curlHTTP3
     cloudflared
     delta
@@ -60,6 +61,7 @@
     nil
     efm-langserver
     taplo
+    jdt-language-server
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
     nodePackages.pyright
