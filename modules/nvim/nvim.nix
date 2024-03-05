@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 let 
   sources = (import ../../nix/sources.nix);
-  customVimPlugins = (import ./plugins.nix) pkgs;
+  # customVimPlugins = (import ./plugins.nix) pkgs;
 in
 {
   xdg.configFile."nvim/queries/cloudflare/highlights.scm".source = sources.tree-sitter-cloudflare + "/queries/highlights.scm";
@@ -25,10 +25,10 @@ in
         telescope-live-grep-args-nvim
         telescope-fzf-native-nvim
         # folke/lua-dev
-        # luasnip
-        # cmp_luasnip
-        nvim-snippy
-        cmp-snippy
+        luasnip
+        cmp_luasnip
+        # nvim-snippy
+        # cmp-snippy
         # Color themes
         dracula-nvim
         tokyonight-nvim
@@ -46,7 +46,7 @@ in
         nvim-web-devicons
         SchemaStore-nvim
         nvim-autopairs
-        # nvim-ts-context-commentstring
+        nvim-ts-context-commentstring
         cmp-buffer
         FixCursorHold-nvim
         popup-nvim
