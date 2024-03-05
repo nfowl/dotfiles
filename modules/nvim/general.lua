@@ -32,12 +32,18 @@ cmp.setup({
     { name = "buffer", },
     { name = "emoji", },
     { name = "treesitter", },
-    { name = "luasnip", },
+    -- { name = "luasnip", },
+    { name = "snippy", },
     { name = "nvim_lsp_signature_help", },
   },
+  -- snippet = {
+  --   expand = function(args)
+  --     require("luasnip").lsp_expand(args.body)
+  --   end
+  -- },
   snippet = {
     expand = function(args)
-      require("luasnip").lsp_expand(args.body)
+      require('snippy').expand_snippet(args.body)
     end
   },
   mapping = cmp.mapping.preset.insert {
@@ -436,11 +442,11 @@ require("mini.pairs").setup()
 require('mini.indentscope').setup()
 require('mini.surround').setup()
 require('mini.comment').setup {
-  options = {
-    custom_commentstring = function()
-      return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
-    end,
-  },
+  -- options = {
+  --   custom_commentstring = function()
+  --     return require('ts_context_commentstring').calculate_commentstring() or vim.bo.commentstring
+  --   end,
+  -- },
 }
 require('lualine').setup {
   options = {

@@ -25,8 +25,10 @@ in
         telescope-live-grep-args-nvim
         telescope-fzf-native-nvim
         # folke/lua-dev
-        luasnip
-        cmp_luasnip
+        # luasnip
+        # cmp_luasnip
+        nvim-snippy
+        cmp-snippy
         # Color themes
         dracula-nvim
         tokyonight-nvim
@@ -44,7 +46,7 @@ in
         nvim-web-devicons
         SchemaStore-nvim
         nvim-autopairs
-        nvim-ts-context-commentstring
+        # nvim-ts-context-commentstring
         cmp-buffer
         FixCursorHold-nvim
         popup-nvim
@@ -58,8 +60,7 @@ in
         mini-nvim
         mason-nvim
         mason-lspconfig-nvim
-        # Custom built
-        customVimPlugins.conform
+        conform-nvim
       ];
       extraConfig = ''
         lua << EOF
