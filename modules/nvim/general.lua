@@ -263,6 +263,19 @@ lspconfig.nil_ls.setup {
 lspconfig.pyright.setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  settings = {
+    python = {
+      analysis = {
+        autoSearchPaths = true,
+        useLibraryCodeForTypes = false,
+        diagnosticMode = 'openFilesOnly',
+      },
+    },
+  },
+  -- root_dir = function(fname)
+  --   return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
+  --       util.path.dirname(fname)
+  -- end
 }
 -- Done by rust-tools
 lspconfig.rust_analyzer.setup {
