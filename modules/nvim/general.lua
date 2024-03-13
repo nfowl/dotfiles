@@ -33,7 +33,6 @@ cmp.setup({
     { name = "emoji", },
     { name = "treesitter", },
     { name = "luasnip", },
-    -- { name = "snippy", },
     { name = "nvim_lsp_signature_help", },
   },
   snippet = {
@@ -41,11 +40,6 @@ cmp.setup({
       require("luasnip").lsp_expand(args.body)
     end
   },
-  -- snippet = {
-  --   expand = function(args)
-  --     require('snippy').expand_snippet(args.body)
-  --   end
-  -- },
   mapping = cmp.mapping.preset.insert {
     ["<C-k>"] = cmp.mapping.select_prev_item(),
     ["<S-Tab>"] = cmp.mapping.select_prev_item(),

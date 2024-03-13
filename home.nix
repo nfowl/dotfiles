@@ -36,8 +36,10 @@
     htop
     hyperfine
     jq
+    k6
     k9s
     kubectl
+    lua-language-server
     mkcert
     mtr
     nghttp2
