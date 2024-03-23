@@ -1,5 +1,7 @@
 { config, pkgs, ... }:
-
+let
+  nodePacks = (pkgs.callPackage ./packages/node/default.nix {});
+in
 {
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -36,6 +38,7 @@
     htop
     hyperfine
     jq
+    k3d
     k6
     k9s
     kubectl
@@ -46,6 +49,7 @@
     niv
     nix-prefetch-git
     nix-prefetch-github
+    node2nix
     ripgrep
     spicetify-cli
     sslscan
@@ -71,7 +75,6 @@
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
-    nodePackages.prettier
     nodePackages.eslint
     marksman
     clang-tools
@@ -88,18 +91,13 @@
     tflint
     golangci-lint
     gopls
+    nodePacks."@canva/prettier"
     go_1_21
     nodejs_20
+  ]) ++ (lib.optionals stdenv.isLinux [
+    # Use standard prettier for personal devices
+    nodePackages.prettier
   ]);
-    # Languages/Runtimes
-    # clang
-    # gcc
-    # deno
-    # go
-    # nodejs-18_x
-    # rustup
-    # terraform
-  # ];
 
   imports = [
     ./modules/starship.nix

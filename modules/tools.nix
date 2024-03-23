@@ -14,10 +14,10 @@
 
   programs.git = {
     enable = true;
-    difftastic = {
-      enable = true;
-      background = "dark";
-    };
+    # difftastic = {
+    #   enable = true;
+    #   background = "dark";
+    # };
     ignores = [
       ".factorypath"
       ".settings/"
