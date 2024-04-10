@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "stevearc",
         "repo": "conform.nvim",
-        "rev": "cbc510ca5b4aec1fd104b6c6f070a7fcf36cc0c8",
-        "sha256": "1329gqbgwrcql56ymmfsanh7fc84ddy7rqklhplivkkgd8xdrphk",
+        "rev": "9d5ba06d6ee7418c674f498634617416d15b6239",
+        "sha256": "0xpgpjaq40qf686qg0m5hhqpqahjz5wgxviyxny2i7zk4r832bqm",
         "type": "tarball",
-        "url": "https://github.com/stevearc/conform.nvim/archive/cbc510ca5b4aec1fd104b6c6f070a7fcf36cc0c8.tar.gz",
+        "url": "https://github.com/stevearc/conform.nvim/archive/9d5ba06d6ee7418c674f498634617416d15b6239.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter-cloudflare": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "zsh-users",
         "repo": "zsh-completions",
-        "rev": "9da7488c1152d786d237b45cbe5546eb90fc5f85",
-        "sha256": "1x0z9bmwg0blgjz9cfdvm45agphq5kklfk9vz2p5qcyfbx6db3cj",
+        "rev": "2f951267cde726076988bc5706d737510a88e2fb",
+        "sha256": "19pwi1jjrz61syf9kiw3ng64v5wka3fak9zz0ca7339p2wmw42w0",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-completions/archive/9da7488c1152d786d237b45cbe5546eb90fc5f85.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-completions/archive/2f951267cde726076988bc5706d737510a88e2fb.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-syntax-highlighting": {
@@ -53,10 +53,10 @@
         "homepage": "github.com/zsh-users/zsh-syntax-highlighting",
         "owner": "zsh-users",
         "repo": "zsh-syntax-highlighting",
-        "rev": "bb27265aeeb0a22fb77f1275118a5edba260ec47",
-        "sha256": "173a4mlydq9vs617wgsw1p06pflvgbnzrfhz4nf5pxmhfhljhgbc",
+        "rev": "e0165eaa730dd0fa321a6a6de74f092fe87630b0",
+        "sha256": "016adxfxk29akcmkhn9v11sar0plmfcnp4hfn3w03457wqvvddg2",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/bb27265aeeb0a22fb77f1275118a5edba260ec47.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-syntax-highlighting/archive/e0165eaa730dd0fa321a6a6de74f092fe87630b0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-vi-mode": {
@@ -65,10 +65,10 @@
         "homepage": "",
         "owner": "jeffreytse",
         "repo": "zsh-vi-mode",
-        "rev": "ea1f58ab9b1f3eac50e2cde3e3bc612049ef683b",
-        "sha256": "0bs5p6p5846hcgf3rb234yzq87rfjs18gfha9w0y0nf5jif23dy5",
+        "rev": "7cf6fd19cf2ab38ec5b116eced158377cb3c35f6",
+        "sha256": "05q3902cq9icpvccvwb31h86pqrxiv1yrwygx2g3k1vkn4cjr1bb",
         "type": "tarball",
-        "url": "https://github.com/jeffreytse/zsh-vi-mode/archive/ea1f58ab9b1f3eac50e2cde3e3bc612049ef683b.tar.gz",
+        "url": "https://github.com/jeffreytse/zsh-vi-mode/archive/7cf6fd19cf2ab38ec5b116eced158377cb3c35f6.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     }
 }

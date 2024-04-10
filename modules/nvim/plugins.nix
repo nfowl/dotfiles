@@ -8,10 +8,11 @@ let sources = import ../../nix/sources.nix; in
       source = sources.tree-sitter-cloudflare;
     };
 
-    conform = pkgs.vimUtils.buildVimPlugin {
-      pname = "conform.nvim";
-      version = "master";
-      src = sources.conform-nvim;
-    };
+    # Example vim plugin from source
+    # conform = pkgs.vimUtils.buildVimPlugin {
+    #   pname = "conform.nvim";
+    #   version = "master";
+    #   src = sources.conform-nvim;
+    # };
     
 }

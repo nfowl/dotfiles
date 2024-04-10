@@ -308,7 +308,26 @@ lspconfig.tsserver.setup {
 }
 lspconfig.yamlls.setup {
   on_attach = on_attach,
+  on_new_config = function(new_config)
+    new_config.settings.yaml.schemas = vim.tbl_deep_extend(
+      "force",
+      new_config.settings.yaml.schemas or {},
+      require("schemastore").yaml.schemas()
+    )
+  end,
   capabilities = capabilities,
+  settings = {
+    yaml = {
+      validate = false,
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      schemas = {
+        kubernetes = "*.{yaml,yml}",
+      }
+    }
+  }
 }
 
 -- Nvim-lint setup
