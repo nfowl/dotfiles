@@ -20,6 +20,7 @@ in
         nvim-treesitter-textobjects
         nvim-dap
         # DAPInstall
+        fzf-vim
         telescope-nvim
         plenary-nvim
         telescope-live-grep-args-nvim

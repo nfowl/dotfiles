@@ -24,7 +24,6 @@ in
     bat
     bottom
     btop
-    cargo
     curlHTTP3
     cloudflared
     delta
@@ -50,6 +49,7 @@ in
     nix-prefetch-git
     nix-prefetch-github
     node2nix
+    rename
     ripgrep
     spicetify-cli
     sslscan
@@ -93,8 +93,11 @@ in
     gopls
     nodePacks."@canva/prettier"
     go_1_21
+    darwin.libiconv
     nodejs_20
   ]) ++ (lib.optionals stdenv.isLinux [
+    # Try to avoid rustup on personal device
+    cargo
     # Use standard prettier for personal devices
     nodePackages.prettier
   ]);

@@ -352,6 +352,7 @@ conform.setup({
     json = { "prettier" },
     starlark = { "buildifier" },
     bazel = { "buildifier" },
+    bzl = { "buildifier" },
     -- Experimental and need to work out if worth it
     -- toml = { "taplo" },
     -- lua = { "stylua" },
@@ -399,7 +400,17 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 -- Telescope
-require("telescope").setup()
+require('telescope').setup {
+  extensions = {
+    fzf = {
+      fuzzy = true,                   -- false will only do exact matching
+      override_generic_sorter = true, -- override the generic sorter
+      override_file_sorter = true,    -- override the file sorter
+      case_mode = "smart_case",       -- or "ignore_case" or "respect_case"
+      -- the default case_mode is "smart_case"
+    }
+  }
+}
 require('telescope').load_extension('fzf')
 local telescope = require("telescope.builtin")
 vim.keymap.set("n", "<leader>F", telescope.find_files, { noremap = true, silent = true, desc = "Find Files", })

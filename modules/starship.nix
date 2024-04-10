@@ -12,6 +12,8 @@
         threshold = 80;
       };
 
+      rust.format = "via [$symbol($numver )]($style)";
+
       nodejs.disabled = true;
       aws.disabled = true;
       gcloud.disabled = true;

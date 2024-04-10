@@ -95,6 +95,8 @@ in
       export LC_ALL=en_US.UTF-8
       export COLORTERM=truecolor
 
+      export NODE_OPTIONS="--max-old-space-size=16192"
+
       ##### EXPORTS
       export ZSH_CACHE_DIR="$HOME/.zsh/cache"
       export FPATH="$FPATH:/$ZSH_CACHE_DIR/completions"
@@ -107,6 +109,10 @@ in
       fi
       if [ -f $HOME/.spicetify/spicetify ]; then
         export PATH=$PATH:$HOME/.spicetify/
+      fi
+
+      if [ -f $HOME/.cargo/env ]; then
+        . $HOME/.cargo/env
       fi
       
       if [ -f $HOME/.zshenv_private ]; then
