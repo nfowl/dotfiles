@@ -5,10 +5,10 @@
         "homepage": "",
         "owner": "stevearc",
         "repo": "conform.nvim",
-        "rev": "9d5ba06d6ee7418c674f498634617416d15b6239",
-        "sha256": "0xpgpjaq40qf686qg0m5hhqpqahjz5wgxviyxny2i7zk4r832bqm",
+        "rev": "820eec990d5f332d30cf939954c8672a43a0459e",
+        "sha256": "0jpvd8hkiv9qn5lvlysvpv77s58cs8387ydjj34f8cylj5j11cwj",
         "type": "tarball",
-        "url": "https://github.com/stevearc/conform.nvim/archive/9d5ba06d6ee7418c674f498634617416d15b6239.tar.gz",
+        "url": "https://github.com/stevearc/conform.nvim/archive/820eec990d5f332d30cf939954c8672a43a0459e.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "tree-sitter-cloudflare": {
@@ -41,10 +41,10 @@
         "homepage": "",
         "owner": "zsh-users",
         "repo": "zsh-completions",
-        "rev": "2f951267cde726076988bc5706d737510a88e2fb",
-        "sha256": "19pwi1jjrz61syf9kiw3ng64v5wka3fak9zz0ca7339p2wmw42w0",
+        "rev": "7e781997719234fd0eaac100d377b27628678062",
+        "sha256": "0r14vjz0dsww41gidsc8nk01wn7qi8f2b811qqrhx4hsic4rmbif",
         "type": "tarball",
-        "url": "https://github.com/zsh-users/zsh-completions/archive/2f951267cde726076988bc5706d737510a88e2fb.tar.gz",
+        "url": "https://github.com/zsh-users/zsh-completions/archive/7e781997719234fd0eaac100d377b27628678062.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "zsh-syntax-highlighting": {

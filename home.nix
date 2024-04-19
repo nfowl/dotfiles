@@ -54,6 +54,7 @@ in
     spicetify-cli
     sslscan
     starship
+    tokei
     tmux
     unzip
     yq
