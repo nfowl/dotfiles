@@ -110,6 +110,8 @@ require("nvim-treesitter.configs").setup {
         ["ip"] = "@parameter.inner",
         ["ac"] = "@class.outer",
         ["av"] = "@class.outer",
+        ["aa"] = "@assignment.outer",
+        ["ai"] = "@assignment.inner",
         -- You can optionally set descriptions to the mappings (used in the desc parameter of
         -- nvim_buf_set_keymap) which plugins like which-key display
         ["ic"] = { query = "@class.inner", desc = "Select inner part of a class region" },

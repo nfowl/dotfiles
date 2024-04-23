@@ -86,6 +86,7 @@ in
     # Too lazy to setup overall nix shells
     pylint
     bazel-buildtools
+    bazel-watcher
     bazelisk
     terraform
     terraform-ls
