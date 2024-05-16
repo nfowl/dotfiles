@@ -84,10 +84,12 @@ in
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
     # Too lazy to setup overall nix shells
+    deno
     pylint
     bazel-buildtools
     bazel-watcher
     bazelisk
+    bun
     terraform
     terraform-ls
     tflint
@@ -97,6 +99,7 @@ in
     go_1_21
     darwin.libiconv
     nodejs_20
+    wasm-pack
   ]) ++ (lib.optionals stdenv.isLinux [
     # Try to avoid rustup on personal device
     cargo
@@ -105,6 +108,7 @@ in
   ]);
 
   imports = [
+    ./modules/alacritty.nix
     ./modules/starship.nix
     ./modules/tmux.nix
     ./modules/tools.nix

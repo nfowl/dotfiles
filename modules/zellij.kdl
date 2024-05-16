@@ -16,6 +16,7 @@ keybinds {
         bind "r" "|" "\\"{ NewPane "Right"; SwitchToMode "Normal"; }
 		bind "f" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
 		bind "w" { ToggleFloatingPanes; SwitchToMode "Normal"; }
+		bind "m" { SwitchToMode "Move"; }
 	}
 	shared_except "tmux" "locked" {
 		bind "Ctrl a" { SwitchToMode "Tmux"; }
@@ -24,7 +25,7 @@ keybinds {
 }
 mouse_mode true
 simplified_ui true
-theme "catppuccin-macchiato"
+theme "dracula"
 themes {
 	catppuccin-macchiato {
 		bg "#5b6078"

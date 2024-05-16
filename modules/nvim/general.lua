@@ -193,6 +193,8 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, buffer_opts("Format"))
 end
 
+vim.lsp.set_log_level("off")
+
 local lspconfig = require("lspconfig")
 lspconfig.ansiblels.setup {
   on_attach = on_attach,
