@@ -94,6 +94,7 @@ in
       export LANG=en_US.UTF-8
       export LC_ALL=en_US.UTF-8
       export COLORTERM=truecolor
+      export ZELLIJ_AUTO_ATTACH=true
 
       export NODE_OPTIONS="--max-old-space-size=16192"
 

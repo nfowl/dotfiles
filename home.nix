@@ -84,6 +84,7 @@ in
   ] ++ (lib.optionals stdenv.isDarwin [
     # Install specific programming helpers for work lappy
     # Too lazy to setup overall nix shells
+    cmake
     deno
     pylint
     bazel-buildtools

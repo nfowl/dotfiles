@@ -175,8 +175,10 @@ local on_attach = function(client, bufnr)
     return buf_opts
   end
 
-  -- Shared Keymaps
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, buffer_opts("Go to declaration"))
+  --
+  -- -- Shared Keymaps
+  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration,
+    { noremap = true, silent = true, buffer = bufnr, desc = "Go to declaration" })
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, buffer_opts("Go to definition"))
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, buffer_opts("Hover"))
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, buffer_opts("Go to Implementation"))
@@ -190,7 +192,7 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<Leader>rn', vim.lsp.buf.rename, buffer_opts("Rename symbol"))
   vim.keymap.set('n', '<Leader>ca', vim.lsp.buf.code_action, buffer_opts("Code Action"))
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, buffer_opts("View references"))
-  vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, buffer_opts("Format"))
+  -- vim.keymap.set('n', '<Leader>f', vim.lsp.buf.formatting, buffer_opts("Format"))
 end
 
 vim.lsp.set_log_level("off")
@@ -270,10 +272,7 @@ lspconfig.pyright.setup {
       },
     },
   },
-  -- root_dir = function(fname)
-  --   return util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")(fname) or
-  --       util.path.dirname(fname)
-  -- end
+  root_dir = lspconfig.util.root_pattern(".git", "setup.py", "setup.cfg", "pyproject.toml", "requirements.txt")
 }
 -- Done by rust-tools
 lspconfig.rust_analyzer.setup {
@@ -307,8 +306,8 @@ lspconfig.terraformls.setup {
   capabilities = capabilities,
 }
 lspconfig.tsserver.setup {
-  on_attach = on_attach,
   capabilities = capabilities,
+  on_attach = on_attach
 }
 lspconfig.yamlls.setup {
   on_attach = on_attach,
