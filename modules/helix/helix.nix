@@ -11,7 +11,8 @@ in
   ];
   
   programs.helix = {
-    package = inputs.helix.packages.${system}.default;
+    # use this if need bleeding edge helix
+    # package = inputs.helix.packages.${system}.default;
     enable = true;
     defaultEditor = true;
     settings = {

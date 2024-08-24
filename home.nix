@@ -71,8 +71,8 @@ in
     jdt-language-server
     nodePackages.bash-language-server
     nodePackages.yaml-language-server
-    nodePackages.pyright
-    nodePackages.pnpm
+    pyright
+    pnpm_8
     nodePackages.dockerfile-language-server-nodejs
     nodePackages.vscode-langservers-extracted
     nodePackages.typescript-language-server
@@ -91,6 +91,7 @@ in
     bazel-watcher
     bazelisk
     bun
+    poetry
     terraform
     terraform-ls
     tflint

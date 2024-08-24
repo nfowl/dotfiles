@@ -15,6 +15,7 @@ in
         nvim-lspconfig
         cmp-nvim-lsp
         nvim-lint
+        neogen
         # TODO(nfowl): One day go back and fix this to avoid installing everything
         nvim-treesitter.withAllGrammars
         nvim-treesitter-textobjects

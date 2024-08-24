@@ -150,6 +150,8 @@ vim.filetype.add({
   },
 })
 
+require("neogen").setup()
+
 --- LSP config
 require("mason").setup()
 require("mason-lspconfig").setup({
