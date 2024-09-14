@@ -9,10 +9,10 @@ in
   "@canva/prettier" = nodeEnv.buildNodePackage {
     name = "_at_canva_slash_prettier";
     packageName = "@canva/prettier";
-    version = "3.1.1-canva.0";
+    version = "3.3.2-canva.0";
     src = fetchurl {
-      url = "https://registry.npmjs.org/@canva/prettier/-/prettier-3.1.1-canva.0.tgz";
-      sha512 = "mHSkojN2PmiJOYUfdmV9gkZXMLH0h6XwCNLCnGdZLgbI4zh5aJFKlPSJnElHLOcYigbQMwAB9UIE64mhoYvYjw==";
+      url = "https://registry.npmjs.org/@canva/prettier/-/prettier-3.3.2-canva.0.tgz";
+      sha512 = "EQ8qtYMRFSWr2qS2L68WTcwgwTgMyQ6R31tipX4XI/seW76pxwItRja3j6FlWpQAeatWVfRezFogkriH+33eYA==";
     };
     buildInputs = globalBuildInputs;
     meta = {

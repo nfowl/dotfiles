@@ -384,6 +384,9 @@ conform.setup({
         "--line-length=100",
       },
     },
+    -- prettier = {
+    --   command = "/Users/nfowler/.nix-profile/bin/prettier"
+    -- },
     isort = {
       prepend_args = {
         "--profile", "google",
