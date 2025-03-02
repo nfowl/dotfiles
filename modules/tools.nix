@@ -14,6 +14,11 @@
 
   programs.git = {
     enable = true;
+    extraConfig = {
+      push = {
+        autoSetupRemote = true;
+      };
+    };
     # difftastic = {
     #   enable = true;
     #   background = "dark";

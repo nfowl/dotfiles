@@ -32,15 +32,15 @@ in
     plugins = [
       {
         name = "zsh-autosuggestions";
-        src = sources.zsh-autosuggestions; 
+        src = sources.zsh-autosuggestions;
       }
       {
         name = "zsh-syntax-highlighting";
-        src = sources.zsh-syntax-highlighting; 
+        src = sources.zsh-syntax-highlighting;
       }
       {
         name = "zsh-completions";
-        src = sources.zsh-completions; 
+        src = sources.zsh-completions;
       }
       {
         name = "zsh-vi-mode";
@@ -72,7 +72,7 @@ in
       setopt appendhistory nomatch notify
       unsetopt beep
       ${builtins.readFile ./zkbd.sh}
-      
+
       if [ -f $HOME/.zshrc_private ]; then
        source $HOME/.zshrc_private
       fi
@@ -80,7 +80,7 @@ in
       function gch() {
         if [ -z "$(git rev-parse --git-dir 2> /dev/null)" ]; then
           return
-        fi 
+        fi
         branch=$(git branch --verbose --sort=-committerdate | fzf | awk '{print $1}' | tr -d '[:space:]')
         if [[ ! -z "$branch" ]]; then
           git checkout $branch
@@ -95,7 +95,7 @@ in
       export LC_ALL=en_US.UTF-8
       export COLORTERM=truecolor
       export ZELLIJ_AUTO_ATTACH=true
-
+      export PATH=$HOME/.local/bin:$PATH
       export NODE_OPTIONS="--max-old-space-size=16192"
 
       ##### EXPORTS
@@ -115,7 +115,7 @@ in
       if [ -f $HOME/.cargo/env ]; then
         . $HOME/.cargo/env
       fi
-      
+
       if [ -f $HOME/.zshenv_private ]; then
        source $HOME/.zshenv_private
       fi
@@ -127,3 +127,4 @@ in
     '';
   };
 }
+ 

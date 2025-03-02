@@ -50,6 +50,7 @@ in
         nvim-autopairs
         nvim-ts-context-commentstring
         cmp-buffer
+        conform-nvim
         FixCursorHold-nvim
         popup-nvim
         lualine-nvim
@@ -62,7 +63,7 @@ in
         mini-nvim
         mason-nvim
         mason-lspconfig-nvim
-        conform-nvim
+        zen-mode-nvim
       ];
       extraConfig = ''
         lua << EOF

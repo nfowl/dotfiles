@@ -1,5 +1,0 @@
-return {
-  extension = {
-    ['cfrule'] = 'cfrule'
-  },
-}
