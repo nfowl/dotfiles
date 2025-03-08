@@ -9,3 +9,5 @@ kubeconfig
 # home-manager stuff
 result
 
+# Ignore private files
+**/*_private
