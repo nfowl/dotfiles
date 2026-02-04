@@ -26,6 +26,7 @@ keybinds {
 mouse_mode true
 simplified_ui true
 theme "dracula"
+pane_frames false
 themes {
 	catppuccin-macchiato {
 		bg "#5b6078"

@@ -1,5 +1,4 @@
 # Environment variables
-. "/home/nfowler/.nix-profile/etc/profile.d/hm-session-vars.sh"
 
 # Only source this once
 if [[ -z "$__HM_ZSH_SESS_VARS_SOURCED" ]]; then
@@ -33,6 +32,8 @@ export FZF_DEFAULT_COMMAND='fd --type file --hidden'
 #   . $HOME/.cargo/env
 # fi
 
-if [ -f $HOME/.zshenv_private ]; then
- source $HOME/.zshenv_private
+if [ -f $HOME/.zshenv_extras ]; then
+ source $HOME/.zshenv_extras
 fi
+
+. "$HOME/.cargo/env"

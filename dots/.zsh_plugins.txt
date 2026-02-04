@@ -24,6 +24,7 @@ ohmyzsh/ohmyzsh path:plugins/terraform
 zsh-users/zsh-syntax-highlighting
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
+jeffreytse/zsh-vi-mode
 # Old themes
 # romkatv/powerlevel10k
 #agnoster/agnoster-zsh-theme

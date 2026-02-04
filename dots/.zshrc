@@ -1,14 +1,11 @@
-
-
 typeset -U path cdpath fpath manpath
 
-for profile in ${(z)NIX_PROFILES}; do
-  fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
-done
+autoload -Uz compinit
+compinit
 
-HELPDIR="/nix/store/y6b258mhrmgn95cl2qzky2fblh9aswrj-zsh-5.9/share/zsh/$ZSH_VERSION/help"
-
-
+# for profile in ${(z)NIX_PROFILES}; do
+#   fpath+=($profile/share/zsh/site-functions $profile/share/zsh/$ZSH_VERSION/functions $profile/share/zsh/vendor-completions)
+# done
 
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle :compinstall filename '$HOME/.zshrc'
@@ -22,6 +19,7 @@ fpath+="$HOME/.zsh/plugins/zsh-completions"
 path+="$HOME/.zsh/plugins/zsh-vi-mode"
 fpath+="$HOME/.zsh/plugins/zsh-vi-mode"
 
+eval "$($HOME/.local/bin/mise activate zsh)"
 # Oh-My-Zsh/Prezto calls compinit during initialization,
 # calling it twice causes slight start up slowdown
 # as all $fpath entries will be traversed again.
@@ -34,22 +32,25 @@ fpath+="$HOME/.zsh/plugins/zsh-vi-mode"
 plugins=(docker docker-compose git kube-ps1 pip python golang rust fzf npm zsh-interactive-cd sudo bazel aws mvn terraform)
 
 
-source $ZSH/oh-my-zsh.sh
+# source $ZSH/oh-my-zsh.sh
 
 
 
-if [[ -f "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]]; then
-  source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
-fi
-if [[ -f "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]]; then
-  source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
-fi
-if [[ -f "$HOME/.zsh/plugins/zsh-completions/zsh-completions.plugin.zsh" ]]; then
-  source "$HOME/.zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
-fi
-if [[ -f "$HOME/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]; then
-  source "$HOME/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
-fi
+# if [[ -f "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh" ]]; then
+#   source "$HOME/.zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"
+# fi
+# if [[ -f "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh" ]]; then
+#   source "$HOME/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"
+# fi
+# if [[ -f "$HOME/.zsh/plugins/zsh-completions/zsh-completions.plugin.zsh" ]]; then
+#   source "$HOME/.zsh/plugins/zsh-completions/zsh-completions.plugin.zsh"
+# fi
+# if [[ -f "$HOME/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]]; then
+#   source "$HOME/.zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh"
+# fi
+
+source $HOME/.antidote/antidote.zsh
+antidote load
 
 
 # History options should be set in .zshrc and after oh-my-zsh sourcing.
@@ -70,7 +71,7 @@ setopt SHARE_HISTORY
 unsetopt EXTENDED_HISTORY
 
 
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
 
 if [[ $options[zle] = on ]]; then
   eval "$(fzf --zsh)"
@@ -95,21 +96,22 @@ if [ -f ~/.zkbd/$TERM-${${DISPLAY:t}:-$VENDOR-$OSTYPE} ]; then
 fi
 
 
-if [ -f $HOME/.zshrc_private ]; then
- source $HOME/.zshrc_private
+if [ -f $HOME/.zshrc_extras ]; then
+ source $HOME/.zshrc_extras
 fi
 
 function gch() {
   if [ -z "$(git rev-parse --git-dir 2> /dev/null)" ]; then
     return
-  fi 
+  fi
   branch=$(git branch --verbose --sort=-committerdate | fzf | awk '{print $1}' | tr -d '[:space:]')
   if [[ ! -z "$branch" ]]; then
     git checkout $branch
   fi
 }
-zvm_after_init_commands+=('[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh')
+zvm_after_init_commands+=('source <(fzf --zsh)')
 
+eval "$(direnv hook zsh)"
 eval "$(zoxide init zsh )"
 
 if [[ $TERM != "dumb" ]]; then
@@ -125,5 +127,12 @@ alias -- ls=eza
 alias -- lt='eza --tree'
 
 # Named Directory Hashes
+if [ -e /Users/nfowler/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/nfowler/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
-eval "$(/home/nfowler/.local/bin/mise activate zsh)"
+# pnpm
+export PNPM_HOME="/Users/nfowler/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
