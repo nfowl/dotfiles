@@ -6,7 +6,7 @@ if [[ -z "$__HM_ZSH_SESS_VARS_SOURCED" ]]; then
 fi
 
 # ZSH="/nix/store/a60xh4vk07bif4fknqlkjqpix1ccg0i4-oh-my-zsh-2024-10-01/share/oh-my-zsh";
-ZSH_CACHE_DIR="/home/nfowler/.cache/oh-my-zsh";
+ZSH_CACHE_DIR="$HOME/.cache/oh-my-zsh";
 
 # Export Language Settings
 export LANGUAGE=en_US.UTF-8
