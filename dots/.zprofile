@@ -5,4 +5,4 @@ if [[ -f ~/.zshenv ]]; then
   . ~/.zshenv
 fi
 
-# eval "$(mise activate zsh --shims)"
+eval "$(mise activate zsh --shims)"
