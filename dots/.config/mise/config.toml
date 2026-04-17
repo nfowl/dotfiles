@@ -7,7 +7,7 @@ bottom = "latest"
 # btop = "latest"
 cloudflared = "latest"
 delta = "latest"
-difftastic = "latest"
+difftastic = { version = "latest", exe = "difft" }
 eza = "latest"
 fd = "latest"
 flux2 = "latest"
@@ -60,10 +60,16 @@ lua-language-server = "latest"
 "npm:bash-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:prettier" = "latest"
-"ubi:fastly/cli" = { version = "latest", exe = "fastly" }
-"ubi:bytecodealliance/wasm-tools" = "latest"
+"github:fastly/cli" = { version = "latest", exe = "fastly" }
+"github:bytecodealliance/wasm-tools" = "latest"
+"github:danerwilliams/charcoal" = { version = "latest", exe = "gt" }
 usage = "latest"
 codex = "latest"
+github-cli = "latest"
+opencode = "latest"
+tmux = "latest"
+jj = "latest"
+"npm:cf" = "latest"
 
 [settings]
 experimental = true
