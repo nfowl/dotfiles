@@ -70,6 +70,7 @@ opencode = "latest"
 tmux = "latest"
 jj = "latest"
 "npm:cf" = "latest"
+gh = "latest"
 
 [settings]
 experimental = true
