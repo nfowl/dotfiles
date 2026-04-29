@@ -130,7 +130,7 @@ alias -- lt='eza --tree'
 if [ -e /Users/nfowler/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/nfowler/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 # pnpm
-export PNPM_HOME="/Users/nfowler/Library/pnpm"
+export PNPM_HOME="$HOME/.local/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
