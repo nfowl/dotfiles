@@ -71,6 +71,7 @@ tmux = "latest"
 jj = "latest"
 "npm:cf" = "latest"
 gh = "latest"
+"cargo:raine/workmux" = "latest"
 
 [settings]
 experimental = true
