@@ -138,3 +138,7 @@ esac
 # pnpm end
 # CF CLI completions
 [[ -f "/Users/nfowler/.config/cf/completions/_cf.zsh" ]] && source "/Users/nfowler/.config/cf/completions/_cf.zsh"
+
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.opencode/bin:$PATH"
+
