@@ -73,6 +73,7 @@ jj = "latest"
 gh = "latest"
 "cargo:raine/workmux" = "latest"
 envsubst = "latest"
+rclone = "latest"
 
 [settings]
 experimental = true
