@@ -60,7 +60,6 @@ lua-language-server = "latest"
 "npm:bash-language-server" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:prettier" = "latest"
-"github:fastly/cli" = { version = "latest", exe = "fastly" }
 "github:bytecodealliance/wasm-tools" = "latest"
 "github:danerwilliams/charcoal" = { version = "latest", exe = "gt" }
 usage = "latest"
@@ -75,7 +74,7 @@ gh = "latest"
 envsubst = "latest"
 rclone = "latest"
 claude = "latest"
-"ubi:fastly/cli" = "14.1.1"
+"github:fastly/cli" = { version = "14.1.1", exe = "fastly" }
 
 [settings]
 experimental = true
