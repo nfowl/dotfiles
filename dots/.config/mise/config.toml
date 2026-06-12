@@ -75,6 +75,7 @@ gh = "latest"
 envsubst = "latest"
 rclone = "latest"
 claude = "latest"
+"ubi:fastly/cli" = "14.1.1"
 
 [settings]
 experimental = true
