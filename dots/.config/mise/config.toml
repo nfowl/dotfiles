@@ -1,3 +1,7 @@
+[tool_alias]
+buildifier = "github:bazelbuild/buildtools"
+buildozer = "github:bazelbuild/buildtools"
+
 [tools]
 age = "latest"
 ast-grep = "latest"
@@ -31,8 +35,6 @@ bazel-watcher = "latest"
 ruff = "latest"
 rust = "latest"
 go = "latest"
-"go:github.com/bazelbuild/buildtools/buildifier" = "latest"
-"go:github.com/bazelbuild/buildtools/buildozer" = "latest"
 cmake = "latest"
 "cargo:h3i" = "latest"
 deno = "latest"
@@ -75,6 +77,9 @@ envsubst = "latest"
 rclone = "latest"
 claude = "latest"
 "github:fastly/cli" = { version = "14.1.1", exe = "fastly" }
+kind = "latest"
+buildifier = { version = "latest" , matching= "buildifier" }
+buildozer = { version = "latest" , matching = "buildozer" }
 
 [settings]
 experimental = true
