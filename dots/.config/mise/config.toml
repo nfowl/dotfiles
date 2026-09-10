@@ -40,7 +40,6 @@ cmake = "latest"
 deno = "latest"
 golangci-lint = "latest"
 terraform = "latest"
-make = "latest"
 zellij = "latest"
 tflint = "latest"
 terraform-ls = "latest"
@@ -78,8 +77,9 @@ rclone = "latest"
 claude = "latest"
 "github:fastly/cli" = { version = "14.1.1", exe = "fastly" }
 kind = "latest"
-buildifier = { version = "latest" , matching= "buildifier" }
-buildozer = { version = "latest" , matching = "buildozer" }
+buildifier = { version = "latest", matching = "buildifier" }
+buildozer = { version = "latest", matching = "buildozer" }
+"github:containers/bubblewrap" = "latest"
 
 [settings]
 experimental = true
